@@ -87,6 +87,22 @@
   opacity: 0 !important;
 }
 
+/* Steam añade un segundo path solo durante la carga: conservamos el rayo,
+   pero no su carcasa, y lo centramos en el canal Hooandee. */
+#header
+  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > div
+  > div
+  > svg
+  > path:last-child:not(:first-child) {
+  opacity: 1 !important;
+  fill: rgba(255, 255, 255, 0.96) !important;
+  transform: translateX(5.25px);
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
+}
+
 #header
   > [role="link"]:has(> div svg):not(:has([role="button"]))
   > div
@@ -248,6 +264,18 @@
   > svg
   > path {
   opacity: 0 !important;
+}
+
+/* En el resumen vertical el segundo path es el estado de carga y ya llega
+   centrado; se revela sin recuperar la carcasa original de Steam. */
+#QuickAccess-Menu
+  #quickaccess_content_5
+  div:has(> svg[width="19"][height="33"])
+  > svg
+  > path:last-child:not(:first-child) {
+  opacity: 1 !important;
+  fill: rgba(255, 255, 255, 0.96) !important;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
 }
 
 #QuickAccess-Menu
