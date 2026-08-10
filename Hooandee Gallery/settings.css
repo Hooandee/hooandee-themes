@@ -389,6 +389,62 @@
   scroll-padding-bottom: 64px !important;
 }
 
+/* Sistema expone las notas completas dentro de una card de resumen de 100 px. */
+#GamepadUI_Full_Root
+  #Main:has([id*="/settings/system"][role="tab"][aria-selected="true"])
+  [role="region"]
+  > [role="button"].Panel:has(> div > p):has(> div > ul) {
+  box-sizing: border-box;
+  height: auto !important;
+  margin-bottom: 12px !important;
+  max-height: 140px !important;
+  min-height: 132px !important;
+  overflow: hidden !important;
+  padding: 14px 16px !important;
+}
+
+#GamepadUI_Full_Root
+  #Main:has([id*="/settings/system"][role="tab"][aria-selected="true"])
+  [role="region"]
+  > [role="button"]:has(> div > p):has(> div > ul)
+  > div:has(> p) {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 70%, transparent 100%);
+  line-height: 17px !important;
+  mask-image: linear-gradient(to bottom, #000 0, #000 70%, transparent 100%);
+  max-height: 54px !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root
+  #Main:has([id*="/settings/system"][role="tab"][aria-selected="true"])
+  [role="region"]
+  > [role="button"]:has(> div > p):has(> div > ul)
+  > div:has(> p)
+  > p {
+  line-height: 17px !important;
+  margin-block: 2px !important;
+}
+
+#GamepadUI_Full_Root
+  #Main:has([id*="/settings/system"][role="tab"][aria-selected="true"])
+  [role="region"]
+  > [role="button"]:has(> div > p):has(> div > ul)
+  > div:has(> p)
+  > p:empty {
+  display: none !important;
+}
+
+#GamepadUI_Full_Root
+  #Main:has([id*="/settings/system"][role="tab"][aria-selected="true"])
+  [role="region"]
+  > [role="button"]:has(> div > p):has(> div > ul)
+  > div:has(> p)
+  > ul {
+  line-height: 17px !important;
+  margin-block: 4px !important;
+  padding-left: 24px !important;
+}
+
 #Main:has([id*="/settings/storage"][role="tab"][aria-selected="true"])
   [role="generic"][aria-label="grid"] {
   height: calc(100vh - 358px) !important;
