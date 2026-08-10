@@ -36,6 +36,26 @@ body,
     box-shadow 150ms ease;
 }
 
+/* Al ceder el foco al menú del juego, Steam reduce esta columna a 44 px. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin) {
+  border-radius: 0 !important;
+}
+
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  [role="menuitem"] {
+  margin-inline: 0 !important;
+  width: 100% !important;
+}
+
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  [role="menuitem"]
+  img {
+  transform: translateX(-2px) !important;
+}
+
 /* Steam envuelve cada entrada en una fila más baja que el propio control. */
 #MainNavMenuContainer [role="menu"] > div:has(> [role="menuitem"]) {
   overflow: visible !important;
@@ -124,6 +144,31 @@ body,
     border-color 150ms ease,
     box-shadow 150ms ease,
     color 150ms ease;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"] {
+  height: 38px !important;
+  min-height: 38px !important;
+  margin-block: 2px !important;
+  padding-block: 8px !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"]:not(.gpfocus) {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012) 72%, transparent) !important;
+  border-color: transparent !important;
+  border-radius: 2px !important;
+  box-shadow: inset 0 -1px rgba(235, 246, 255, 0.07) !important;
 }
 
 #MainNavMenuContainer
