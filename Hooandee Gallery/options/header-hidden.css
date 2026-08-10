@@ -3,3 +3,7 @@
 #header > * {
   display: none !important;
 }
+
+#header::after {
+  display: none !important;
+}

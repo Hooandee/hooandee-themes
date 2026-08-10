@@ -6,6 +6,8 @@
   --hdg-accent-stroke: rgba(221, 245, 255, 0.62);
   --hdg-accent-glow: rgba(124, 198, 239, 0.3);
   --hdg-focus-ring: rgba(221, 245, 255, 0.94);
+  --hdg-critical: #ff526b;
+  --hdg-critical-glow: rgba(255, 82, 107, 0.34);
   --hdg-glass-panel: rgba(15, 22, 30, 0.66);
   --hdg-glass-panel-fallback: rgba(20, 28, 37, 0.94);
   --hdg-glass-surface: rgba(255, 255, 255, 0.07);

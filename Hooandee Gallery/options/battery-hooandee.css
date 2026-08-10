@@ -118,6 +118,37 @@
 }
 
 #header
+  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > div
+  > div
+  > svg
+  > svg
+  > rect[fill="#E01D79" i] {
+  fill: var(--hdg-critical, #ff526b) !important;
+  filter: drop-shadow(0 0 4px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34)));
+}
+
+#header
+  > [role="link"]:has(rect[fill="#E01D79" i]):not(:has([role="button"]))
+  > div
+  > div::before {
+  border-color: rgba(255, 210, 218, 0.78);
+  box-shadow:
+    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 0 7px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34));
+}
+
+#header
+  > [role="link"]:has(rect[fill="#E01D79" i]):not(:has([role="button"]))
+  > div
+  > div::after {
+  background: var(--hdg-critical, #ff526b);
+  box-shadow: 0 0 4px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34));
+}
+
+#header
   > [role="link"].gpfocus:has(> div svg):not(:has([role="button"]))
   > div
   > div::before {
