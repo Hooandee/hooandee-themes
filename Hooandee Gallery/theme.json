@@ -1,0 +1,78 @@
+{
+  "name": "Hooandee Gallery",
+  "display_name": "Hooandee Gallery",
+  "author": "Hooandee",
+  "version": "v0.2.8",
+  "description": "Transforma Inicio y Biblioteca en una galería de juegos con cristal luminoso, artwork dinámico y difuminado configurable.",
+  "target": [
+    "Home",
+    "Library"
+  ],
+  "manifest_version": 9,
+  "inject": {
+    "home.css": [
+      "bigpicture"
+    ],
+    "library.css": [
+      "bigpicture"
+    ],
+    "details.css": [
+      "bigpicture"
+    ],
+    "qam.css": [
+      "QuickAccess"
+    ]
+  },
+  "patches": {
+    "Difuminado del fondo": {
+      "default": "Medio",
+      "type": "slider",
+      "values": {
+        "Desactivado": {
+          "options/blur-off.css": [
+            "bigpicture"
+          ]
+        },
+        "Suave": {
+          "options/blur-soft.css": [
+            "bigpicture"
+          ]
+        },
+        "Medio": {
+          "options/blur-medium.css": [
+            "bigpicture"
+          ]
+        },
+        "Alto": {
+          "options/blur-high.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Ocultar nombre del juego": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "options/hide-game-name.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Ocultar tiempo jugado": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "options/hide-playtime.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    }
+  }
+}

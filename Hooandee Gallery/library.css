@@ -1,0 +1,124 @@
+:root {
+  --hdg-background-blur: 16px;
+  --hdg-library-focus-color: rgba(255, 255, 255, 0.94);
+  --hdg-library-focus-glow: rgba(185, 220, 255, 0.28);
+  --hdg-library-radius: 16px;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"] {
+  isolation: isolate;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]::after {
+  background:
+    linear-gradient(90deg, rgba(5, 8, 12, 0.64), rgba(5, 8, 12, 0.3) 56%, rgba(5, 8, 12, 0.48)),
+    linear-gradient(0deg, rgba(4, 7, 10, 0.68), transparent 55%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  div:has(> [role="link"].gpfocus ~ div > img[role="presentation"]) {
+  perspective: none !important;
+  will-change: auto !important;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"].gpfocus
+  ~ div:has(> img[role="presentation"]) {
+  filter: none !important;
+  transform: none !important;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"].gpfocus
+  ~ div
+  img[role="presentation"] {
+  filter: blur(var(--hdg-background-blur)) saturate(1.12) brightness(0.62) !important;
+  height: calc(100vh + (2 * (var(--hdg-background-blur) + 20px))) !important;
+  inset: calc(-1 * (var(--hdg-background-blur) + 20px)) !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  transform: none !important;
+  width: calc(100vw + (2 * (var(--hdg-background-blur) + 20px))) !important;
+  z-index: 0 !important;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"] > * {
+  position: relative;
+  z-index: 2;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"] {
+  border-radius: var(--hdg-library-radius);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+  outline: none !important;
+  position: relative;
+  transition:
+    border-radius 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"]
+  img:not([role="presentation"]) {
+  border-radius: var(--hdg-library-radius) !important;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"]::before,
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"]::after {
+  border-radius: inherit !important;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"]
+  img:not([role="presentation"]) {
+  outline: none !important;
+}
+
+#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  [role="grid"]
+  [role="link"].gpfocus {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.46);
+  filter: brightness(1.035) saturate(1.025);
+  outline: 1px solid var(--hdg-library-focus-color) !important;
+  outline-offset: 5px;
+}
+
+@supports not (filter: blur(1px)) {
+  #GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+    [role="grid"]
+    [role="link"].gpfocus
+    ~ div
+    img[role="presentation"] {
+    opacity: 0.46 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+    [role="grid"]
+    [role="link"] {
+    transition: none;
+  }
+}

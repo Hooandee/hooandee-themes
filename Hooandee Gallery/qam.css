@@ -1,0 +1,9 @@
+.CSSLoader_ThemeListContainer:not(
+    :has(
+      > .CSSLoader_QAM_CollapseButton_Container
+        ~ .CSSLoader_QAM_CollapseButton_Container
+    )
+  )
+  > .CSSLoader_QAM_CollapseButton_Container {
+  display: none !important;
+}
