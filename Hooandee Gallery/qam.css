@@ -73,6 +73,65 @@ body,
   color: var(--hdg-accent-light) !important;
 }
 
+/*
+ * La pestaña mantiene toda su superficie de interacción, pero el estado visual
+ * respira dentro de la barra. El icono no crece ni conserva la inclinación
+ * nativa de navegación: la única señal de foco es la placa inset de Hooandee.
+ */
+#QuickAccess-Menu
+  [role="tablist"]
+  > [role="tab"][aria-controls^="quickaccess_content_"] {
+  position: relative;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#QuickAccess-Menu
+  [role="tablist"]
+  > [role="tab"][aria-controls^="quickaccess_content_"]::before {
+  content: "";
+  position: absolute;
+  inset: 4px 5px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+#QuickAccess-Menu
+  [role="tablist"]
+  > [role="tab"][aria-controls^="quickaccess_content_"]:is(
+    [aria-selected="true"],
+    .gpfocus
+  )::before {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 56%),
+    var(--hdg-accent-fill);
+  border-color: var(--hdg-accent-stroke);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 4px 12px var(--hdg-accent-glow);
+  opacity: 1;
+}
+
+#QuickAccess-Menu
+  [role="tablist"]
+  > [role="tab"][aria-controls^="quickaccess_content_"]
+  :is(svg, img) {
+  width: 24px !important;
+  height: 24px !important;
+  transform: none !important;
+}
+
 #QuickAccess-Menu
   [role="tabpanel"][aria-labelledby="quickaccess_tab_0"] {
   background:
@@ -349,6 +408,9 @@ body,
 
 @media (prefers-reduced-motion: reduce) {
   #QuickAccess-Menu [role="tab"],
+  #QuickAccess-Menu
+    [role="tablist"]
+    > [role="tab"][aria-controls^="quickaccess_content_"]::before,
   #QuickAccess-Menu :is([role="button"], [role="checkbox"], [role="combobox"]),
   #QuickAccess-Menu [role="slider"] {
     transition: none;
