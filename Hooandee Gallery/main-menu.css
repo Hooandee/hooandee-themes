@@ -42,6 +42,12 @@ body,
   border-radius: 0 !important;
 }
 
+/* Al enfocar el juego, los tres paneles forman una única superficie continua. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:has([role="menuitem"].gpfocus img) {
+  border-radius: 0 !important;
+}
+
 #MainNavMenuContainer
   > [role="menu"][aria-label]:not(.gpfocuswithin)
   [role="menuitem"] {
