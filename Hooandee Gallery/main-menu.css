@@ -165,10 +165,10 @@ body,
   > .Panel.Focusable:has(> [role="button"] + [role="button"])
   > [role="button"]:not(.gpfocus) {
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012) 72%, transparent) !important;
-  border-color: transparent !important;
-  border-radius: 2px !important;
-  box-shadow: inset 0 -1px rgba(235, 246, 255, 0.07) !important;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018) 72%, transparent) !important;
+  border-color: rgba(235, 246, 255, 0.065) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.035) !important;
 }
 
 #MainNavMenuContainer
