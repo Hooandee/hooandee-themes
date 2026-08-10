@@ -2,7 +2,7 @@
   "name": "Hooandee Gallery",
   "display_name": "Hooandee Gallery",
   "author": "Hooandee",
-  "version": "v0.4.13",
+  "version": "v0.4.14",
   "description": "Transforma Steam en una galería y un sistema glass coherente, con artwork dinámico, controles refinados y acentos elegantes configurables.",
   "target": "System-Wide",
   "manifest_version": 9,

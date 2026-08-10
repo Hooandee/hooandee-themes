@@ -181,6 +181,30 @@
   box-sizing: border-box;
   color: transparent !important;
   overflow: visible;
+  --hdg-battery-level: var(--hdg-accent-light, #ddf5ff);
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5
+  div:has(> svg[width="19"][height="33"])::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 18px;
+  height: 34px;
+  box-sizing: border-box;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 54%),
+    rgba(6, 12, 18, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 7px;
+  box-shadow:
+    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 0 5px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
+  transform: translateX(-50%);
 }
 
 #QuickAccess-Menu
@@ -195,6 +219,7 @@
   background: rgba(255, 255, 255, 0.68);
   border-radius: 2px 2px 0 0;
   box-shadow: 0 0 4px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
+  pointer-events: none;
   transform: translateX(-50%);
 }
 
@@ -207,19 +232,13 @@
   top: 4px;
   width: 18px !important;
   height: 34px !important;
-  box-sizing: border-box;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 54%),
-    rgba(6, 12, 18, 0.46);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 7px;
-  box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.28),
-    0 0 5px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none !important;
   color: transparent !important;
-  overflow: hidden;
+  overflow: visible;
+  clip-path: inset(5px 3px 4px 3px round 3px);
   transform: translateX(-50%) !important;
 }
 
@@ -249,10 +268,10 @@
   > svg
   > svg
   > rect {
-  fill: var(--hdg-accent-light, #ddf5ff) !important;
+  fill: var(--hdg-battery-level) !important;
   opacity: 1 !important;
-  rx: 2px;
-  ry: 2px;
+  rx: 3px;
+  ry: 3px;
   filter: drop-shadow(0 0 3px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3)));
 }
 
@@ -268,8 +287,13 @@
 
 #QuickAccess-Menu
   #quickaccess_content_5
-  div:has(> svg[width="19"][height="33"]):has(rect[fill="#E01D79" i])
-  > svg {
+  div:has(> svg[width="19"][height="33"]):has(rect[fill="#E01D79" i]) {
+  --hdg-battery-level: var(--hdg-critical, #ff526b);
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5
+  div:has(> svg[width="19"][height="33"]):has(rect[fill="#E01D79" i])::before {
   border-color: rgba(255, 210, 218, 0.78);
   box-shadow:
     inset 0 0 0 2px rgba(0, 0, 0, 0.24),
