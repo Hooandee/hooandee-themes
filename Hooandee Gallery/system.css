@@ -275,6 +275,61 @@
   overflow: hidden;
 }
 
+/* Confirmaciones del sistema: Steam las monta fuera de #popup_target. */
+#GamepadUI_Full_Root
+  .ModalOverlayContent.active:has(.DialogContent.GenericConfirmDialog [role="dialog"]) {
+  -webkit-backdrop-filter: blur(8px) saturate(1.04);
+  backdrop-filter: blur(8px) saturate(1.04);
+  background:
+    radial-gradient(circle at 50% 46%, var(--hdg-accent-glow), transparent 42%),
+    rgba(1, 4, 8, 0.64) !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog:has(> .DialogContent_InnerWidth [role="dialog"]) {
+  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
+  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 38%),
+    var(--hdg-glass-panel) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: var(--hdg-glass-radius-panel) !important;
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.52),
+    inset 0 1px rgba(255, 255, 255, 0.11) !important;
+  box-sizing: border-box;
+  max-width: calc(100vw - 48px) !important;
+  overflow: hidden !important;
+  padding: 24px 26px !important;
+  width: 620px !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]
+  > .DialogHeader {
+  color: var(--hdg-text-primary) !important;
+  font-size: clamp(24px, 3.2vw, 30px) !important;
+  line-height: 1.12 !important;
+  margin-bottom: 10px !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]
+  > .DialogBodyText {
+  color: var(--hdg-text-secondary) !important;
+  font-size: clamp(16px, 2.05vw, 19px) !important;
+  line-height: 1.35 !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]
+  .DialogButton {
+  min-height: 44px !important;
+}
+
 #header {
   -webkit-backdrop-filter: blur(6px) saturate(1.05);
   backdrop-filter: blur(6px) saturate(1.05);

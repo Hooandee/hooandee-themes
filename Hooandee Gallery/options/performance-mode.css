@@ -5,6 +5,10 @@
 #GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"]),
 #GamepadUI_Full_Root [role="listbox"]:has(> [role="option"]),
 #GamepadUI_Full_Root #popup_target [role="dialog"],
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog:has(> .DialogContent_InnerWidth [role="dialog"]),
+#GamepadUI_Full_Root
+  .ModalOverlayContent.active:has(.DialogContent.GenericConfirmDialog [role="dialog"]),
 #GamepadUI_Full_Root .ModalOverlayBackground,
 #header,
 #header > div:has(> input[type="search"]):is(.gpfocuswithin, :focus-within, :hover),
