@@ -3,6 +3,36 @@
   --hdg-detail-tab-radius: 10px;
   --hdg-detail-glass: var(--hdg-glass-panel, rgba(24, 33, 43, 0.58));
   --hdg-detail-stroke: var(--hdg-glass-stroke, rgba(238, 248, 255, 0.2));
+  --hdg-details-background-blur: 14px;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  img[src*="/library_hero.jpg"] {
+  filter:
+    blur(var(--hdg-details-background-blur))
+    saturate(1.14)
+    brightness(0.66) !important;
+  height: calc(100vh + (2 * (var(--hdg-details-background-blur) + 24px))) !important;
+  inset: calc(-1 * (var(--hdg-details-background-blur) + 24px)) !important;
+  max-height: none !important;
+  max-width: none !important;
+  width: calc(100vw + (2 * (var(--hdg-details-background-blur) + 24px))) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="button"]:not([aria-label]) > svg:first-child + div) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: var(--hdg-detail-control-radius) !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:not([aria-label]):has(> svg + div)::before,
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:not([aria-label]):has(> svg + div)::after {
+  content: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -82,6 +112,193 @@
     0 0 0 2px var(--hdg-focus-ring),
     0 0 0 3px var(--hdg-accent-stroke),
     0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"] {
+  padding-bottom: 72px !important;
+  scroll-padding-bottom: 72px;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  [role="generic"]:has([role="list"] > [role="link"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 54%),
+    rgba(9, 16, 23, 0.54) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.14);
+  box-sizing: border-box;
+  padding: 6px 8px !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  [role="list"]
+  > [role="link"] {
+  background: rgba(238, 246, 252, 0.045) !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  box-sizing: border-box;
+  margin-inline: 3px !important;
+  outline: none !important;
+  overflow: hidden !important;
+  padding: 4px 7px !important;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  [role="list"]
+  > [role="link"].gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 56%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 6px 16px var(--hdg-accent-glow) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  [role="list"]
+  > [role="link"].gpfocus::before,
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  [role="list"]
+  > [role="link"].gpfocus::after {
+  content: none !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  [role="list"]
+  > [role="link"]
+  img {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  > div:not([role]):has([role="button"]) {
+  border-radius: 16px !important;
+  box-sizing: border-box;
+  padding-inline: 4px !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  > div:not([role]):has([role="button"])
+  [role="button"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 54%),
+    rgba(9, 16, 23, 0.5) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  > div:not([role]):has([role="button"])
+  [role="button"].gpfocus {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="button"]:not(button):not(textarea) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 56%),
+    rgba(9, 16, 23, 0.56) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  outline: none !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="button"]:not(button):not(textarea).gpfocus {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 6px 16px var(--hdg-accent-glow) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="region"]
+  > div
+  > .Panel.Focusable {
+  scroll-margin-block: 64px;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="region"]
+  > div
+  > .Panel.Focusable
+  > div:has(> .Panel.Focusable:only-child) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), transparent 52%),
+    rgba(9, 16, 23, 0.58) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 8px 20px rgba(0, 0, 0, 0.16) !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="region"]
+  > div
+  > .Panel.Focusable:is(.gpfocus, .gpfocuswithin)
+  > div:has(> .Panel.Focusable:only-child) {
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 8px 20px var(--hdg-accent-glow) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="region"]
+  > div
+  > .Panel.Focusable
+  > div:has(> .Panel.Focusable:only-child)
+  img {
+  border-radius: 10px !important;
 }
 
 @supports not (backdrop-filter: blur(1px)) {

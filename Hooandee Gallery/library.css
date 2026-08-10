@@ -117,6 +117,28 @@
   outline-offset: 5px;
 }
 
+#GamepadUI_Full_Root:has(#header input[type="search"]):has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
+  [role="grid"]
+  [role="link"].gpfocus {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.46) !important;
+  outline: 1px solid var(--hdg-library-focus-color) !important;
+  outline-offset: 5px !important;
+}
+
+#GamepadUI_Full_Root:has(#header input[type="search"]):has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
+  [role="grid"]
+  [role="link"].gpfocus::before,
+#GamepadUI_Full_Root:has(#header input[type="search"]):has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
+  [role="grid"]
+  [role="link"].gpfocus::after {
+  animation: none !important;
+  background: none !important;
+  content: none !important;
+}
+
 @supports not (filter: blur(1px)) {
   #GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
     [role="tabpanel"][id$="_Content"]

@@ -2,7 +2,7 @@
   "name": "Hooandee Gallery",
   "display_name": "Hooandee Gallery",
   "author": "Hooandee",
-  "version": "v0.4.19",
+  "version": "v0.4.21",
   "description": "Transforma Steam en una galería y un sistema glass coherente, con artwork dinámico, controles refinados y acentos elegantes configurables.",
   "target": "System-Wide",
   "manifest_version": 9,
@@ -68,7 +68,7 @@
         }
       }
     },
-    "Difuminado del fondo": {
+    "Difuminado de parrilla": {
       "default": "Medio",
       "type": "slider",
       "values": {
@@ -89,6 +89,32 @@
         },
         "Alto": {
           "options/blur-high.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Difuminado de detalles": {
+      "default": "Medio",
+      "type": "slider",
+      "values": {
+        "Desactivado": {
+          "options/details-blur-off.css": [
+            "bigpicture"
+          ]
+        },
+        "Suave": {
+          "options/details-blur-soft.css": [
+            "bigpicture"
+          ]
+        },
+        "Medio": {
+          "options/details-blur-medium.css": [
+            "bigpicture"
+          ]
+        },
+        "Alto": {
+          "options/details-blur-high.css": [
             "bigpicture"
           ]
         }

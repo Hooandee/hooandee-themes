@@ -400,6 +400,15 @@
     0 0 16px var(--hdg-accent-glow) !important;
 }
 
+#GamepadUI_Full_Root:has(#header input[type="search"])
+  [role="link"][aria-labelledby]:has(img).gpfocus::before,
+#GamepadUI_Full_Root:has(#header input[type="search"])
+  [role="link"][aria-labelledby]:has(img).gpfocus::after {
+  animation: none !important;
+  background: none !important;
+  content: none !important;
+}
+
 #Footer {
   -webkit-backdrop-filter: blur(8px) saturate(1.05) !important;
   backdrop-filter: blur(8px) saturate(1.05) !important;
