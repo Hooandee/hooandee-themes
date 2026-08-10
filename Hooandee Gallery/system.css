@@ -324,13 +324,13 @@
   color: var(--hdg-text-secondary) !important;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="tablist"] {
   gap: 4px;
   padding-inline: 18px;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="tab"] {
   background: transparent !important;
   border: 1px solid transparent !important;
@@ -343,7 +343,7 @@
     box-shadow 150ms ease;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="tab"]:is(.gpfocus, [aria-selected="true"]) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.09), transparent 58%),
@@ -354,9 +354,10 @@
     0 5px 15px rgba(0, 0, 0, 0.16) !important;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="link"][aria-labelledby]:has(img) {
   border: 1px solid transparent !important;
+  border-color: var(--hdg-glass-stroke-soft) !important;
   border-radius: 16px !important;
   box-sizing: border-box;
   outline: 0 solid transparent !important;
@@ -368,23 +369,32 @@
     outline-color 150ms ease;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="link"][aria-labelledby]:has(img)
   div:has(> img:first-child) {
-  border-radius: inherit !important;
+  border-radius: 15px !important;
   overflow: hidden;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="link"][aria-labelledby]:has(img)
   img {
-  border-radius: inherit !important;
+  border-radius: 15px !important;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+#GamepadUI_Full_Root:has(#header input[type="search"])
+  [role="tabpanel"]:has([role="grid"])
+  > div:has(> div[style*="left:"][style*="top:"][style*="height:"][style*="width:"])
+  > div[style*="left:"][style*="top:"][style*="height:"][style*="width:"] {
+  border-radius: 16px !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 4px !important;
+}
+
+#GamepadUI_Full_Root:has(#header input[type="search"])
   [role="link"][aria-labelledby]:has(img).gpfocus {
   border-color: var(--hdg-glass-stroke-soft) !important;
-  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline: none !important;
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.3),
     0 0 16px var(--hdg-accent-glow) !important;
@@ -436,8 +446,8 @@
   }
 
   #header > div:has(> input[type="search"]),
-  #GamepadUI_Full_Root:has(#header input[type="search"].gpfocus) [role="tab"],
-  #GamepadUI_Full_Root:has(#header input[type="search"].gpfocus)
+  #GamepadUI_Full_Root:has(#header input[type="search"]) [role="tab"],
+  #GamepadUI_Full_Root:has(#header input[type="search"])
     [role="link"][aria-labelledby]:has(img) {
     transition: none;
   }
