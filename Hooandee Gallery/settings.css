@@ -75,10 +75,10 @@
     0 7px 20px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* El aviso de Seguridad es información, no una placa opaca ajena al sistema. */
-#Main:has([id*="/settings/security"][role="tab"][aria-selected="true"])
-  [role="region"]
-  > .Panel:not(:has([role])) {
+/* Los avisos informativos comparten el cristal sin convertirse en otra tarjeta protagonista. */
+#Main:has([id*="/settings/"][role="tab"][aria-selected="true"])
+  :is(.DialogBody, [role="region"], .DialogControlsSection)
+  > .Panel:not(:has(:is([role], button, input))) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 54%),
     rgba(12, 19, 27, 0.5) !important;
@@ -88,6 +88,66 @@
   box-sizing: border-box;
   overflow: visible !important;
   padding: 12px 14px !important;
+}
+
+/* Grabación expone un radiogroup estable aunque sus cards no usen DialogButton. */
+#Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+  [role="radiogroup"] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: visible !important;
+}
+
+#Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+  [role="radiogroup"]
+  > [role="radio"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 54%),
+    rgba(9, 15, 22, 0.52) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05) !important;
+  box-sizing: border-box;
+  margin: 0 !important;
+  overflow: visible !important;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+#Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+  [role="radiogroup"]
+  > [role="radio"].gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), transparent 52%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-focus-ring) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.11),
+    0 7px 20px var(--hdg-accent-glow) !important;
+}
+
+#Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+  [role="radiogroup"]
+  > [role="radio"]
+  > :first-child {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.28) !important;
+  box-sizing: border-box;
+}
+
+#Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+  [role="radiogroup"]
+  > [role="radio"][aria-checked="true"]
+  > :first-child {
+  background: var(--hdg-accent-fill) !important;
+  border: 2px solid var(--hdg-focus-ring) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.2),
+    0 0 10px var(--hdg-accent-glow) !important;
 }
 
 /* Los sliders señalan el foco en la pista y el thumb, no rellenando toda la fila. */
@@ -484,7 +544,10 @@
 @media (prefers-reduced-motion: reduce) {
   #Main:has([id*="/settings/"][role="tab"])
     [role="tablist"][aria-orientation="vertical"]
-    > [role="tab"] {
+    > [role="tab"],
+  #Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+    [role="radiogroup"]
+    > [role="radio"] {
     transition: none;
   }
 }
