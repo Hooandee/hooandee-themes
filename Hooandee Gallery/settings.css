@@ -38,6 +38,57 @@
     box-shadow 150ms ease;
 }
 
+/* Algunos iconos nativos ceden todo su ancho ante etiquetas largas. */
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"]
+  > div {
+  min-width: 0;
+  overflow: hidden;
+}
+
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"]
+  > div
+  > :first-child,
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"]
+  svg {
+  flex: 0 0 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  width: 20px !important;
+}
+
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"]
+  > div
+  > :last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes hdg-settings-label-pan {
+  from { transform: translateX(0); }
+  to { transform: translateX(-40px); }
+}
+
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"][id*="/settings/gamerecording"]:is(.gpfocus, [aria-selected="true"])
+  > div
+  > :last-child {
+  animation: hdg-settings-label-pan 2.8s ease-in-out 0.7s infinite alternate;
+  overflow: visible;
+  text-overflow: clip;
+}
+
 #Main:has([id*="/settings/"][role="tab"])
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"]:is([aria-selected="true"], .gpfocus) {
@@ -549,5 +600,15 @@
     [role="radiogroup"]
     > [role="radio"] {
     transition: none;
+  }
+
+  #Main:has([id*="/settings/"][role="tab"])
+    [role="tablist"][aria-orientation="vertical"]
+    > [role="tab"][id*="/settings/gamerecording"]
+    > div
+    > :last-child {
+    animation: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

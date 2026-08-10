@@ -97,10 +97,16 @@
   > path:last-child:not(:first-child) {
   opacity: 1 !important;
   fill: rgba(255, 255, 255, 0.96) !important;
+  stroke: rgba(0, 0, 0, 0.82) !important;
+  stroke-linejoin: round;
+  stroke-width: 0.8px;
+  paint-order: stroke fill;
   transform: translateX(5.25px);
   transform-box: fill-box;
   transform-origin: center;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
+  filter:
+    drop-shadow(0 0 1px rgba(0, 0, 0, 0.82))
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
 }
 
 #header
@@ -275,7 +281,13 @@
   > path:last-child:not(:first-child) {
   opacity: 1 !important;
   fill: rgba(255, 255, 255, 0.96) !important;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
+  stroke: rgba(0, 0, 0, 0.82) !important;
+  stroke-linejoin: round;
+  stroke-width: 0.8px;
+  paint-order: stroke fill;
+  filter:
+    drop-shadow(0 0 1px rgba(0, 0, 0, 0.82))
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
 }
 
 #QuickAccess-Menu

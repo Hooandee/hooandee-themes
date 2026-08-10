@@ -1,0 +1,10 @@
+:root {
+  --hdg-accent-light: #ffe4f0;
+  --hdg-accent: #ed8db7;
+  --hdg-accent-deep: #a94f7a;
+  --hdg-accent-fill: linear-gradient(180deg, rgba(237, 141, 183, 0.84), rgba(169, 79, 122, 0.78));
+  --hdg-accent-stroke: rgba(255, 228, 240, 0.64);
+  --hdg-accent-glow: rgba(237, 141, 183, 0.3);
+  --hdg-focus-ring: rgba(255, 228, 240, 0.95);
+  --hdg-accent-surface-focus: rgba(237, 141, 183, 0.16);
+}

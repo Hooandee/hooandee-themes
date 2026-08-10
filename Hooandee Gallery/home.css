@@ -232,13 +232,9 @@
   )
   > [role="listitem"][data-id]
   [role="link"].gpfocus::after {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 22%),
-    linear-gradient(315deg, rgba(143, 194, 241, 0.11), transparent 28%);
-  box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.28),
-    inset 0 -1px 0 rgba(129, 178, 226, 0.16);
-  opacity: 1;
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  opacity: 0.72;
   z-index: 1;
 }
 
@@ -249,6 +245,33 @@
   [role="link"].gpfocus
   img:first-of-type {
   box-shadow: none;
+}
+
+/* El halo protagonista gana únicamente dentro del carrusel de Inicio. */
+#GamepadUI_Full_Root:has(#Main):has(
+    [role="listitem"][data-id="GoToLibrary"]
+  )
+  [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]
+  [role="link"].gpfocus {
+  outline: 1px solid var(--hdg-focus-color) !important;
+  outline-offset: 5px !important;
+}
+
+#GamepadUI_Full_Root:has(#Main):has(
+    [role="listitem"][data-id="GoToLibrary"]
+  )
+  [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]
+  [role="link"].gpfocus::after {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16) !important;
+  content: "" !important;
+  opacity: 0.72 !important;
 }
 
 #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(

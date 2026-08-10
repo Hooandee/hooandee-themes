@@ -2,7 +2,7 @@
   "name": "Hooandee Gallery",
   "display_name": "Hooandee Gallery",
   "author": "Hooandee",
-  "version": "v0.4.25",
+  "version": "v0.4.26",
   "description": "Transforma Steam en una galería y un sistema glass coherente, con artwork dinámico, controles refinados y acentos elegantes configurables.",
   "target": "System-Wide",
   "manifest_version": 9,
@@ -60,6 +60,30 @@
         },
         "Salvia": {
           "options/accent-sage.css": [
+            "bigpicture",
+            "QuickAccess",
+            "MainMenu",
+            "notificationtoasts.*"
+          ]
+        },
+        "Carmesí": {
+          "options/accent-crimson.css": [
+            "bigpicture",
+            "QuickAccess",
+            "MainMenu",
+            "notificationtoasts.*"
+          ]
+        },
+        "Rosa": {
+          "options/accent-rose.css": [
+            "bigpicture",
+            "QuickAccess",
+            "MainMenu",
+            "notificationtoasts.*"
+          ]
+        },
+        "Ambrosia": {
+          "options/accent-ambrosia.css": [
             "bigpicture",
             "QuickAccess",
             "MainMenu",

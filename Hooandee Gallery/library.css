@@ -71,7 +71,7 @@
   [role="link"] {
   border-radius: var(--hdg-library-radius);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
-  overflow: hidden;
+  overflow: visible;
   outline: none !important;
   position: relative;
   transition:
@@ -84,8 +84,18 @@
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]
+  > div:has(> img:not([role="presentation"])) {
+  background: transparent !important;
+  border-radius: calc(var(--hdg-library-radius) - 1px) !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
+  [role="grid"]
+  [role="link"]
   img:not([role="presentation"]) {
-  border-radius: var(--hdg-library-radius) !important;
+  border-radius: calc(var(--hdg-library-radius) - 1px) !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
