@@ -132,6 +132,15 @@
   );
 }
 
+/* Steam reserva un item estrecho para separar el juego principal del carrusel. */
+#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id="0"]
+  > div {
+  transform: translateX(6px);
+}
+
 #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
     > [role="listitem"][data-id="GoToLibrary"]
   )
