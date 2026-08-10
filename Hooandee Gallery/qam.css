@@ -180,6 +180,209 @@ body,
     0 5px 15px var(--hdg-accent-glow) !important;
 }
 
+/* Amigos y chat: dos planos de cristal integrados, sin divisor negro ni filas pesadas. */
+#QuickAccess-Menu #quickaccess_content_3 {
+  background:
+    radial-gradient(circle at 72% 18%, var(--hdg-accent-surface), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), transparent 50%),
+    rgba(4, 9, 15, 0.12) !important;
+  padding-bottom: 14px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListAndChatsSteamDeck {
+  background: transparent !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .friendlist {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.075), transparent 38%),
+    rgba(5, 11, 18, 0.28) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px 0 0 16px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.055),
+    10px 0 30px rgba(0, 0, 0, 0.16) !important;
+  box-sizing: border-box;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListSteamDeckTopSection {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 56%),
+    rgba(7, 13, 21, 0.2) !important;
+  border-bottom: 1px solid var(--hdg-glass-stroke-soft);
+  box-sizing: border-box;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTabPanelContainer {
+  box-sizing: border-box;
+  padding: 5px 5px 14px !important;
+  scroll-padding-block: 8px 18px;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab:is(.Active, .gpfocus) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 58%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.12),
+    0 4px 12px var(--hdg-accent-glow) !important;
+  color: var(--hdg-accent-light) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .favoriteElement {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 :is(.friend, .ChatRoomListGroupItem, .groupName) {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  margin: 3px 5px !important;
+  max-width: calc(100% - 10px);
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .groupName {
+  color: var(--hdg-text-secondary) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 :is(
+    .friend.gpfocus,
+    .ChatRoomListGroupItem.gpfocus,
+    .groupName.gpfocus,
+    .favoriteElement.gpfocus > .friend
+  ) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 58%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    0 5px 14px var(--hdg-accent-glow) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .friend img {
+  border-radius: 10px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .multiChatDialog {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.035), transparent 38%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.025), transparent 56%) !important;
+  border-left: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 0 16px 16px 0 !important;
+  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.025) !important;
+  box-sizing: border-box;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .emptyChatDialogs {
+  background: transparent !important;
+  color: var(--hdg-text-secondary) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .multiChatDialog > [role="button"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 56%),
+    rgba(5, 11, 18, 0.2) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 0 16px 0 0 !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .multiChatDialog > [role="button"].gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 56%),
+    var(--hdg-accent-surface-focus) !important;
+  border-bottom-color: var(--hdg-accent-stroke) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .ChatHistoryContainer {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .ChatHistoryContainer.gpfocus {
+  background: rgba(255, 255, 255, 0.018) !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--hdg-accent-surface-focus) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .chatEntry {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 8, 14, 0.2)) !important;
+  border-top: 1px solid var(--hdg-glass-stroke-soft) !important;
+  box-sizing: border-box;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .chatEntry textarea[role="button"] {
+  background:
+    linear-gradient(145deg, var(--hdg-control-highlight), transparent 54%),
+    var(--hdg-control-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 -1px rgba(0, 0, 0, 0.18) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .chatEntry textarea[role="button"]:is(
+    :focus,
+    .gpfocus
+  ) {
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 2px var(--hdg-accent-glow) !important;
+  outline: none !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .chatEntry button[role="button"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), transparent 56%),
+    var(--hdg-glass-surface-strong) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08) !important;
+  margin-left: 8px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .chatEntry button[role="button"].gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 56%),
+    var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 5px 14px var(--hdg-accent-glow) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .inviteAnotherFriendButton {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  margin: 4px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .inviteAnotherFriendButton.gpfocus {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow: 0 4px 12px var(--hdg-accent-glow) !important;
+}
+
 #QuickAccess-Menu #quickaccess_content_4
   div:has(> :nth-child(2) [role="checkbox"]) {
   background: transparent !important;
