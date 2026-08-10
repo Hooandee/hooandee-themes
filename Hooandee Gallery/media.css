@@ -71,3 +71,68 @@
     transition: none;
   }
 }
+
+/* Visor: escenario seguro entre header y footer, con acciones flotantes. */
+#Main .OpenedItemContainer {
+  background:
+    radial-gradient(circle at 50% 38%, var(--hdg-accent-surface), transparent 48%),
+    rgba(3, 7, 12, 0.28) !important;
+}
+
+#Main .OpenedItemContainer div:has(> img:not([aria-label])) {
+  align-items: center;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 46%),
+    rgba(0, 0, 0, 0.3) !important;
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.54) !important;
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 44px 24px 8px;
+}
+
+#Main .OpenedItemContainer img:not([aria-label]) {
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    0 0 20px var(--hdg-accent-surface) !important;
+  box-sizing: border-box;
+  height: auto !important;
+  max-height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain;
+  overflow: hidden;
+  width: auto !important;
+}
+
+#Main .OpenedItemContainer [role="button"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), transparent 56%),
+    var(--hdg-glass-surface-strong) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 6px 18px rgba(0, 0, 0, 0.28) !important;
+  color: var(--hdg-text-primary) !important;
+  transform: translateY(-64px);
+}
+
+#Main .OpenedItemContainer [role="button"].gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 56%),
+    var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 7px 20px var(--hdg-accent-glow) !important;
+  color: #fff !important;
+}
+
+#Main .OpenedItemContainer img[aria-label$="L1"],
+#Main .OpenedItemContainer img[aria-label$="R1"] {
+  border-radius: 10px !important;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.36));
+  opacity: 0.82;
+}
