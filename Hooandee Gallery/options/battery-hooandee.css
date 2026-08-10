@@ -185,28 +185,6 @@
 
 #QuickAccess-Menu
   #quickaccess_content_5
-  div:has(> svg[width="19"][height="33"])::before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 4px;
-  width: 18px;
-  height: 34px;
-  box-sizing: border-box;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 54%),
-    rgba(6, 12, 18, 0.46);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 7px;
-  box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.28),
-    0 0 5px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
-}
-
-#QuickAccess-Menu
-  #quickaccess_content_5
   div:has(> svg[width="19"][height="33"])::after {
   content: "";
   position: absolute;
@@ -226,11 +204,22 @@
   > svg {
   position: absolute;
   left: 50%;
-  top: 1px;
-  width: 19px !important;
-  height: 38px !important;
+  top: 4px;
+  width: 18px !important;
+  height: 34px !important;
+  box-sizing: border-box;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 54%),
+    rgba(6, 12, 18, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 7px;
+  box-shadow:
+    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 0 5px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
   color: transparent !important;
-  overflow: visible;
+  overflow: hidden;
   transform: translateX(-50%) !important;
 }
 
@@ -249,6 +238,9 @@
   > svg {
   overflow: hidden;
   border-radius: 3px;
+  transform: scaleY(1.12);
+  transform-box: fill-box;
+  transform-origin: center bottom;
 }
 
 #QuickAccess-Menu
@@ -276,7 +268,8 @@
 
 #QuickAccess-Menu
   #quickaccess_content_5
-  div:has(> svg[width="19"][height="33"]):has(rect[fill="#E01D79" i])::before {
+  div:has(> svg[width="19"][height="33"]):has(rect[fill="#E01D79" i])
+  > svg {
   border-color: rgba(255, 210, 218, 0.78);
   box-shadow:
     inset 0 0 0 2px rgba(0, 0, 0, 0.24),
