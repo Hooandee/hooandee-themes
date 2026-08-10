@@ -454,6 +454,24 @@
     width: calc(100% - (2 * var(--hdg-handheld-grid-inset))) !important;
     zoom: 1;
   }
+
+  #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+      > [role="listitem"][data-id="GoToLibrary"]
+    )
+    > [role="listitem"][data-id]
+    > div
+    > div:has(> div > div > [role="link"]) {
+    position: relative;
+    top: 38px;
+  }
+
+  #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+      > [role="listitem"][data-id="GoToLibrary"]
+    )
+    > [role="listitem"][data-id]
+    [role="link"].gpfocus {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 960px) {
