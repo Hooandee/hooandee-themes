@@ -210,13 +210,14 @@
   div:has(> svg[width="19"][height="33"])::after {
   content: "";
   position: absolute;
-  left: 9px;
+  left: 50%;
   top: 1px;
   width: 6px;
   height: 3px;
   background: rgba(255, 255, 255, 0.68);
   border-radius: 2px 2px 0 0;
   box-shadow: 0 0 4px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
+  transform: translateX(-50%);
 }
 
 #QuickAccess-Menu
@@ -225,9 +226,9 @@
   > svg {
   position: absolute;
   left: 50%;
-  top: 4px;
+  top: 1px;
   width: 19px !important;
-  height: 33px !important;
+  height: 38px !important;
   color: transparent !important;
   overflow: visible;
   transform: translateX(-50%) !important;
@@ -247,7 +248,7 @@
   > svg
   > svg {
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 #QuickAccess-Menu
@@ -258,8 +259,8 @@
   > rect {
   fill: var(--hdg-accent-light, #ddf5ff) !important;
   opacity: 1 !important;
-  rx: 4px;
-  ry: 4px;
+  rx: 2px;
+  ry: 2px;
   filter: drop-shadow(0 0 3px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3)));
 }
 
