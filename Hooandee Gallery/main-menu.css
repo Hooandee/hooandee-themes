@@ -64,6 +64,94 @@ body,
   fill: currentColor;
 }
 
+/* Panel que Steam despliega junto al menú cuando hay una partida abierta. */
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 28%),
+    rgba(8, 14, 21, 0.76) !important;
+  border-block: 1px solid var(--hdg-glass-stroke-soft) !important;
+  box-shadow:
+    inset 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 42%),
+    var(--hdg-glass-panel) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-left-color: var(--hdg-glass-stroke-soft) !important;
+  border-radius: 0 18px 18px 0 !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    10px 0 28px rgba(0, 0, 0, 0.2) !important;
+  box-sizing: border-box;
+  overflow: visible !important;
+  scroll-padding-block: 12px;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])::before,
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])::after {
+  content: none !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [role="button"] {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin-inline: 8px !important;
+  max-width: calc(100% - 16px) !important;
+  outline: none !important;
+  overflow: visible !important;
+  transform: none !important;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [role="button"].gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 56%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 6px 18px var(--hdg-accent-glow) !important;
+  color: #fff !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [role="button"].gpfocus::before,
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [role="button"].gpfocus::after {
+  content: none !important;
+}
+
+#MainNavMenuContainer [role="menuitem"]:has(img) img {
+  border-radius: 8px !important;
+}
+
 @supports not (backdrop-filter: blur(1px)) {
   #MainNavMenuContainer > [role="menu"][aria-label] {
     background: var(--hdg-glass-panel-fallback) !important;
@@ -71,7 +159,7 @@ body,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #MainNavMenuContainer [role="menuitem"] {
+  #MainNavMenuContainer :is([role="menuitem"], [role="button"]) {
     transition: none;
   }
 }

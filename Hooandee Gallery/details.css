@@ -75,6 +75,15 @@
   filter: brightness(1.06) saturate(1.03);
 }
 
+/* Steam oscurece los glifos de estas dos acciones al mover el foco real. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"][aria-label]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *),
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"][aria-label]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *)
+  > svg:first-child {
+  color: #fff !important;
+}
+
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tablist"]:not([role="dialog"] *) {
   border-bottom: 1px solid rgba(234, 244, 252, 0.1);
