@@ -25,6 +25,7 @@
   border: 0 !important;
   border-radius: var(--hdg-detail-control-radius) !important;
   box-shadow: none !important;
+  column-gap: 8px !important;
   overflow: visible !important;
 }
 
