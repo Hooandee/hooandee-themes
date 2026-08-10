@@ -358,6 +358,167 @@
   border-radius: inherit !important;
 }
 
+/* Superficie editorial que vive bajo la galería principal de Inicio. */
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tablist"]:has([role="tab"][id$="WhatsNew"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), transparent 58%),
+    rgba(8, 14, 21, 0.72) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.07) !important;
+  box-sizing: border-box;
+  align-self: center !important;
+  flex: 0 0 auto !important;
+  gap: 4px !important;
+  max-width: calc(100vw - 48px) !important;
+  margin-inline: auto !important;
+  padding: 6px !important;
+  width: 430px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tablist"]:has([role="tab"][id$="WhatsNew"])
+  [role="tab"] {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  min-height: 34px;
+  padding: 6px 14px !important;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tablist"]:has([role="tab"][id$="WhatsNew"])
+  [role="tab"][aria-selected="true"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 56%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tablist"]:has([role="tab"][id$="WhatsNew"])
+  [role="tab"].gpfocus {
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 0 0 2px var(--hdg-accent-glow) !important;
+  outline: none !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tablist"]:has([role="tab"][id$="WhatsNew"])
+  [role="tab"].gpfocus::before,
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tablist"]:has([role="tab"][id$="WhatsNew"])
+  [role="tab"].gpfocus::after {
+  content: none !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"]) {
+  background:
+    radial-gradient(circle at 50% 10%, var(--hdg-accent-glow), transparent 34%),
+    linear-gradient(180deg, rgba(3, 7, 11, 0.7), rgba(3, 7, 11, 0.9)) !important;
+  box-sizing: border-box;
+  padding: 106px 32px 108px !important;
+  scroll-padding: 106px 32px 108px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="button"]:has(img),
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Friends_Content"]
+  :is([role="button"], [role="link"]),
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Recommended_Content"]
+  > div
+  [role="button"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 54%),
+    rgba(10, 17, 24, 0.68) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.065) !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="button"]:has(img)
+  img {
+  border-radius: 17px 17px 12px 12px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Friends_Content"]
+  :is([role="button"], [role="link"])
+  img {
+  border-radius: 11px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Recommended_Content"]
+  > div
+  [role="button"]
+  img {
+  border-radius: 12px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="Friends_Content"], [id$="Recommended_Content"])
+  [role="listitem"][data-id]
+  [role="link"]:has(img) {
+  background: rgba(10, 17, 24, 0.5) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="Friends_Content"], [id$="Recommended_Content"])
+  [role="listitem"][data-id]
+  [role="link"]:has(img)
+  :is(img, div:has(> img)) {
+  border-radius: 13px !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
+  :is([role="button"], [role="link"]).gpfocus {
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.34),
+    0 0 16px var(--hdg-accent-glow),
+    inset 0 1px rgba(255, 255, 255, 0.1) !important;
+  outline: 1px solid var(--hdg-focus-color) !important;
+  outline-offset: 4px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
+  :is([role="button"], [role="link"]).gpfocus::before,
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
+  :is([role="button"], [role="link"]).gpfocus::after {
+  content: none !important;
+}
+
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
