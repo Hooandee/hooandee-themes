@@ -69,6 +69,19 @@
   color: #fff !important;
 }
 
+/* Los selectores largos deben terminar antes del footer en pantallas handheld bajas. */
+@media (max-height: 700px) {
+  #GamepadUI_Full_Root [role="listbox"]:has(> [role="option"]) {
+    max-height: calc(100vh - 88px) !important;
+  }
+
+  #GamepadUI_Full_Root [role="listbox"]:has(> [role="option"])
+    > :is([role="option"], [role="menuitem"]) {
+    min-height: 40px !important;
+    padding-block: 9px !important;
+  }
+}
+
 #GamepadUI_Full_Root [role="checkbox"],
 #GamepadUI_Full_Root [role="slider"],
 #GamepadUI_Full_Root input:is([type="range"], [type="checkbox"], [type="radio"]) {
