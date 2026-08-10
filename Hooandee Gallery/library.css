@@ -1,15 +1,17 @@
 :root {
   --hdg-background-blur: 16px;
-  --hdg-library-focus-color: rgba(255, 255, 255, 0.94);
-  --hdg-library-focus-glow: rgba(185, 220, 255, 0.28);
+  --hdg-library-focus-color: var(--hdg-focus-ring, rgba(255, 255, 255, 0.94));
+  --hdg-library-focus-glow: var(--hdg-accent-glow, rgba(185, 220, 255, 0.28));
   --hdg-library-radius: 16px;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"] {
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"] {
   isolation: isolate;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]::after {
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]::after {
   background:
     linear-gradient(90deg, rgba(5, 8, 12, 0.64), rgba(5, 8, 12, 0.3) 56%, rgba(5, 8, 12, 0.48)),
     linear-gradient(0deg, rgba(4, 7, 10, 0.68), transparent 55%);
@@ -20,14 +22,16 @@
   z-index: 1;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   div:has(> [role="link"].gpfocus ~ div > img[role="presentation"]) {
   perspective: none !important;
   will-change: auto !important;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus
   ~ div:has(> img[role="presentation"]) {
@@ -35,7 +39,8 @@
   transform: none !important;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus
   ~ div
@@ -54,12 +59,14 @@
   z-index: 0 !important;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"] > * {
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"] > * {
   position: relative;
   z-index: 2;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"] {
   border-radius: var(--hdg-library-radius);
@@ -73,30 +80,35 @@
     filter 160ms ease;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]
   img:not([role="presentation"]) {
   border-radius: var(--hdg-library-radius) !important;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]::before,
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]::after {
   border-radius: inherit !important;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]
   img:not([role="presentation"]) {
   outline: none !important;
 }
 
-#GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus {
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.46);
@@ -106,7 +118,8 @@
 }
 
 @supports not (filter: blur(1px)) {
-  #GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  #GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+    [role="tabpanel"][id$="_Content"]
     [role="grid"]
     [role="link"].gpfocus
     ~ div
@@ -116,7 +129,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #GamepadUI_Full_Root [role="tabpanel"][id$="AllGames_Content"]
+  #GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+    [role="tabpanel"][id$="_Content"]
     [role="grid"]
     [role="link"] {
     transition: none;

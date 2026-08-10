@@ -1,0 +1,5 @@
+/* Oculta el contenido del header sin alterar su reserva de espacio. */
+
+#header > * {
+  display: none !important;
+}

@@ -1,0 +1,30 @@
+:root {
+  --hdg-accent-light: #ddf5ff;
+  --hdg-accent: #7cc6ef;
+  --hdg-accent-deep: #377ba7;
+  --hdg-accent-fill: linear-gradient(180deg, rgba(124, 198, 239, 0.82), rgba(55, 123, 167, 0.76));
+  --hdg-accent-stroke: rgba(221, 245, 255, 0.62);
+  --hdg-accent-glow: rgba(124, 198, 239, 0.3);
+  --hdg-focus-ring: rgba(221, 245, 255, 0.94);
+  --hdg-glass-panel: rgba(15, 22, 30, 0.66);
+  --hdg-glass-panel-fallback: rgba(20, 28, 37, 0.94);
+  --hdg-glass-surface: rgba(255, 255, 255, 0.07);
+  --hdg-glass-surface-strong: rgba(255, 255, 255, 0.11);
+  --hdg-accent-surface-focus: rgba(124, 198, 239, 0.16);
+  --hdg-glass-stroke: rgba(240, 248, 255, 0.18);
+  --hdg-glass-stroke-soft: rgba(240, 248, 255, 0.1);
+  --hdg-glass-highlight: rgba(255, 255, 255, 0.12);
+  --hdg-control-surface: rgba(6, 11, 17, 0.72);
+  --hdg-control-surface-strong: rgba(10, 18, 26, 0.88);
+  --hdg-control-highlight: rgba(255, 255, 255, 0.09);
+  --hdg-control-track: rgba(5, 10, 16, 0.54);
+  --hdg-control-thumb: linear-gradient(145deg, #ffffff, #dcecf5 78%);
+  --hdg-text-primary: rgba(255, 255, 255, 0.96);
+  --hdg-text-secondary: rgba(225, 234, 240, 0.72);
+  --hdg-glass-blur: 12px;
+  --hdg-glass-radius-panel: 20px;
+  --hdg-glass-radius-menu: 18px;
+  --hdg-glass-radius-toast: 16px;
+  --hdg-control-radius: 10px;
+  --hdg-glass-shadow: 0 22px 50px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.1);
+}

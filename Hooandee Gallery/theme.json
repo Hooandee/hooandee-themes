@@ -2,14 +2,17 @@
   "name": "Hooandee Gallery",
   "display_name": "Hooandee Gallery",
   "author": "Hooandee",
-  "version": "v0.2.8",
-  "description": "Transforma Inicio y Biblioteca en una galería de juegos con cristal luminoso, artwork dinámico y difuminado configurable.",
-  "target": [
-    "Home",
-    "Library"
-  ],
+  "version": "v0.4.6",
+  "description": "Transforma Steam en una galería y un sistema glass coherente, con artwork dinámico, controles refinados y acentos elegantes configurables.",
+  "target": "System-Wide",
   "manifest_version": 9,
   "inject": {
+    "tokens.css": [
+      "bigpicture",
+      "QuickAccess",
+      "MainMenu",
+      "notificationtoasts.*"
+    ],
     "home.css": [
       "bigpicture"
     ],
@@ -19,11 +22,49 @@
     "details.css": [
       "bigpicture"
     ],
+    "system.css": [
+      "bigpicture"
+    ],
+    "downloads.css": [
+      "bigpicture"
+    ],
+    "settings.css": [
+      "bigpicture"
+    ],
     "qam.css": [
       "QuickAccess"
+    ],
+    "main-menu.css": [
+      "MainMenu"
+    ],
+    "notifications.css": [
+      "notificationtoasts.*"
     ]
   },
   "patches": {
+    "Color de acento": {
+      "default": "Glaciar",
+      "type": "slider",
+      "values": {
+        "Glaciar": {},
+        "Champagne": {
+          "options/accent-champagne.css": [
+            "bigpicture",
+            "QuickAccess",
+            "MainMenu",
+            "notificationtoasts.*"
+          ]
+        },
+        "Salvia": {
+          "options/accent-sage.css": [
+            "bigpicture",
+            "QuickAccess",
+            "MainMenu",
+            "notificationtoasts.*"
+          ]
+        }
+      }
+    },
     "Difuminado del fondo": {
       "default": "Medio",
       "type": "slider",
@@ -72,6 +113,86 @@
             "bigpicture"
           ]
         }
+      }
+    },
+    "Contenido del header": {
+      "default": "Completo",
+      "type": "slider",
+      "values": {
+        "Completo": {},
+        "Solo indicadores": {
+          "options/header-indicators-only.css": [
+            "bigpicture"
+          ]
+        },
+        "Oculto": {
+          "options/header-hidden.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Indicadores del header": {
+      "default": "Batería y hora",
+      "type": "slider",
+      "values": {
+        "Batería y hora": {},
+        "Solo batería": {
+          "options/header-only-battery.css": [
+            "bigpicture"
+          ]
+        },
+        "Solo hora": {
+          "options/header-only-time.css": [
+            "bigpicture"
+          ]
+        },
+        "Ninguno": {
+          "options/header-no-indicators.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Estilo de batería": {
+      "default": "Hooandee",
+      "type": "slider",
+      "values": {
+        "Hooandee": {
+          "options/battery-hooandee.css": [
+            "bigpicture"
+          ]
+        },
+        "Steam": {}
+      }
+    },
+    "Contenido del footer": {
+      "default": "Completo",
+      "type": "slider",
+      "values": {
+        "Completo": {},
+        "Esencial": {
+          "options/footer-essential.css": [
+            "bigpicture"
+          ]
+        },
+        "Oculto": {
+          "options/footer-hidden.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Estilo de iconos del footer": {
+      "default": "Hooandee",
+      "type": "slider",
+      "values": {
+        "Hooandee": {
+          "options/footer-icons-hooandee.css": [
+            "bigpicture"
+          ]
+        },
+        "Steam": {}
       }
     }
   }

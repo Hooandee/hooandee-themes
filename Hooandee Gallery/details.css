@@ -1,8 +1,8 @@
 :root {
   --hdg-detail-control-radius: 14px;
   --hdg-detail-tab-radius: 10px;
-  --hdg-detail-glass: rgba(24, 33, 43, 0.58);
-  --hdg-detail-stroke: rgba(238, 248, 255, 0.2);
+  --hdg-detail-glass: var(--hdg-glass-panel, rgba(24, 33, 43, 0.58));
+  --hdg-detail-stroke: var(--hdg-glass-stroke, rgba(238, 248, 255, 0.2));
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -29,19 +29,19 @@
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:not([aria-label]):has(> svg + div):not(#header *):not([role="dialog"] *) {
   background:
-    linear-gradient(145deg, rgba(245, 252, 255, 0.3), transparent 52%),
-    linear-gradient(180deg, rgba(101, 174, 229, 0.7), rgba(53, 116, 170, 0.62)) !important;
-  border-color: rgba(235, 248, 255, 0.42) !important;
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 52%),
+    var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *) {
-  border-color: rgba(255, 255, 255, 0.68) !important;
+  border-color: var(--hdg-accent-stroke) !important;
   box-shadow:
-    0 0 0 2px rgba(248, 252, 255, 0.96),
-    0 0 0 3px rgba(112, 178, 234, 0.5),
+    0 0 0 2px var(--hdg-focus-ring),
+    0 0 0 3px var(--hdg-accent-stroke),
     0 12px 26px rgba(0, 0, 0, 0.32),
-    0 0 20px rgba(178, 217, 252, 0.26);
+    0 0 20px var(--hdg-accent-glow);
   filter: brightness(1.06) saturate(1.03);
 }
 
@@ -79,8 +79,8 @@
   [role="tablist"]
   [role="tab"].gpfocus:not([role="dialog"] *) {
   box-shadow:
-    0 0 0 2px rgba(248, 252, 255, 0.92),
-    0 0 0 3px rgba(112, 178, 234, 0.42),
+    0 0 0 2px var(--hdg-focus-ring),
+    0 0 0 3px var(--hdg-accent-stroke),
     0 8px 18px rgba(0, 0, 0, 0.18);
 }
 

@@ -1,0 +1,9 @@
+/* Vista compacta del header: conserva únicamente los indicadores elegidos. */
+
+#header > :has(> input[type="search"]),
+#header > [role="button"],
+#header > [role="link"]:has(> svg),
+#header > [role="link"]:has([role="button"]),
+#header > #header_profile {
+  display: none !important;
+}

@@ -1,0 +1,42 @@
+html,
+body,
+#browserview_target {
+  background: transparent !important;
+}
+
+[role="alert"]:not(:empty) {
+  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.16);
+  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.16);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 38%),
+    var(--hdg-glass-panel) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: var(--hdg-glass-radius-toast) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.1) !important;
+  box-sizing: border-box;
+  height: auto !important;
+  inset: 4px 8px 4px 24px !important;
+  overflow: hidden;
+  width: auto !important;
+}
+
+[role="alert"]:not(:empty) > :first-child {
+  background: transparent !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+}
+
+[role="alert"]:not(:empty) :is([role="button"], .gpfocus) {
+  border-radius: var(--hdg-control-radius) !important;
+}
+
+[role="alert"]:not(:empty) .gpfocus {
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 2px;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  [role="alert"]:not(:empty) {
+    background: var(--hdg-glass-panel-fallback) !important;
+  }
+}
