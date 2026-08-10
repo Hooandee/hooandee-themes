@@ -1,0 +1,73 @@
+/* Galería multimedia observada: grid de filas con capturas accionables. */
+
+#Main [role="grid"]:has(
+    [role="row"] [role="button"]:not([aria-label]) img
+  ) {
+  box-sizing: border-box;
+  padding-bottom: 64px;
+  scroll-padding-block: 12px 64px;
+  scroll-padding-bottom: 64px;
+}
+
+#Main [role="grid"]:has(
+    [role="row"] [role="button"]:not([aria-label]) img
+  ) [role="row"] {
+  overflow: visible !important;
+}
+
+#Main [role="grid"]:has(
+    [role="row"] [role="button"]:not([aria-label]) img
+  ) [role="row"] [role="button"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 48%),
+    rgba(5, 10, 16, 0.34) !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 0 0 1px var(--hdg-glass-stroke-soft),
+    inset 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 22px rgba(0, 0, 0, 0.2) !important;
+  box-sizing: border-box;
+  outline: 1px solid transparent !important;
+  outline-offset: 4px;
+  overflow: hidden !important;
+  transition:
+    outline-color 150ms ease,
+    box-shadow 150ms ease,
+    filter 150ms ease;
+}
+
+#Main [role="grid"]:has(
+    [role="row"] [role="button"]:not([aria-label]) img
+  ) [role="row"] [role="button"] > :is(img, video, canvas),
+#Main [role="grid"]:has(
+    [role="row"] [role="button"]:not([aria-label]) img
+  ) [role="row"] [role="button"] :is(img, video, canvas):not([role="presentation"]) {
+  border-radius: 16px !important;
+  display: block;
+  height: 100% !important;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100% !important;
+}
+
+#Main [role="grid"]:has(
+    [role="row"] [role="button"]:not([aria-label]) img
+  ) [role="row"] [role="button"].gpfocus {
+  border: 0 !important;
+  box-shadow:
+    inset 0 0 0 1px var(--hdg-accent-stroke),
+    inset 0 1px rgba(255, 255, 255, 0.12),
+    0 10px 28px rgba(0, 0, 0, 0.3),
+    0 0 22px var(--hdg-accent-glow) !important;
+  filter: brightness(1.035) saturate(1.025);
+  outline-color: var(--hdg-focus-ring) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #Main [role="grid"]:has(
+      [role="row"] [role="button"]:not([aria-label]) img
+    ) [role="row"] [role="button"] {
+    transition: none;
+  }
+}
