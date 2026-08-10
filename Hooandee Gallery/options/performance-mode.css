@@ -1,0 +1,29 @@
+:root {
+  --hdg-glass-panel: rgba(15, 22, 30, 0.88);
+}
+
+#GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"]),
+#GamepadUI_Full_Root [role="listbox"]:has(> [role="option"]),
+#GamepadUI_Full_Root #popup_target [role="dialog"],
+#GamepadUI_Full_Root .ModalOverlayBackground,
+#header,
+#header > div:has(> input[type="search"]):is(.gpfocuswithin, :focus-within, :hover),
+#Footer,
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"],
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *),
+#QuickAccess-Menu,
+#MainNavMenuContainer > [role="menu"][aria-label],
+[role="alert"]:not(:empty) > :first-child {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#header {
+  background-color: rgba(3, 7, 11, 0.78) !important;
+}
+
+#Footer {
+  background-color: rgba(2, 5, 8, 0.78) !important;
+}
