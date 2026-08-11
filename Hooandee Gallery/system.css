@@ -745,6 +745,59 @@
   pointer-events: none;
 }
 
+/* Descarga activa: la miniatura conserva un borde fino y la barra deja de
+ * tocarla. Se apoya en el glifo semántico de Steam, no en clases hash. */
+#header
+  > [role="link"]:has(.DownloadArrow)
+  > div
+  > div:has(> div > img)
+  > div:has(> img) {
+  background: var(--hdg-control-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 6px !important;
+  box-shadow:
+    inset 0 1px var(--hdg-glass-highlight),
+    0 2px 7px var(--hdg-shadow-color) !important;
+  box-sizing: border-box;
+  margin: 0 0 3px !important;
+}
+
+#header
+  > [role="link"]:has(.DownloadArrow)
+  > div
+  > div:has(> div > img)
+  > div:has(> img)
+  > img {
+  border-radius: 5px !important;
+}
+
+#header
+  > [role="link"]:has(.DownloadArrow)
+  > div
+  > div:has(> div > img)
+  > div:has(> img)
+  + div {
+  background: var(--hdg-control-track) !important;
+  border-radius: 999px !important;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.16) !important;
+  height: 3px !important;
+  margin: 0 0 1px !important;
+  overflow: hidden !important;
+}
+
+#header
+  > [role="link"]:has(.DownloadArrow)
+  > div
+  > div:has(> div > img)
+  > div:has(> img)
+  + div
+  > div {
+  background: var(--hdg-accent-fill) !important;
+  border-radius: inherit !important;
+  box-shadow: 0 0 4px var(--hdg-accent-glow) !important;
+  height: 100% !important;
+}
+
 #header > div:has(> input[type="search"]) {
   -webkit-backdrop-filter: none;
   backdrop-filter: none;

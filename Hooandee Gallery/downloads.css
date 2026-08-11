@@ -94,6 +94,128 @@
   border-radius: var(--hdg-control-radius) !important;
 }
 
+/* Acción de la descarga activa: squircle estable, sin el marco rectangular nativo. */
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  :is(
+    button[aria-label="Parar descarga"],
+    button[aria-label="Pausar descarga"],
+    button[aria-label="Continuar descarga"],
+    button[aria-label="Stop download"],
+    button[aria-label="Pause download"],
+    button[aria-label="Resume download"]
+  ) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 54%),
+    var(--hdg-control-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 0 1px var(--hdg-glass-highlight),
+    0 6px 14px rgba(0, 0, 0, 0.22) !important;
+  box-sizing: border-box !important;
+  color: var(--hdg-text-primary) !important;
+  display: grid !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  min-width: 38px !important;
+  padding: 9px !important;
+  place-items: center;
+  width: 38px !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  :is(
+    button[aria-label="Parar descarga"],
+    button[aria-label="Pausar descarga"],
+    button[aria-label="Continuar descarga"],
+    button[aria-label="Stop download"],
+    button[aria-label="Pause download"],
+    button[aria-label="Resume download"]
+  )
+  > svg {
+  color: inherit !important;
+  height: 20px !important;
+  width: 20px !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  :is(
+    button[aria-label="Parar descarga"],
+    button[aria-label="Pausar descarga"],
+    button[aria-label="Continuar descarga"],
+    button[aria-label="Stop download"],
+    button[aria-label="Pause download"],
+    button[aria-label="Resume download"]
+  ):is(.gpfocus, :focus-visible) {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    0 0 0 2px var(--hdg-focus-ring),
+    0 8px 18px var(--hdg-accent-glow) !important;
+  color: var(--hdg-accent-on-fill) !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  :is(
+    button[aria-label="Parar descarga"],
+    button[aria-label="Pausar descarga"],
+    button[aria-label="Continuar descarga"],
+    button[aria-label="Stop download"],
+    button[aria-label="Pause download"],
+    button[aria-label="Resume download"]
+  )::before,
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  :is(
+    button[aria-label="Parar descarga"],
+    button[aria-label="Pausar descarga"],
+    button[aria-label="Continuar descarga"],
+    button[aria-label="Stop download"],
+    button[aria-label="Pause download"],
+    button[aria-label="Resume download"]
+  )::after {
+  content: none !important;
+}
+
+/* La etiqueta vive como hermana absoluta de la lista activa. La insetamos para
+ * que su cristal no coincida con el trazo exterior de la tarjeta. */
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> [data-rbd-droppable-context-id][role="list"])
+  + .Panel.Focusable {
+  bottom: 10px !important;
+  left: 18px !important;
+  margin: 0 !important;
+  max-width: calc(100% - 36px);
+  right: auto !important;
+  top: auto !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> [data-rbd-droppable-context-id][role="list"])
+  + .Panel.Focusable
+  > div {
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+  backdrop-filter: blur(8px) saturate(1.08);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
+    var(--hdg-control-surface-strong) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 10px !important;
+  box-shadow:
+    inset 0 1px var(--hdg-glass-highlight),
+    0 6px 16px rgba(0, 0, 0, 0.2) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  padding: 6px 10px !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> [data-rbd-droppable-context-id][role="list"])
+  + .Panel.Focusable
+  > div
+  > div {
+  color: var(--hdg-accent-ink) !important;
+}
+
 #Main:has([data-rbd-droppable-context-id][role="list"])
   [role="progressbar"] {
   accent-color: var(--hdg-accent);
