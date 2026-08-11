@@ -251,6 +251,21 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
   color: var(--hdg-text-primary) !important;
 }
 
+/* La página de Descargas añade otro lienzo oscuro dentro de Main y una placa vacía
+   bajo su encabezado. Ambos deben dejar ver el fondo hielo del modo claro. */
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  .Panel:has([data-rbd-droppable-context-id][role="list"]),
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> div:empty:first-child + .Panel)
+  > div:empty:first-child {
+  background: transparent !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  :is(div, span, p, h1, h2, h3) {
+  color: var(--hdg-text-primary) !important;
+}
+
 #Main:has([data-rbd-droppable-context-id][role="list"])
   [role="listitem"]
   > [data-rbd-draggable-id][role="button"] {
@@ -266,11 +281,30 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 
 #Main:has([data-rbd-droppable-context-id][role="list"])
   [role="listitem"]
+  > [data-rbd-draggable-id][role="button"]
+  * {
+  color: inherit !important;
+  fill: currentColor !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  [role="listitem"]
   > [data-rbd-draggable-id][role="button"].gpfocus {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.68), transparent 52%),
     var(--hdg-accent-surface-focus) !important;
   border-color: var(--hdg-focus-ring) !important;
+}
+
+/* El foco pertenece al control, no al panel que agrupa los vídeos de inicio. */
+html:root #Main:has([id*="/settings/customization"][role="tab"][aria-selected="true"])
+  [role="region"]
+  > .Panel.gpfocuswithin:has([role="radiogroup"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 54%),
+    var(--hdg-glass-surface) !important;
+  border-color: var(--hdg-glass-stroke-soft) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.72) !important;
 }
 
 /* Menús, selectores, diálogos, instalación y overlays transitorios. */
@@ -854,6 +888,56 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
     var(--hdg-glass-surface) !important;
   border-color: var(--hdg-glass-stroke-soft) !important;
   color: var(--hdg-text-primary) !important;
+}
+
+/* El lector de novedades se monta fuera del tabpanel y por eso no heredaba
+ * la apariencia Hielo. Se limita a su carrusel estructural de artículos. */
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel:has(> [role="button"] > div > img) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.76), transparent 54%),
+    var(--hdg-glass-panel) !important;
+  border-color: var(--hdg-glass-stroke) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img) {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.68), transparent 44%),
+    var(--hdg-glass-surface) !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  :is(h1, h2, h3, h4, p, span) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  > div:nth-child(2)
+  > div:first-child
+  > div:nth-child(3) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
 }
 
 html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
@@ -1608,6 +1692,20 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
   )
   [role="tablist"] {
   border-bottom-color: var(--hdg-glass-stroke-soft) !important;
+}
+
+/* Al fijarse durante el scroll, Steam pinta el fondo del tablist en un pseudo-elemento
+   del abuelo. Se tinta esa capa sin depender de su clase generada. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> div > [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])::before {
+  -webkit-backdrop-filter: blur(12px) saturate(1.06) !important;
+  backdrop-filter: blur(12px) saturate(1.06) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 54%),
+    var(--hdg-glass-surface-strong) !important;
+  box-shadow:
+    inset 0 1px var(--hdg-glass-highlight),
+    0 8px 24px var(--hdg-shadow-color) !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])

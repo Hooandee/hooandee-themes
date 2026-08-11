@@ -61,6 +61,15 @@ body,
   scroll-padding-block: 10px 18px;
 }
 
+/* Ayuda conserva una fila Focusable más ancha que el botón real. Steam la
+ * rellena con un rectángulo nativo; el foco ya vive en nuestro control. */
+#QuickAccess-Menu #quickaccess_content_6
+  .Panel.Focusable.gpfocuswithin:has([role="button"].gpfocus) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
 /*
  * Steam enfoca algunos selectores mediante una placa rectangular en el padre,
  * no en el propio combobox. Conservamos el área de navegación y trasladamos

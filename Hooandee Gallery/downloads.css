@@ -4,6 +4,13 @@
     linear-gradient(145deg, rgba(20, 30, 41, 0.9), rgba(7, 12, 18, 0.98) 62%) !important;
 }
 
+/* Etiqueta informativa redundante que Steam posiciona sobre la gráfica activa. */
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> div:empty:first-child + .Panel)
+  > .Panel {
+  display: none !important;
+}
+
 #Main:has([data-rbd-droppable-context-id][role="list"])
   [data-rbd-droppable-context-id][role="list"] {
   background: transparent !important;

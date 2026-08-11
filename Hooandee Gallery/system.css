@@ -84,6 +84,19 @@
 
 /* Los selectores largos deben terminar antes del footer en pantallas handheld bajas. */
 @media (max-height: 700px) {
+  #GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"]) {
+    max-height: calc(100vh - 88px) !important;
+    padding-block: 8px !important;
+  }
+
+  #GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"])
+    > [role="menuitem"] {
+    height: auto !important;
+    min-height: 38px !important;
+    margin-block: 2px !important;
+    padding-block: 8px !important;
+  }
+
   #GamepadUI_Full_Root [role="listbox"]:has(> [role="option"]) {
     max-height: calc(100vh - 88px) !important;
   }

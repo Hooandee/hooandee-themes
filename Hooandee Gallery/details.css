@@ -67,7 +67,9 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *) {
+  background: var(--hdg-accent-fill) !important;
   border-color: var(--hdg-accent-stroke) !important;
+  color: var(--hdg-accent-on-fill) !important;
   box-shadow:
     0 0 0 2px var(--hdg-focus-ring),
     0 0 0 3px var(--hdg-accent-stroke),
@@ -136,7 +138,7 @@
   [role="generic"]:has([role="list"] > [role="link"]) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 54%),
-    rgba(9, 16, 23, 0.54) !important;
+    var(--hdg-settings-panel-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: 16px !important;
   box-shadow:
@@ -218,7 +220,7 @@
   [role="button"] {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 54%),
-    rgba(9, 16, 23, 0.5) !important;
+    var(--hdg-settings-row-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: 14px !important;
   box-sizing: border-box;
@@ -241,7 +243,7 @@
   [role="button"]:not(button):not(textarea) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 56%),
-    rgba(9, 16, 23, 0.56) !important;
+    var(--hdg-settings-row-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: 12px !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -277,7 +279,7 @@
   > div:has(> .Panel.Focusable:only-child) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.085), transparent 52%),
-    rgba(9, 16, 23, 0.58) !important;
+    var(--hdg-settings-panel-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: 16px !important;
   box-shadow:
