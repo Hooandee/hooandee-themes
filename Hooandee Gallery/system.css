@@ -606,6 +606,7 @@
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.2),
     0 6px 18px var(--hdg-accent-glow) !important;
+  color: var(--hdg-accent-on-fill) !important;
 }
 
 #GamepadUI_Full_Root #popup_target [role="dialog"] {
