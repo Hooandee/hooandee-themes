@@ -612,6 +612,14 @@ body,
   transition: none !important;
 }
 
+/* La pista nativa mantiene azul en ::before incluso estando apagada. */
+#QuickAccess-Menu [role="checkbox"]:has(> :nth-child(2))
+  > :first-child::before {
+  background: transparent !important;
+  border-radius: inherit !important;
+  transition: none !important;
+}
+
 #QuickAccess-Menu [role="checkbox"][aria-checked="true"]:has(> :nth-child(2)) > :first-child {
   background: var(--hdg-accent-fill) !important;
   border-color: var(--hdg-accent-stroke) !important;
@@ -637,9 +645,7 @@ body,
 }
 
 #QuickAccess-Menu [role="checkbox"] {
-  transition:
-    border-color 120ms ease-out,
-    box-shadow 120ms ease-out !important;
+  transition: none !important;
 }
 
 /* Las leyendas de los sliders de CSS Loader deben caber en 300 px. */

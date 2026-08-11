@@ -116,7 +116,7 @@
 
 #Main:has([id*="/settings/"][role="tab"])
   :is(.DialogBody, [role="region"], .DialogControlsSection)
-  > .Panel.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"])):not(:has(:is([role="radiogroup"], .SliderControlPanelGroup, [role="slider"]))) {
+  > .Panel.gpfocus.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"])):not(:has(:is([role="radiogroup"], .SliderControlPanelGroup, [role="slider"]))) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
     var(--hdg-accent-surface-focus) !important;
@@ -460,6 +460,164 @@
   line-height: 17px !important;
   margin-block: 4px !important;
   padding-left: 24px !important;
+}
+
+/* Las notas completas se abren como un carrusel fuera del tabpanel de
+ * Sistema. Esta estructura se observó en Steam y evita clases hash. */
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel:has(> [role="button"] > div > img) {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"] {
+  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.12);
+  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.12);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 54%),
+    var(--hdg-glass-panel) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--hdg-glass-shadow) !important;
+  box-sizing: border-box;
+  outline: none !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"].gpfocus {
+  border-color: var(--hdg-focus-ring) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 18px var(--hdg-accent-glow),
+    0 12px 34px rgba(0, 0, 0, 0.3) !important;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]::before,
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]::after {
+  content: none !important;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+  color: var(--hdg-text-primary) !important;
+  outline: none !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  :is(h1, h2, h3, h4, p, li, span, b) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  > div:nth-child(2)
+  > div:first-child
+  > :is(div, span),
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  > div:nth-child(2)
+  > div:first-child
+  > div:first-child
+  > :is(div, span) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+#GamepadUI_Full_Root:has(
+    [id*="/settings/system"][role="tab"][aria-selected="true"]
+  )
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  > img:first-child {
+  border-radius: 0 !important;
 }
 
 #Main:has([id*="/settings/storage"][role="tab"][aria-selected="true"])

@@ -177,9 +177,7 @@
 #GamepadUI_Full_Root [role="checkbox"] {
   border-color: var(--hdg-glass-stroke) !important;
   border-radius: var(--hdg-control-radius) !important;
-  transition:
-    border-color 120ms ease-out,
-    box-shadow 120ms ease-out !important;
+  transition: none !important;
 }
 
 #GamepadUI_Full_Root [role="checkbox"][aria-checked="false"] {
@@ -194,6 +192,15 @@
   border-radius: inherit !important;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.26) !important;
   box-sizing: border-box;
+  transition: none !important;
+}
+
+/* Steam conserva un relleno azul en el pseudo-elemento de la pista apagada.
+ * Debe quedar neutral antes de que React cambie aria-checked. */
+#GamepadUI_Full_Root [role="checkbox"]:has(> :nth-child(2))
+  > :first-child::before {
+  background: transparent !important;
+  border-radius: inherit !important;
   transition: none !important;
 }
 
@@ -234,9 +241,10 @@
 }
 
 #GamepadUI_Full_Root [role="slider"].gpfocus {
-  background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-focus-ring) !important;
-  box-shadow: 0 0 0 3px var(--hdg-accent-glow) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 #GamepadUI_Full_Root [role="slider"] .SliderTrack {
@@ -245,6 +253,13 @@
   border-radius: 999px !important;
   box-sizing: border-box;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.32) !important;
+}
+
+#GamepadUI_Full_Root [role="slider"].gpfocus .SliderTrack {
+  border-color: var(--hdg-focus-ring) !important;
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.32),
+    0 0 8px var(--hdg-accent-glow) !important;
 }
 
 #GamepadUI_Full_Root [role="slider"] .SliderTrack::before {
@@ -844,11 +859,11 @@
 
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   :is(.DialogBody, .DialogControlsSection)
-  > .Panel.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)),
+  > .Panel.gpfocus.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)),
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   .DialogBody
   > div
-  > .Panel.gpfocuswithin:has(.DialogButton) {
+  > .Panel.gpfocus.gpfocuswithin:has(.DialogButton) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
     var(--hdg-accent-surface-focus) !important;
@@ -936,12 +951,12 @@
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   :is(.DialogBody, .DialogControlsSection)
-  > .Panel.gpfocuswithin,
+  > .Panel.gpfocus.gpfocuswithin,
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   .DialogBody
   > div
-  > .Panel.gpfocuswithin:has(.DialogButton) {
+  > .Panel.gpfocus.gpfocuswithin:has(.DialogButton) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
     var(--hdg-accent-surface-focus) !important;
