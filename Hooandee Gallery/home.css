@@ -587,6 +587,8 @@
   border-radius: 22px !important;
   box-shadow: var(--hdg-glass-shadow) !important;
   box-sizing: border-box;
+  margin-inline: 8px !important;
+  width: calc(100% - 16px) !important;
 }
 
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
