@@ -645,6 +645,12 @@ body,
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.26) !important;
 }
 
+/* El radio genérico de controles (10 px) deja recto un switch de 24 px.
+ * La pista hereda esta cápsula y conserva exactamente la misma geometría. */
+#QuickAccess-Menu [role="checkbox"]:has(> :nth-child(2)) {
+  border-radius: 999px !important;
+}
+
 #QuickAccess-Menu [role="checkbox"]:has(> :nth-child(2)) > :first-child {
   background: rgba(255, 255, 255, 0.11) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
