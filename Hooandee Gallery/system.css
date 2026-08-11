@@ -22,7 +22,12 @@
   transition:
     background-color 150ms ease,
     border-color 150ms ease,
-    box-shadow 150ms ease;
+  box-shadow 150ms ease;
+}
+
+#GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"])
+  > [role="separator"] {
+  margin-block: 5px !important;
 }
 
 /* Steam cambia a negro el item padre cuando el foco entra en su submenú. */
