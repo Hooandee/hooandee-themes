@@ -251,6 +251,11 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
   color: var(--hdg-text-primary) !important;
 }
 
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> div:empty:first-child + .Panel) {
+  box-shadow: 0 8px 24px rgba(38, 55, 68, 0.12) !important;
+}
+
 /* La página de Descargas añade otro lienzo oscuro dentro de Main y una placa vacía
    bajo su encabezado. Ambos deben dejar ver el fondo hielo del modo claro. */
 #Main:has([data-rbd-droppable-context-id][role="list"])
