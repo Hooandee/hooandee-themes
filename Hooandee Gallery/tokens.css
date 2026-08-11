@@ -35,6 +35,8 @@
   --hdg-glass-highlight: rgba(255, 255, 255, 0.12);
   --hdg-control-surface: rgba(6, 11, 17, 0.72);
   --hdg-control-surface-strong: rgba(10, 18, 26, 0.88);
+  --hdg-settings-panel-surface: rgba(11, 18, 26, 0.58);
+  --hdg-settings-row-surface: rgba(9, 15, 22, 0.56);
   --hdg-control-highlight: rgba(255, 255, 255, 0.09);
   --hdg-control-track: rgba(5, 10, 16, 0.54);
   --hdg-control-thumb: linear-gradient(145deg, #ffffff, #dcecf5 78%);

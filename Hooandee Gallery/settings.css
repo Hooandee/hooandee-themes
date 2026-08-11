@@ -236,7 +236,7 @@
   > .Panel.gpfocuswithin:has([role="radiogroup"]) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 52%),
-    rgba(11, 18, 26, 0.58) !important;
+    var(--hdg-settings-panel-surface) !important;
   border-color: var(--hdg-glass-stroke-soft) !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
 }
@@ -307,7 +307,7 @@
   [role="button"]:not(.DialogButton) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 54%),
-    rgba(9, 15, 22, 0.56) !important;
+    var(--hdg-settings-row-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: 14px !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.06) !important;
@@ -343,9 +343,26 @@
   :is(.SliderControlPanelGroup, [role="button"]:has([role="slider"])).gpfocus {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 54%),
-    rgba(9, 15, 22, 0.56) !important;
+    var(--hdg-settings-row-surface) !important;
   border-color: var(--hdg-glass-stroke-soft) !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Descargas agrupa el calendario de actualizaciones en una placa sin roles.
+ * La relación con su combobox es estable y evita depender de su clase hash. */
+#Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"])
+  .DialogControlsSection
+  > div:not(.Panel):has(button[role="combobox"]) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 54%),
+    var(--hdg-settings-panel-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  overflow: visible !important;
+  padding: 12px 14px !important;
 }
 
 #Main:has([id*="/settings/"][role="tab"][aria-selected="true"])

@@ -29,6 +29,8 @@ html:root {
   --hdg-glass-highlight: rgba(255, 255, 255, 0.76);
   --hdg-control-surface: rgba(255, 255, 255, 0.72);
   --hdg-control-surface-strong: rgba(252, 254, 255, 0.9);
+  --hdg-settings-panel-surface: var(--hdg-glass-surface);
+  --hdg-settings-row-surface: var(--hdg-glass-surface);
   --hdg-control-highlight: rgba(255, 255, 255, 0.76);
   --hdg-control-track: rgba(37, 53, 65, 0.18);
   --hdg-control-thumb: linear-gradient(145deg, #ffffff, #dbe4ea 78%);
@@ -464,9 +466,9 @@ html:root #header::before {
 html:root #header {
   background: linear-gradient(
     180deg,
-    rgba(244, 248, 251, 0.88),
-    rgba(236, 242, 246, 0.54) 64%,
-    rgba(236, 242, 246, 0)
+    rgba(226, 234, 239, 0.54),
+    rgba(226, 234, 239, 0.24) 64%,
+    rgba(226, 234, 239, 0)
   ) !important;
   color: var(--hdg-text-primary) !important;
 }
@@ -479,9 +481,9 @@ html:root #Footer {
   background-color: transparent !important;
   background-image: linear-gradient(
     180deg,
-    rgba(232, 238, 243, 0),
-    rgba(232, 238, 243, 0.68) 42%,
-    rgba(221, 229, 235, 0.96)
+    rgba(214, 224, 231, 0),
+    rgba(214, 224, 231, 0.38) 42%,
+    rgba(207, 217, 224, 0.72)
   ) !important;
   color: var(--hdg-text-primary) !important;
 }
@@ -561,7 +563,6 @@ html:root #Footer
 
 #QuickAccess-Menu :is([role="tab"], [role="button"], [role="checkbox"], [role="combobox"]):is(.gpfocus, [aria-selected="true"], [aria-checked="true"]) * {
   color: inherit !important;
-  fill: currentColor !important;
 }
 
 #QuickAccess-Menu [role="slider"],
@@ -705,12 +706,17 @@ html:root #Footer
 /* Menú Steam, menú de juego y submenús alineados. */
 #MainNavMenuContainer > [role="menu"][aria-label],
 #MainNavMenuContainer [role="menu"] [role="menu"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
   background:
     linear-gradient(145deg, var(--hdg-glass-highlight), transparent 34%),
-    var(--hdg-glass-panel) !important;
+    rgba(239, 245, 248, 0.96) !important;
   border-color: var(--hdg-glass-stroke) !important;
-  box-shadow: var(--hdg-glass-shadow) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.82),
+    inset 0 -1px rgba(28, 46, 59, 0.08) !important;
   color: var(--hdg-text-primary) !important;
+  filter: none !important;
 }
 
 #MainNavMenuContainer
@@ -828,9 +834,56 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is([role="button"], [role="link"]):not(.gpfocus) {
-  background-color: var(--hdg-glass-surface) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 54%),
+    var(--hdg-glass-surface) !important;
   border-color: var(--hdg-glass-stroke-soft) !important;
   color: var(--hdg-text-primary) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
+  :is(h1, h2, h3, h4) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="Friends_Content"], [id$="Recommended_Content"])
+  [role="listitem"][data-id]
+  [role="link"]:has(img) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 54%),
+    var(--hdg-glass-surface) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Friends_Content"]
+  :is([role="button"], [role="link"])
+  :is(div, span, p) {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* El contador de Amigos usa verde Steam y un icono oscuro. Se integra como
+ * una insignia compacta del acento, sin añadir otra placa al tab completo. */
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tab"][id$="Friends"]
+  > div:has(> svg + div) {
+  background: var(--hdg-accent-surface-focus) !important;
+  border: 1px solid var(--hdg-accent-stroke) !important;
+  border-radius: 9px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.58) !important;
+  color: var(--hdg-accent-ink) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tab"][id$="Friends"]
+  > div:has(> svg + div)
+  :is(svg, path, div) {
+  color: inherit !important;
+  fill: currentColor !important;
 }
 
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
@@ -1033,8 +1086,13 @@ html:root
 
 #QuickAccess-Menu :is([role="tab"], [role="button"], [role="checkbox"], [role="combobox"]):is(.gpfocus, [aria-selected="true"], [aria-checked="true"]) * {
   color: inherit !important;
-  fill: currentColor !important;
   opacity: 1 !important;
+}
+
+#QuickAccess-Menu
+  :is([role="tab"], [role="button"], [role="checkbox"], [role="combobox"]):is(.gpfocus, [aria-selected="true"], [aria-checked="true"]):not(#quickaccess_tab_5260355)
+  :is(svg, path)[fill="currentColor"] {
+  fill: currentColor !important;
 }
 
 #MainNavMenuContainer [role="menuitem"] :is(div, span, svg, path),
@@ -1193,14 +1251,9 @@ html:root #GamepadUI_Full_Root
   filter: none !important;
 }
 
-/* La regla genérica de iconos activos no debe rellenar pictogramas de trazo. */
-#QuickAccess-Menu
-  :is([role="tab"], [role="button"])
-  svg[fill="none"],
-#QuickAccess-Menu
-  :is([role="tab"], [role="button"])
-  svg[fill="none"]
-  path {
+/* Panel de Control sí es un pictograma lineal; solo este icono conserva hueco. */
+#QuickAccess-Menu #quickaccess_tab_5260355 svg,
+#QuickAccess-Menu #quickaccess_tab_5260355 svg path {
   fill: none !important;
   stroke: currentColor !important;
 }
@@ -1208,6 +1261,48 @@ html:root #GamepadUI_Full_Root
 #QuickAccess-Menu #quickaccess_tab_5260355:is([aria-selected="true"], .gpfocus) svg {
   color: #fff !important;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)) !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"]:is(.gpfocus, [aria-selected="true"], [style*="background: rgb(78, 161, 255)"]) {
+  color: var(--hdg-accent-on-fill) !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"]:is(.gpfocus, [aria-selected="true"], [style*="background: rgb(78, 161, 255)"])
+  :is(svg, path) {
+  color: inherit !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"]:is(.gpfocus, [aria-selected="true"], [style*="background: rgb(78, 161, 255)"])
+  path[fill="currentColor"] {
+  fill: currentColor !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"]:is(.gpfocus, [aria-selected="true"], [style*="background: rgb(78, 161, 255)"])
+  path[stroke="currentColor"] {
+  stroke: currentColor !important;
+}
+
+/* La sección especial de actualizaciones no usa Panel ni roles de control. */
+html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"])
+  .DialogControlsSection
+  > div:not(.Panel):has(button[role="combobox"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 54%),
+    var(--hdg-settings-panel-surface) !important;
+  border-color: var(--hdg-glass-stroke-soft) !important;
+  color: var(--hdg-text-primary) !important;
 }
 
 /* Propiedades: contrato claro completo para títulos, paneles y tablas nativas. */
@@ -1465,6 +1560,31 @@ html:root #Footer
   :is(div, span, p, h1, h2, h3, label, [role="tab"], [role="link"]) {
   color: var(--hdg-text-primary) !important;
   -webkit-text-fill-color: currentColor;
+}
+
+/* Los tabs internos de Panel de Control fijan su color inactivo inline.
+   El foco de mando debe ganar al final de la cascada, sin convertir sus SVG lineales en masas. */
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocus,
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocuswithin,
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][aria-selected="true"],
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][style*="background: rgb(78, 161, 255)"] {
+  color: var(--hdg-accent-on-fill) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocus svg,
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocuswithin svg,
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][aria-selected="true"] svg,
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][style*="background: rgb(78, 161, 255)"] svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocus svg [fill="currentColor"],
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocuswithin svg [fill="currentColor"],
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][aria-selected="true"] svg [fill="currentColor"],
+html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][style*="background: rgb(78, 161, 255)"] svg [fill="currentColor"] {
+  fill: currentColor !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])

@@ -777,19 +777,33 @@ body,
   }
 }
 
-/* Los iconos lineales deben conservar el hueco interior al seleccionarse. */
-#QuickAccess-Menu
-  :is([role="tab"], [role="button"])
-  svg[fill="none"],
-#QuickAccess-Menu
-  :is([role="tab"], [role="button"])
-  svg[fill="none"]
-  path {
-  fill: none !important;
-  stroke: currentColor !important;
-}
-
 #QuickAccess-Menu #quickaccess_tab_5260355:is([aria-selected="true"], .gpfocus) svg {
   color: #fff !important;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)) !important;
+}
+
+/* Panel de Control trae una transición inline de color que deja el glifo gris
+   durante la navegación rápida. Conservamos el movimiento de la superficie y
+   hacemos que la tinta activa alcance su contraste completo al instante. */
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"] {
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocus,
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocuswithin,
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][aria-selected="true"],
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][style*="background: rgb(78, 161, 255)"] {
+  color: #fff !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocus svg,
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocuswithin svg,
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][aria-selected="true"] svg,
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"][style*="background: rgb(78, 161, 255)"] svg {
+  color: inherit !important;
+  stroke: currentColor !important;
 }
