@@ -15,6 +15,12 @@
 #Footer,
 #Main:has([id*="/settings/"][role="tab"])
   [role="tablist"][aria-orientation="vertical"],
+#Main .OpenedItemContainer
+  div:has(> img:not([aria-label]))
+  + div
+  > div
+  > div
+  > div:has([role="button"]),
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"],
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
