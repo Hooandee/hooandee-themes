@@ -1,7 +1,22 @@
 #Main:has([data-rbd-droppable-context-id][role="list"]) {
+  --hdg-downloads-header-clearance: 43px;
   background:
     radial-gradient(circle at 18% 12%, var(--hdg-accent-glow), transparent 34%),
     linear-gradient(145deg, rgba(20, 30, 41, 0.9), rgba(7, 12, 18, 0.98) 62%) !important;
+  flex: 0 0 calc(100% - var(--hdg-downloads-header-clearance)) !important;
+  height: calc(100% - var(--hdg-downloads-header-clearance)) !important;
+  max-height: calc(100% - var(--hdg-downloads-header-clearance)) !important;
+}
+
+/* BasicUI reserva 240px para el resumen superior. Al existir una barra de
+ * sistema visible, descontamos la misma franja para conservar intacto el
+ * viewport de la lista inferior y desplazarlo por encima del footer. */
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  div:has(> div:empty:first-child + .Panel) {
+  flex: 0 0 calc(240px - var(--hdg-downloads-header-clearance)) !important;
+  height: calc(240px - var(--hdg-downloads-header-clearance)) !important;
+  max-height: calc(240px - var(--hdg-downloads-header-clearance)) !important;
+  min-height: 0 !important;
 }
 
 /* Etiqueta informativa redundante que Steam posiciona sobre la gráfica activa. */
