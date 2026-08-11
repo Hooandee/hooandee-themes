@@ -555,6 +555,48 @@ body,
   outline: none !important;
 }
 
+/* Los sliders viven dentro de un button SliderControlPanelGroup. No debe
+ * heredar la superficie glass de los botones: la pista y el knob ya expresan
+ * el control y su foco sin necesidad de una cápsula exterior. */
+#QuickAccess-Menu [role="tabpanel"]
+  .SliderControlPanelGroup:has(> [role="slider"]) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Steam añade otra placa rectangular a la fila mediante gpfocuswithin. Se
+ * retira solo cuando el foco real está en un slider de esa fila. */
+#QuickAccess-Menu [role="tabpanel"]
+  .Panel.Focusable.gpfocuswithin:not([role="tabpanel"]):has(
+    .SliderControlPanelGroup > [role="slider"].gpfocus
+  ),
+#QuickAccess-Menu [role="tabpanel"]
+  .Panel.Focusable.gpfocuswithin:not([role="tabpanel"]):has(
+    .SliderControlPanelGroup > [role="slider"].gpfocus
+  )::before,
+#QuickAccess-Menu [role="tabpanel"]
+  .Panel.Focusable.gpfocuswithin:not([role="tabpanel"]):has(
+    .SliderControlPanelGroup > [role="slider"].gpfocus
+  )::after {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#QuickAccess-Menu [role="tabpanel"]
+  .Panel.Focusable.gpfocuswithin:not([role="tabpanel"]):has(
+    .SliderControlPanelGroup > [role="slider"].gpfocus
+  )::before,
+#QuickAccess-Menu [role="tabpanel"]
+  .Panel.Focusable.gpfocuswithin:not([role="tabpanel"]):has(
+    .SliderControlPanelGroup > [role="slider"].gpfocus
+  )::after {
+  content: none !important;
+}
+
 #QuickAccess-Menu [role="slider"] .SliderTrack {
   background: var(--hdg-control-track) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
