@@ -247,10 +247,38 @@ body,
 }
 
 #QuickAccess-Menu #quickaccess_content_3 .FriendsListTab {
+  align-items: center !important;
   background: transparent !important;
   border: 1px solid transparent !important;
   border-radius: 9px !important;
   box-shadow: none !important;
+  display: flex !important;
+  height: 30px !important;
+  justify-content: center !important;
+  min-width: 26px !important;
+  padding: 0 !important;
+  width: 26px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab > svg,
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab > div:has(> svg) > svg {
+  height: 20px !important;
+  margin: 0 !important;
+  width: 20px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab > div:has(> svg) {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  justify-content: center;
+  margin: 0 !important;
+  width: 24px;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab:not(.Active):not(.gpfocus) {
+  color: var(--hdg-text-secondary) !important;
+  opacity: 0.78;
 }
 
 #QuickAccess-Menu #quickaccess_content_3 .FriendsListTab:is(.Active, .gpfocus) {
@@ -301,6 +329,16 @@ body,
 
 #QuickAccess-Menu #quickaccess_content_3 .friend img {
   border-radius: 10px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .friend .avatarHolder > img.avatar {
+  border-radius: 9px 0 0 9px !important;
+  box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.3) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .friend .avatarHolder > .avatarStatus {
+  border-radius: 0 2px 2px 0 !important;
+  transform: translateX(-1px) !important;
 }
 
 #QuickAccess-Menu #quickaccess_content_3 .multiChatDialog {
