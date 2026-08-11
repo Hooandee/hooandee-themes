@@ -224,6 +224,14 @@ body,
     0 5px 15px var(--hdg-accent-glow) !important;
 }
 
+#QuickAccess-Menu
+  [role="tabpanel"][aria-labelledby="quickaccess_tab_0"]
+  [role="button"]
+  img {
+  border-radius: 10px !important;
+  object-fit: cover;
+}
+
 /* Amigos y chat: dos planos de cristal integrados, sin divisor negro ni filas pesadas. */
 #QuickAccess-Menu #quickaccess_content_3 {
   background: transparent !important;
@@ -490,6 +498,12 @@ body,
     inset 0 1px rgba(255, 255, 255, 0.18),
     0 6px 18px var(--hdg-accent-glow) !important;
   color: #fff !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-tabstrip {
+  box-sizing: border-box;
+  padding-right: 8px !important;
+  scroll-padding-inline: 8px;
 }
 
 #QuickAccess-Menu #quickaccess_content_999 > :nth-child(2) {

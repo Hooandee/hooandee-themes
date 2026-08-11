@@ -758,6 +758,18 @@
 }
 
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  .PageListColumn
+  > :first-child:not([role="tablist"]) {
+  box-sizing: border-box;
+  flex: 0 0 67px !important;
+  font-size: 22px !important;
+  height: 67px !important;
+  line-height: 26px !important;
+  min-height: 67px !important;
+  padding-top: 39px !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"] {
   background: transparent !important;
@@ -813,7 +825,11 @@
 
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   :is(.DialogBody, .DialogControlsSection)
-  > .Panel:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)) {
+  > .Panel:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)),
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  .DialogBody
+  > div
+  > .Panel:has(.DialogButton) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 52%),
     rgba(11, 18, 26, 0.58) !important;
@@ -828,7 +844,104 @@
 
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   :is(.DialogBody, .DialogControlsSection)
-  > .Panel.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)) {
+  > .Panel.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)),
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  .DialogBody
+  > div
+  > .Panel.gpfocuswithin:has(.DialogButton) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+}
+
+/* Propiedades: cubre también paneles informativos y tablas que no incluyen controles. */
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  :is(.DialogBody, .DialogControlsSection)
+  > .Panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 52%),
+    var(--hdg-settings-panel-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin-bottom: 8px;
+  overflow: visible !important;
+  padding: 10px 12px !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  [role="table"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 48%),
+    var(--hdg-glass-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  [role="row"] {
+  background: var(--hdg-glass-surface-strong) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  [role="table"]
+  [role="row"] {
+  border: 0 !important;
+  border-bottom: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  [role="table"]
+  [role="row"]:last-child {
+  border-bottom: 0 !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  [role="table"]
+  :is([role="cell"], [role="columnheader"]) {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  [role="row"]:is(.gpfocus, [aria-selected="true"]) {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  color: var(--hdg-accent-ink) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: -1px !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  :is(.DialogBody, .DialogControlsSection)
+  > .Panel.gpfocuswithin,
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tabpanel"][id*="/properties/"]
+  .DialogBody
+  > div
+  > .Panel.gpfocuswithin:has(.DialogButton) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
     var(--hdg-accent-surface-focus) !important;
