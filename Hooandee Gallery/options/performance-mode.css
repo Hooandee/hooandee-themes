@@ -6,14 +6,16 @@
 #GamepadUI_Full_Root [role="listbox"]:has(> [role="option"]),
 #GamepadUI_Full_Root #popup_target [role="dialog"],
 #GamepadUI_Full_Root
-  .DialogContent.GenericConfirmDialog:has(> .DialogContent_InnerWidth [role="dialog"]),
+  .DialogContent.GenericConfirmDialog,
 #GamepadUI_Full_Root
-  .ModalOverlayContent.active:has(.DialogContent.GenericConfirmDialog [role="dialog"]),
+  .ModalOverlayContent.active:has(.DialogContent.GenericConfirmDialog),
 #GamepadUI_Full_Root .ModalOverlayBackground,
 #header,
 #header > div:has(> input[type="search"]):is(.gpfocuswithin, :focus-within, :hover),
 #Footer,
 #Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"],
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"],
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *),

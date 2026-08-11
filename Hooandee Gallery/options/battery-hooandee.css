@@ -1,7 +1,7 @@
 /* Indicador Hooandee: carcasa propia y nivel dinámico conservado. */
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div {
   position: relative;
@@ -19,7 +19,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div::before {
   content: "";
@@ -44,7 +44,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div::after {
   content: "";
@@ -60,7 +60,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div
   > svg {
@@ -79,7 +79,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div
   > svg
@@ -90,7 +90,7 @@
 /* Steam añade un segundo path solo durante la carga: conservamos el rayo,
    pero no su carcasa, y lo centramos en el canal Hooandee. */
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div
   > svg
@@ -110,7 +110,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div
   > svg
@@ -123,7 +123,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div
   > svg
@@ -140,7 +140,7 @@
 }
 
 #header
-  > [role="link"]:has(> div svg):not(:has([role="button"]))
+  > [role="link"]:has(> div > div > svg > svg > rect)
   > div
   > div
   > svg
@@ -171,7 +171,7 @@
 }
 
 #header
-  > [role="link"].gpfocus:has(> div svg):not(:has([role="button"]))
+  > [role="link"].gpfocus:has(> div > div > svg > svg > rect)
   > div
   > div::before {
   border-color: var(--hdg-focus-ring, rgba(221, 245, 255, 0.94));
@@ -184,7 +184,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   #header
-    > [role="link"]:has(> div svg):not(:has([role="button"]))
+    > [role="link"]:has(> div > div > svg > svg > rect)
     > div
     > div::before {
     transition: none;

@@ -1,6 +1,6 @@
 /* Indicadores del header: oculta batería y hora. */
 
-#header > [role="link"]:has(> div svg):not(:has([role="button"])),
-#header > [role="link"]:has(> div svg):not(:has([role="button"])) + [role="link"] {
+#header > [role="link"]:has(> div > div > svg > svg > rect),
+#header > [role="link"]:has(> div > div > svg > svg > rect) + [role="link"] {
   display: none !important;
 }
