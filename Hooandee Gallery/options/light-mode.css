@@ -1661,6 +1661,28 @@ html:root #Footer
   -webkit-text-fill-color: currentColor;
 }
 
+/* Los rótulos sobre capturas conservan blanco: siguen viviendo encima del artwork. */
+html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
+    > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
+  )
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  div:has(> img[role="button"])
+  + div,
+html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
+    > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
+  )
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  div:has(> img[role="button"])
+  + div
+  * {
+  color: rgba(255, 255, 255, 0.94) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.94) !important;
+}
+
 /* Los tabs internos de Panel de Control fijan su color inactivo inline.
    El foco de mando debe ganar al final de la cascada, sin convertir sus SVG lineales en masas. */
 html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button"].gpfocus,

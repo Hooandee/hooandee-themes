@@ -127,11 +127,20 @@
   background: transparent !important;
   border: 1px solid transparent !important;
   border-radius: var(--hdg-detail-tab-radius) !important;
+  color: var(--hdg-text-primary) !important;
   outline: none !important;
   transition:
     background-color 160ms ease,
     border-color 160ms ease,
     box-shadow 160ms ease;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tablist"]
+  [role="tab"]:not([role="dialog"] *)
+  > span {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -149,10 +158,113 @@
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tablist"]
   [role="tab"].gpfocus:not([role="dialog"] *) {
+  color: var(--hdg-text-primary) !important;
   box-shadow:
     0 0 0 2px var(--hdg-focus-ring),
     0 0 0 3px var(--hdg-accent-stroke),
     0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Comunidad: la captura y su autor forman una sola pieza de galería. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="row"] {
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 52%),
+    var(--hdg-settings-panel-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.065),
+    0 9px 24px rgba(0, 0, 0, 0.2) !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  outline: 1px solid transparent !important;
+  outline-offset: 3px !important;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    outline-color 150ms ease;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  > :first-child
+  > :first-child,
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  > :first-child
+  > :first-child
+  div:has(img[role="button"]),
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  img[role="button"] {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 15px 15px 0 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  > :first-child
+  > :first-child {
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  div:has(> img[role="button"])
+  + div,
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  div:has(> img[role="button"])
+  + div
+  * {
+  color: rgba(255, 255, 255, 0.94) !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.72);
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[role="button"])
+  > :first-child
+  > :first-child
+  + div {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 62%),
+    var(--hdg-settings-row-surface) !important;
+  border-top: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 0 0 15px 15px !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(.gpfocus) {
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    0 10px 28px rgba(0, 0, 0, 0.28),
+    0 0 20px var(--hdg-accent-glow) !important;
+  outline-color: var(--hdg-focus-ring) !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
