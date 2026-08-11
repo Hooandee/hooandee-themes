@@ -308,6 +308,15 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
     var(--hdg-overlay) !important;
 }
 
+/* Steam monta el scrim del QAM fuera del propio panel, directamente bajo MainNavMenu-Rest. */
+html:root
+  #MainNavMenu-Rest
+  > [class*="_3rsrz7BYWjqGBhzcpn-Auo"] {
+  background:
+    radial-gradient(circle at 72% 46%, var(--hdg-accent-surface-focus), transparent 52%),
+    rgba(232, 239, 244, 0.58) !important;
+}
+
 #GamepadUI_Full_Root
   :is(
     [role="menu"]:has(> [role="menuitem"]),
@@ -667,6 +676,31 @@ html:root #Footer
     var(--hdg-glass-surface) !important;
   border-color: var(--hdg-glass-stroke-soft) !important;
   color: var(--hdg-text-primary) !important;
+}
+
+/* El Panel de Control fija placas casi negras inline; en Claro se integran con el resto del QAM. */
+#QuickAccess-Menu
+  .pdc-root
+  [style*="background: rgb(12, 12, 16)"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 56%),
+    var(--hdg-glass-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.78),
+    0 5px 14px rgba(38, 55, 68, 0.12) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#QuickAccess-Menu
+  .pdc-root
+  [style*="background: rgb(12, 12, 16)"].gpfocus {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.18),
+    0 6px 18px var(--hdg-accent-glow) !important;
+  color: var(--hdg-accent-on-fill) !important;
 }
 
 /* Menú Steam, menú de juego y submenús alineados. */
