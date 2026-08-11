@@ -755,6 +755,24 @@
   color: var(--hdg-text-secondary) !important;
   margin: 3px 8px;
   max-width: calc(100% - 16px);
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"]
+  > :first-child,
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tablist"][aria-orientation="vertical"]
+  > [role="tab"]
+  > :first-child
+  > :first-child {
+  box-sizing: border-box;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
