@@ -518,10 +518,9 @@ html:root #Footer
     rgba(247, 250, 252, 0.84) !important;
   border-color: rgba(52, 70, 80, 0.76) !important;
   box-shadow:
-    inset 0 0 0 2px rgba(255, 255, 255, 0.48),
     inset 0 1px rgba(255, 255, 255, 0.86),
-    0 2px 4px rgba(38, 55, 68, 0.2),
-    0 0 5px var(--hdg-accent-glow) !important;
+    0 1px 3px rgba(38, 55, 68, 0.18),
+    0 0 4px var(--hdg-accent-glow) !important;
 }
 
 #header
@@ -681,7 +680,7 @@ html:root #Footer
 /* El Panel de Control fija placas casi negras inline; en Claro se integran con el resto del QAM. */
 #QuickAccess-Menu
   .pdc-root
-  [style*="background: rgb(12, 12, 16)"] {
+  [style*="rgb(12, 12, 16)"] {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 56%),
     var(--hdg-glass-surface) !important;
@@ -694,7 +693,7 @@ html:root #Footer
 
 #QuickAccess-Menu
   .pdc-root
-  [style*="background: rgb(12, 12, 16)"].gpfocus {
+  [style*="rgb(12, 12, 16)"].gpfocus {
   background: var(--hdg-accent-fill) !important;
   border-color: var(--hdg-accent-stroke) !important;
   box-shadow:
@@ -1092,4 +1091,121 @@ html:root #GamepadUI_Full_Root
   #GamepadUI_Full_Root #popup_target [role="dialog"] {
     background: var(--hdg-glass-panel-fallback) !important;
   }
+}
+
+/* Panel de Control: cristal claro, jerarquía y controles sin artefactos nativos. */
+#QuickAccess-Menu #quickaccess_content_5260355 {
+  scroll-padding-block: 16px 20px;
+}
+
+#QuickAccess-Menu #quickaccess_content_5260355 .pdc-tabstrip {
+  gap: 3px !important;
+  padding: 7px !important;
+  overflow-x: auto !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-tabstrip
+  > [role="button"] {
+  min-width: 32px !important;
+  padding-inline: 7px !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-tabstrip
+  > [role="button"][style*="background: rgb(78, 161, 255)"] {
+  max-width: 96px !important;
+  padding-inline: 8px !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [style*="rgb(12, 12, 16)"] {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.74), transparent 56%),
+    var(--hdg-glass-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.78),
+    0 5px 14px rgba(38, 55, 68, 0.12) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [style*="color: rgba(255, 255, 255, 0.45)"],
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [style*="color: rgba(255, 255, 255, 0.6)"] {
+  color: var(--hdg-text-secondary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"][style*="background: rgb(78, 161, 255)"],
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"][style*="background: rgb(78, 161, 255)"]
+  * {
+  background-color: transparent;
+  color: var(--hdg-accent-on-fill) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [role="button"][style*="background: rgb(78, 161, 255)"] {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.18),
+    0 5px 14px var(--hdg-accent-glow) !important;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  [style*="rgb(255, 180, 84)"] {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  border-radius: 7px !important;
+  box-shadow: inset 0 0 0 1px var(--hdg-accent-stroke) !important;
+  color: var(--hdg-accent-ink) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+#QuickAccess-Menu
+  #quickaccess_content_5260355
+  .pdc-root
+  svg
+  path[style*="drop-shadow"] {
+  filter: none !important;
+}
+
+/* La regla genérica de iconos activos no debe rellenar pictogramas de trazo. */
+#QuickAccess-Menu
+  :is([role="tab"], [role="button"])
+  svg[fill="none"],
+#QuickAccess-Menu
+  :is([role="tab"], [role="button"])
+  svg[fill="none"]
+  path {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+#QuickAccess-Menu #quickaccess_tab_5260355:is([aria-selected="true"], .gpfocus) svg {
+  color: #fff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)) !important;
 }

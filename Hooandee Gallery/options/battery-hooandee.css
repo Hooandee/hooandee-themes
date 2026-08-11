@@ -36,10 +36,9 @@
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 6px;
   box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.28),
-    0 0 5px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 1px 3px rgba(0, 0, 0, 0.24),
+    0 0 4px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
   transition: border-color 140ms ease, box-shadow 140ms ease;
 }
 
@@ -99,9 +98,9 @@
   fill: rgba(255, 255, 255, 0.96) !important;
   stroke: rgba(0, 0, 0, 0.82) !important;
   stroke-linejoin: round;
-  stroke-width: 0.8px;
+  stroke-width: 0.5px;
   paint-order: stroke fill;
-  transform: translateX(5.25px);
+  transform: translateX(5.25px) scale(0.72);
   transform-box: fill-box;
   transform-origin: center;
   filter:
@@ -156,10 +155,9 @@
   > div::before {
   border-color: rgba(255, 210, 218, 0.78);
   box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.28),
-    0 0 7px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34));
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 1px 3px rgba(0, 0, 0, 0.24),
+    0 0 6px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34));
 }
 
 #header
@@ -222,10 +220,9 @@
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 7px;
   box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.28),
-    0 0 5px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 1px 3px rgba(0, 0, 0, 0.24),
+    0 0 4px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3));
   transform: translateX(-50%);
 }
 
@@ -283,8 +280,11 @@
   fill: rgba(255, 255, 255, 0.96) !important;
   stroke: rgba(0, 0, 0, 0.82) !important;
   stroke-linejoin: round;
-  stroke-width: 0.8px;
+  stroke-width: 0.5px;
   paint-order: stroke fill;
+  transform: scale(0.72);
+  transform-box: fill-box;
+  transform-origin: center;
   filter:
     drop-shadow(0 0 1px rgba(0, 0, 0, 0.82))
     drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
@@ -336,10 +336,9 @@
   div:has(> svg[width="19"][height="33"]):has(rect[fill="#E01D79" i])::before {
   border-color: rgba(255, 210, 218, 0.78);
   box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.28),
-    0 0 7px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34));
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 1px 3px rgba(0, 0, 0, 0.24),
+    0 0 6px var(--hdg-critical-glow, rgba(255, 82, 107, 0.34));
 }
 
 #QuickAccess-Menu

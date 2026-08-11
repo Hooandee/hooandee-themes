@@ -776,3 +776,20 @@ body,
     transition: none;
   }
 }
+
+/* Los iconos lineales deben conservar el hueco interior al seleccionarse. */
+#QuickAccess-Menu
+  :is([role="tab"], [role="button"])
+  svg[fill="none"],
+#QuickAccess-Menu
+  :is([role="tab"], [role="button"])
+  svg[fill="none"]
+  path {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+#QuickAccess-Menu #quickaccess_tab_5260355:is([aria-selected="true"], .gpfocus) svg {
+  color: #fff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)) !important;
+}
