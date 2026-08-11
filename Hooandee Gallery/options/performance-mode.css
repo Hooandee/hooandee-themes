@@ -1,5 +1,5 @@
 :root {
-  --hdg-glass-panel: rgba(15, 22, 30, 0.88);
+  --hdg-glass-panel: var(--hdg-glass-panel-performance);
 }
 
 #GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"]),
@@ -30,9 +30,9 @@
 }
 
 #header {
-  background-color: rgba(3, 7, 11, 0.78) !important;
+  background-color: var(--hdg-header-performance) !important;
 }
 
 #Footer {
-  background-color: rgba(2, 5, 8, 0.78) !important;
+  background-color: var(--hdg-footer-performance) !important;
 }

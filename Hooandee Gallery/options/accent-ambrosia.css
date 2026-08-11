@@ -7,4 +7,13 @@
   --hdg-accent-glow: rgba(183, 154, 239, 0.3);
   --hdg-focus-ring: rgba(238, 228, 255, 0.95);
   --hdg-accent-surface-focus: rgba(183, 154, 239, 0.16);
+  --hdg-accent-fill-light-start: #7655b3;
+  --hdg-accent-fill-light-end: #56358d;
+  --hdg-accent-fill-light: linear-gradient(180deg, var(--hdg-accent-fill-light-start), var(--hdg-accent-fill-light-end));
+  --hdg-accent-on-fill-light: #ffffff;
+  --hdg-accent-ink-light: #6747a2;
+  --hdg-focus-ring-light: rgba(118, 85, 179, 0.96);
+  --hdg-accent-stroke-light: rgba(118, 85, 179, 0.58);
+  --hdg-accent-glow-light: rgba(118, 85, 179, 0.3);
+  --hdg-accent-surface-focus-light: rgba(118, 85, 179, 0.14);
 }
