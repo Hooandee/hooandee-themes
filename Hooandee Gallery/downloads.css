@@ -61,6 +61,22 @@
   border-radius: inherit !important;
 }
 
+/* El artwork real de Descargas no siempre expone role="link". */
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  [data-rbd-draggable-id][role="button"]
+  div:has(> img) {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+#Main:has([data-rbd-droppable-context-id][role="list"])
+  [data-rbd-draggable-id][role="button"]
+  img {
+  border-radius: 10px !important;
+  display: block;
+  overflow: hidden;
+}
+
 #Main:has([data-rbd-droppable-context-id][role="list"])
   :is(h2, h3) {
   color: var(--hdg-text-primary) !important;
