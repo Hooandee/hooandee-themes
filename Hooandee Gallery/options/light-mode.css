@@ -549,6 +549,21 @@ html:root #Footer
   border-right-color: var(--hdg-glass-stroke-soft) !important;
 }
 
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab:not(.Active):not(.gpfocus) {
+  color: var(--hdg-text-primary) !important;
+  opacity: 0.84;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab:is(.Active, .gpfocus) {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  color: #fff !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListTab:is(.Active, .gpfocus) :is(svg, path) {
+  color: inherit !important;
+}
+
 #QuickAccess-Menu :is([role="tab"], [role="button"], [role="checkbox"], [role="combobox"]):not(.gpfocus):not([aria-selected="true"]):not([aria-checked="true"]) {
   color: var(--hdg-text-primary) !important;
 }
