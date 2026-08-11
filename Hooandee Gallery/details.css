@@ -36,6 +36,18 @@
   content: none !important;
 }
 
+/* El desplegable contiguo hereda un barrido verde animado de Steam al recibir foco. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:not([aria-label]):has(> svg:first-child + div)
+  + [role="button"][aria-label]:has(> svg:first-child)::before,
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:not([aria-label]):has(> svg:first-child + div)
+  + [role="button"][aria-label]:has(> svg:first-child)::after {
+  animation: none !important;
+  content: none !important;
+  transition: none !important;
+}
+
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *) {
   -webkit-backdrop-filter: blur(12px) saturate(1.16);
