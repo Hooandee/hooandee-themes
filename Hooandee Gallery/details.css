@@ -49,6 +49,13 @@
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:not([aria-label]):has(> svg:first-child + div)
+  + [role="button"][aria-label]:not(.gpfocus):has(> svg:first-child)
+  > svg:first-child {
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *) {
   -webkit-backdrop-filter: blur(12px) saturate(1.16);
   backdrop-filter: blur(12px) saturate(1.16);
