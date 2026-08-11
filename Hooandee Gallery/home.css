@@ -221,11 +221,26 @@
   )
   > [role="listitem"][data-id]
   [role="link"].gpfocus {
-  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.46);
+  box-shadow:
+    0 12px 18px rgba(0, 0, 0, 0.46),
+    0 0 22px var(--hdg-focus-glow);
   filter: brightness(1.04) saturate(1.025);
   outline: 1px solid var(--hdg-focus-color) !important;
   outline-offset: 5px;
   transform: translate3d(0, 10px, 0) !important;
+}
+
+/* Steam proyecta una copia del artwork a gran escala bajo el foco y el viewport
+ * la corta en seco. Conservamos el halo propio y retiramos solo esa capa hermana. */
+#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]
+  > div
+  > div:has(> div > div > [role="link"])
+  > div:has(> div > [role="link"])
+  > div:not(:has([role="link"])) {
+  display: none !important;
 }
 
 #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
@@ -430,8 +445,20 @@
     radial-gradient(circle at 50% 10%, var(--hdg-accent-glow), transparent 34%),
     linear-gradient(180deg, rgba(3, 7, 11, 0.7), rgba(3, 7, 11, 0.9)) !important;
   box-sizing: border-box;
-  padding: 106px 32px 108px !important;
-  scroll-padding: 106px 32px 108px !important;
+  padding: 122px 32px 108px !important;
+  scroll-padding: 122px 32px 108px !important;
+}
+
+/* Estas pestañas ya dibujan un foco redondeado en el control real. Steam añade
+ * además una capa absoluta rectangular; se desactiva únicamente en estos paneles. */
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
+  > div:has(
+    > div[style*="left:"][style*="top:"][style*="height:"][style*="width:"]:empty
+  )
+  > div[style*="left:"][style*="top:"][style*="height:"][style*="width:"]:empty {
+  display: none !important;
+  outline: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
@@ -461,6 +488,17 @@
   [role="button"]:has(img)
   img {
   border-radius: 17px 17px 12px 12px !important;
+}
+
+/* El tipo de contenido ya lo comunica la pestaña; Steam lo repite sobre cada
+ * noticia y esa fila termina bajo la navegación fija. Se conserva su hueco. */
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="listitem"][data-id]
+  > div:has(> [role="button"])
+  > :not([role="button"]) {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])

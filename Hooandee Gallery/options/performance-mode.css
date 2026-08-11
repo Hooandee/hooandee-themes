@@ -17,6 +17,9 @@
   [role="tablist"][aria-orientation="vertical"],
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *),
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg),
 #QuickAccess-Menu,
 #MainNavMenuContainer > [role="menu"][aria-label],
 [role="alert"]:not(:empty) > :first-child {

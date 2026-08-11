@@ -240,6 +240,91 @@
   transform: none !important;
 }
 
+/* VolumePopin: HUD transitorio observado como hijo directo de popup_target. */
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg) {
+  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
+  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 42%),
+    var(--hdg-glass-panel) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    var(--hdg-glass-shadow),
+    inset 0 1px rgba(255, 255, 255, 0.1) !important;
+  box-sizing: border-box;
+  height: auto !important;
+  isolation: isolate;
+  left: 12px !important;
+  min-height: 48px;
+  overflow: visible !important;
+  padding-block: 6px !important;
+  top: 12px !important;
+  width: min(268px, calc(100vw - 24px)) !important;
+}
+
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg)
+  > div:first-child {
+  border-radius: 13px;
+  min-width: 0;
+  overflow: visible !important;
+  padding-inline: 14px !important;
+}
+
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg)
+  [role="slider"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-block: 3px !important;
+}
+
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg)
+  [role="slider"]
+  .SliderTrack {
+  background: var(--hdg-control-track) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 999px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.32) !important;
+  box-sizing: border-box;
+}
+
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg)
+  [role="slider"]
+  .SliderTrack::before {
+  background: var(--hdg-accent-fill) !important;
+  border-radius: 999px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.2),
+    0 0 8px var(--hdg-accent-glow) !important;
+}
+
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg)
+  svg {
+  color: var(--hdg-text-primary) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.38));
+}
+
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg)
+  > div:first-child
+  > :last-child:not(:first-child) {
+  color: var(--hdg-text-secondary) !important;
+}
+
 #GamepadUI_Full_Root :is(.DialogButton, button[role="combobox"]) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
@@ -524,6 +609,12 @@
   }
 
   #header > div:has(> input[type="search"]) {
+    background: var(--hdg-glass-panel-fallback) !important;
+  }
+
+  #popup_target
+    > .BasicUI
+    > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg) {
     background: var(--hdg-glass-panel-fallback) !important;
   }
 }
