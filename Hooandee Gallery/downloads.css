@@ -104,16 +104,14 @@
     button[aria-label="Pause download"],
     button[aria-label="Resume download"]
   ) {
-  background:
-    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 54%),
-    var(--hdg-control-surface) !important;
-  border: 1px solid var(--hdg-glass-stroke) !important;
+  background: var(--hdg-accent-fill) !important;
+  border: 1px solid var(--hdg-accent-stroke) !important;
   border-radius: 12px !important;
   box-shadow:
-    inset 0 1px var(--hdg-glass-highlight),
-    0 6px 14px rgba(0, 0, 0, 0.22) !important;
+    inset 0 1px rgba(255, 255, 255, 0.22),
+    0 6px 14px var(--hdg-accent-glow) !important;
   box-sizing: border-box !important;
-  color: var(--hdg-text-primary) !important;
+  color: var(--hdg-accent-on-fill) !important;
   display: grid !important;
   height: 38px !important;
   min-height: 38px !important;
