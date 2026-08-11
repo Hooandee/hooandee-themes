@@ -48,15 +48,16 @@
   color: #fff !important;
 }
 
-/* Menú de compartir multimedia: Steam anida sus acciones y contactos dentro
-   de un segundo panel opaco, en vez de exponerlos como hijos del menú. */
+/* Steam envuelve los menús en un host rectangular que recorta sus sombras. */
 #GamepadUI_Full_Root
   .BasicUIContextMenu
-  > div:has(> [role="menu"] > div > [role="menuitem"]) {
+  > div:has(> [role="menu"] > [role="menuitem"]) {
   border-radius: var(--hdg-glass-radius-menu) !important;
   overflow: visible !important;
 }
 
+/* Menú de compartir multimedia: Steam anida sus acciones y contactos dentro
+   de un segundo panel opaco, en vez de exponerlos como hijos del menú. */
 #GamepadUI_Full_Root
   [role="menu"]:has(> div > [role="menuitem"]):has(> [role="menuitem"]) {
   filter: none !important;
