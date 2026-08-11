@@ -78,6 +78,35 @@
   filter: brightness(1.06) saturate(1.03);
 }
 
+/* Descarga activa: progreso integrado bajo la acción principal. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="progressbar"] {
+  background:
+    linear-gradient(180deg, var(--hdg-glass-highlight), transparent 64%),
+    var(--hdg-control-track) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 999px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 -1px rgba(0, 0, 0, 0.18) !important;
+  box-sizing: border-box;
+  height: 8px !important;
+  margin-top: 6px !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="progressbar"]
+  > :first-child {
+  background: var(--hdg-accent-fill) !important;
+  border-radius: inherit !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.22),
+    0 0 8px var(--hdg-accent-glow) !important;
+  height: 100% !important;
+  transition: width 180ms linear;
+}
+
 /* Steam oscurece los glifos de estas dos acciones al mover el foco real. */
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="button"][aria-label]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *),
@@ -323,6 +352,12 @@
 @media (prefers-reduced-motion: reduce) {
   #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
     :is([role="button"], [role="tab"]):not(#header *):not([role="dialog"] *) {
+    transition: none;
+  }
+
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+    [role="progressbar"]
+    > :first-child {
     transition: none;
   }
 }
