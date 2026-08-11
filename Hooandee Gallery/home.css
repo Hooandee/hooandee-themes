@@ -557,6 +557,87 @@
   content: none !important;
 }
 
+/* Los carruseles secundarios miden exactamente lo mismo que sus cards. Un
+ * outline exterior queda cortado por su viewport; aquí el foco se resuelve
+ * dentro de la propia superficie, conservando contraste y geometría limpia. */
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
+  :is([role="button"], [role="link"]).gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), transparent 56%),
+    var(--hdg-accent-surface-focus) !important;
+  border: 1px solid var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    inset 0 0 18px var(--hdg-accent-glow) !important;
+  outline-offset: -2px !important;
+}
+
+/* El lector de noticias no expone role=dialog: Steam lo compone como un
+ * carrusel de artículos. La relación estructural evita tratar otros grids. */
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel:has(> [role="button"] > div > img) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 54%),
+    rgba(8, 14, 21, 0.84) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--hdg-glass-shadow) !important;
+  box-sizing: border-box;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img) {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.08), transparent 42%),
+    rgba(7, 12, 18, 0.78) !important;
+  border-radius: 18px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08) !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="listitem"]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:has(> img)
+  > img:first-child {
+  border-radius: 18px 18px 0 0 !important;
+}
+
+/* La portada y la información comercial forman una única card: la imagen
+ * abre la pieza y la franja de precio es quien cierra sus esquinas. */
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Recommended_Content"]
+  [role="listitem"][data-id]
+  [role="link"]:has(.StoreSalePriceWidgetContainer)
+  :is(img, div:has(> img)) {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 13px !important;
+  border-top-right-radius: 13px !important;
+}
+
+#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+  [role="tabpanel"][id$="Recommended_Content"]
+  [role="link"]:has(.StoreSalePriceWidgetContainer)
+  > :last-child:has(.StoreSalePriceWidgetContainer) {
+  background:
+    linear-gradient(90deg, var(--hdg-accent-surface-focus), rgba(6, 11, 17, 0.88)) !important;
+  border-top: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 0 0 13px 13px !important;
+  overflow: hidden !important;
+}
+
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
