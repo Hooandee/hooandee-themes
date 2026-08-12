@@ -1071,7 +1071,11 @@
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
   box-sizing: border-box;
   flex-shrink: 0 !important;
-  margin-inline: 6px !important;
+  /* La fila sólo dispone de 830px en 1280×720. Con el margen nativo amplio,
+     el sexto logro expandido rebasa el viewport y hace que toda la hilera
+     parezca desplazada. Cuatro píxeles entre tarjetas mantienen aire y dejan
+     dentro tanto el panel activo como su halo. */
+  margin-inline: 2px !important;
   outline: none !important;
   overflow: visible !important;
   position: relative !important;
