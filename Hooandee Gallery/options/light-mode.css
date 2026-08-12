@@ -1013,7 +1013,14 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="WhatsNew_Content"]
-  :is([role="generic"], [role="link"], [role="button"], div:has(> .Panel.Focusable:only-child)):not(.gpfocus) {
+  :is([role="link"], [role="button"]):not(.gpfocus),
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="generic"]:not(.gpfocus):is(
+    :has(> [role="list"] > [role="link"]),
+    :has(> [role="button"]:only-child),
+    :has(> img)
+  ) {
   background-color: var(--hdg-glass-surface) !important;
   border-color: var(--hdg-glass-stroke-soft) !important;
 }
@@ -1666,6 +1673,77 @@ html:root #Footer
   -webkit-text-fill-color: currentColor;
 }
 
+/* Vista completa de logros: se monta fuera de la ficha y no hereda la tinta
+   clara de aquella bandeja. */
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"]),
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  > .Panel.Focusable:not(:first-child) {
+  background: var(--hdg-page-background) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  .Panel.Focusable:has([role="tabpanel"][id$="achievements_Content"]):not(
+    [role="tabpanel"]
+  ) {
+  background: transparent !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  .Panel.Focusable:has(
+    + .Panel.Focusable [role="tabpanel"][id$="achievements_Content"]
+  ) {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(236, 242, 246, 0.3)),
+    var(--hdg-glass-surface) !important;
+  border-bottom-color: var(--hdg-glass-stroke-soft) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  div:has(> div:nth-child(2) img[src*="/library_"])
+  > div:first-child:empty {
+  background:
+    linear-gradient(180deg, rgba(245, 249, 251, 0.18), rgba(229, 237, 242, 0.86)) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  div:has(> div > [role="tablist"]):has(
+    [role="tabpanel"][id$="achievements_Content"]
+  ) {
+  background: transparent !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  :is(div, span, p, h1, h2, h3, label, [role="tab"], [role="combobox"]) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"])),
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  > .Panel.Focusable:not(:first-child) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.7), transparent 54%),
+    var(--hdg-glass-surface) !important;
+  border-color: var(--hdg-glass-stroke-soft) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"])) {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+}
+
+html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"]))
+  :is(div, span, p) {
+  color: var(--hdg-text-primary) !important;
+}
+
 /* Los rótulos sobre capturas conservan blanco: siguen viviendo encima del artwork. */
 html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
@@ -1749,7 +1827,14 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="WhatsNew_Content"]
-  :is([role="generic"], [role="link"], [role="button"], div:has(> .Panel.Focusable:only-child)):not(.gpfocus) {
+  :is([role="link"], [role="button"]):not(.gpfocus),
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="generic"]:not(.gpfocus):is(
+    :has(> [role="list"] > [role="link"]),
+    :has(> [role="button"]:only-child),
+    :has(> img)
+  ) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.7), transparent 52%),
     var(--hdg-glass-surface) !important;
