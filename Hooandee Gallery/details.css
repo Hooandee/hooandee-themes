@@ -1036,7 +1036,7 @@
      debe incluir el halo de 5px, no coincidir con la tarjeta expandida. */
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  padding: 7px 10px !important;
+  padding: 6px 10px !important;
   scroll-padding-inline: 12px !important;
 }
 
@@ -1075,6 +1075,10 @@
   outline: none !important;
   overflow: visible !important;
   position: relative !important;
+  /* Steam centra el elemento antes de que termine su expansión nativa. Si se
+     anima width/height, al volver a la pestaña el logro recordado puede acabar
+     fuera del viewport. La respuesta de color permanece contenida. */
+  transition: background-color 120ms ease, border-color 120ms ease !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -1084,7 +1088,7 @@
   > [role="button"]:is(.gpfocus, :has(.gpfocus)) {
   background: var(--hdg-accent-surface-focus) !important;
   border-color: transparent !important;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -1103,7 +1107,7 @@
   background: transparent !important;
   border: 1px solid var(--hdg-focus-ring) !important;
   border-radius: 18px !important;
-  box-shadow: 0 5px 18px var(--hdg-accent-glow) !important;
+  box-shadow: none !important;
   content: "" !important;
   inset: -5px !important;
   pointer-events: none !important;

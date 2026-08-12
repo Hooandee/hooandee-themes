@@ -796,13 +796,44 @@
   min-width: min(360px, 58%) !important;
 }
 
-/* Detalles de red: cada dato es una fila compacta de cristal y los encabezados
- * IPv4/IPv6 separan grupos sin recrear placas pesadas. */
+/* Detalles de red: el modal usa toda la altura segura entre header y footer.
+ * La versión nativa reserva demasiado aire alrededor y deja IPv4 fuera del
+ * primer viewport en pantallas de 800/900 px lógicos. */
+#GamepadUI_Full_Root
+  .ModalOverlayContent.active:has(
+    .DialogContent.GenericConfirmDialog .DialogHeader + .DialogBody > .DialogControlsSectionHeader
+  )
+  > .Panel:has(.DialogContent.GenericConfirmDialog) {
+  box-sizing: border-box;
+  padding: 4px 20px !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog:has(.DialogHeader + .DialogBody > .DialogControlsSectionHeader) {
+  height: calc(100% - 8px) !important;
+  max-height: 417px !important;
+  padding: 5px 18px !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel) {
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr) auto !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+/* Cada dato conserva una fila legible y los encabezados IPv4/IPv6 separan
+ * grupos sin recrear placas pesadas. */
 #GamepadUI_Full_Root
   .DialogContent.GenericConfirmDialog
   [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
   > .DialogHeader {
   color: var(--hdg-text-primary) !important;
+  font-size: clamp(24px, 3.1vw, 28px) !important;
+  line-height: 1.08 !important;
+  margin-bottom: 4px !important;
 }
 
 #GamepadUI_Full_Root
@@ -813,10 +844,11 @@
   color: var(--hdg-text-primary) !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 6px !important;
-  overflow: visible auto !important;
-  padding: 4px 4px 10px !important;
-  scroll-padding-block: 10px !important;
+  gap: 4px !important;
+  min-height: 0 !important;
+  overflow: hidden auto !important;
+  padding: 2px 8px 4px !important;
+  scroll-padding-block: 6px !important;
 }
 
 #GamepadUI_Full_Root
@@ -826,7 +858,12 @@
   > .DialogControlsSectionHeader {
   color: var(--hdg-text-primary) !important;
   flex: 0 0 auto !important;
-  margin: 12px 4px 1px !important;
+  font-size: 15px !important;
+  height: 18px !important;
+  line-height: 18px !important;
+  margin: 3px 4px 0 !important;
+  min-height: 18px !important;
+  padding: 0 !important;
 }
 
 #GamepadUI_Full_Root
@@ -844,16 +881,16 @@
   color: var(--hdg-text-primary) !important;
   flex: 0 0 auto !important;
   margin: 0 !important;
-  min-height: 42px !important;
+  min-height: 35px !important;
   outline: 1px solid transparent !important;
   outline-offset: 2px !important;
   overflow: hidden !important;
-  padding: 8px 12px !important;
+  padding: 5px 10px !important;
 }
 
-/* El cuerpo es una columna desplazable. Sin bloquear el encogimiento flex,
- * Chromium comprimía cada fila a ~26px y recortaba texto de 20–23px más el
- * padding. Las acciones dobles conservan su propia altura sin otra placa. */
+/* El cuerpo sigue siendo desplazable como fallback para traducciones largas,
+ * pero cabe completo de entrada en 902 × 508. Las acciones dobles conservan
+ * su propia altura y no reciben una segunda placa de foco. */
 #GamepadUI_Full_Root
   .DialogContent.GenericConfirmDialog
   [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
@@ -862,9 +899,54 @@
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
-  min-height: 56px !important;
+  height: 46px !important;
+  max-height: 46px !important;
+  min-height: 46px !important;
+  outline: 0 !important;
   overflow: visible !important;
-  padding: 6px 0 !important;
+  padding: 1px 0 !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel:has(.DialogButton)
+  .Panel:has(.DialogButton) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  gap: 8px !important;
+  height: 44px !important;
+  margin: 0 !important;
+  max-height: 44px !important;
+  min-height: 44px !important;
+  outline: 0 !important;
+  width: 100% !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel:has(.DialogButton)
+  .Panel:has(.DialogButton)
+  > div:has(> .DialogButton) {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel:has(.DialogButton)
+  .DialogButton {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-block: 6px !important;
+  width: 100% !important;
 }
 
 #GamepadUI_Full_Root
@@ -880,7 +962,7 @@
   .DialogContent.GenericConfirmDialog
   [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
   > .DialogBody
-  > .Panel:is(.gpfocus, .gpfocuswithin) {
+  > .Panel:not(:has(.DialogButton)):is(.gpfocus, .gpfocuswithin) {
   background: var(--hdg-accent-surface-focus) !important;
   border-color: var(--hdg-accent-stroke) !important;
   box-shadow:
@@ -893,12 +975,12 @@
   .DialogContent.GenericConfirmDialog
   [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
   > .DialogBody
-  > .Panel:is(.gpfocus, .gpfocuswithin)::before,
+  > .Panel:not(:has(.DialogButton)):is(.gpfocus, .gpfocuswithin)::before,
 #GamepadUI_Full_Root
   .DialogContent.GenericConfirmDialog
   [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
   > .DialogBody
-  > .Panel:is(.gpfocus, .gpfocuswithin)::after {
+  > .Panel:not(:has(.DialogButton)):is(.gpfocus, .gpfocuswithin)::after {
   content: none !important;
 }
 
@@ -914,6 +996,8 @@
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
+  min-height: 43px !important;
+  padding: 1px 0 0 !important;
 }
 
 #GamepadUI_Full_Root
@@ -922,7 +1006,7 @@
   > .DialogFooter
   .DialogButton {
   margin-inline: auto !important;
-  min-height: 42px !important;
+  min-height: 40px !important;
   min-width: min(280px, 48%) !important;
 }
 
