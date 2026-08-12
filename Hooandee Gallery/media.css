@@ -39,10 +39,10 @@
 
 #Main [role="grid"]:has(
     [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] [role="button"] > :is(img, video, canvas),
+  ) [role="row"] [role="button"] > :is(img:not([src*="/play_icon"]), video, canvas),
 #Main [role="grid"]:has(
     [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] [role="button"] :is(img, video, canvas):not([role="presentation"]) {
+  ) [role="row"] [role="button"] :is(img:not([src*="/play_icon"]), video, canvas):not([role="presentation"]) {
   border-radius: 16px !important;
   display: block;
   height: 100% !important;

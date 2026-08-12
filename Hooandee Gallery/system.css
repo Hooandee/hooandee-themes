@@ -686,9 +686,7 @@
     var(--hdg-glass-panel) !important;
   border: 1px solid var(--hdg-glass-stroke) !important;
   border-radius: var(--hdg-glass-radius-panel) !important;
-  box-shadow:
-    0 28px 64px rgba(0, 0, 0, 0.52),
-    inset 0 1px rgba(255, 255, 255, 0.11) !important;
+  box-shadow: var(--hdg-glass-shadow) !important;
   box-sizing: border-box;
   max-width: calc(100vw - 48px) !important;
   overflow: hidden !important;
@@ -720,6 +718,192 @@
   [role="dialog"]
   .DialogButton {
   min-height: 44px !important;
+}
+
+/* Red: contrato contrastado con el bundle actual de GamepadUI. La conexión se
+ * reconoce por su tira de SVG + estado aria-live; los detalles por header,
+ * secciones y campos semánticos. No depende del idioma ni de clases hash. */
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  > .DialogBody {
+  background: transparent !important;
+  color: var(--hdg-text-primary) !important;
+  gap: 18px !important;
+}
+
+/* Estado de conexión: los iconos flotan en el cristal y la acción pierde la
+ * banda azul de Steam. */
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  > .DialogBody
+  > div:first-child {
+  background:
+    radial-gradient(circle at 50% 52%, var(--hdg-accent-surface-focus), transparent 62%) !important;
+  border: 0 !important;
+  color: var(--hdg-text-primary) !important;
+  filter: none !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  > .DialogBody
+  > div:first-child
+  svg {
+  color: var(--hdg-text-primary) !important;
+  filter: drop-shadow(0 3px 8px var(--hdg-shadow-color));
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  > .DialogBody
+  > div:last-child,
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  > .DialogBody
+  > div:last-child
+  > .Panel,
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  > .DialogBody
+  > div:last-child
+  .Panel:has(.DialogButton) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  [aria-live="polite"] {
+  color: var(--hdg-text-primary) !important;
+  text-shadow: 0 2px 8px var(--hdg-shadow-color) !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:not(:has(> .DialogHeader)):has(> .DialogBody > div:first-child:nth-last-child(2) svg):has(> .DialogBody > div:last-child [aria-live="polite"])
+  .DialogButton {
+  margin-inline: auto !important;
+  min-height: 44px !important;
+  min-width: min(360px, 58%) !important;
+}
+
+/* Detalles de red: cada dato es una fila compacta de cristal y los encabezados
+ * IPv4/IPv6 separan grupos sin recrear placas pesadas. */
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogHeader {
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody {
+  background: transparent !important;
+  color: var(--hdg-text-primary) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  overflow: visible auto !important;
+  padding: 4px 4px 10px !important;
+  scroll-padding-block: 10px !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .DialogControlsSectionHeader {
+  color: var(--hdg-text-primary) !important;
+  margin: 12px 4px 1px !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 58%),
+    var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin: 0 !important;
+  outline: 1px solid transparent !important;
+  outline-offset: 2px !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel
+  :is(div, span) {
+  color: inherit !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel:is(.gpfocus, .gpfocuswithin) {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px var(--hdg-glass-highlight),
+    0 5px 14px var(--hdg-accent-glow) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel:is(.gpfocus, .gpfocuswithin)::before,
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogBody
+  > .Panel:is(.gpfocus, .gpfocuswithin)::after {
+  content: none !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogFooter,
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogFooter
+  .Panel {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog
+  [role="dialog"]:has(> .DialogHeader):has(> .DialogBody > .DialogControlsSectionHeader + .Panel)
+  > .DialogFooter
+  .DialogButton {
+  margin-inline: auto !important;
+  min-height: 42px !important;
+  min-width: min(280px, 48%) !important;
 }
 
 #header {

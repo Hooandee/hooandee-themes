@@ -306,10 +306,11 @@
     inset 0 1px rgba(255, 255, 255, 0.05),
     inset 0 -1px rgba(0, 0, 0, 0.18) !important;
   height: 6px !important;
-  margin-inline: 8px !important;
+  margin-left: 8px !important;
+  margin-right: 68px !important;
   overflow: hidden !important;
   transform: translateY(-2px) !important;
-  width: calc(100% - 16px) !important;
+  width: calc(100% - 76px) !important;
 }
 
 #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
