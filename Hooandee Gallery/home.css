@@ -271,6 +271,61 @@
   box-shadow: none;
 }
 
+/* Steam no expone el progreso de descarga del carrusel con role=progressbar.
+ * Lo acotamos por su estructura (relleno porcentual dentro de la card) para
+ * conservar el ancho dinámico sin depender de sus clases generadas. */
+#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]
+  div:has(> div[style*="width:"][style*="%"]),
+#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]
+  div:has(> div[style*="width:"][style*="%"])
+  > div[style*="width:"][style*="%"] {
+  border-radius: 999px !important;
+  box-sizing: border-box !important;
+  min-height: 6px !important;
+}
+
+#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]
+  div:has(> div[style*="width:"][style*="%"]) {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0) 52%),
+    var(--hdg-control-track) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 -1px rgba(0, 0, 0, 0.18) !important;
+  height: 6px !important;
+  margin-inline: 8px !important;
+  overflow: hidden !important;
+  transform: translateY(-2px) !important;
+  width: calc(100% - 16px) !important;
+}
+
+#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"]
+  )
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]
+  div:has(> div[style*="width:"][style*="%"])
+  > div[style*="width:"][style*="%"] {
+  background: var(--hdg-accent-fill) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.28),
+    inset 0 -1px rgba(0, 0, 0, 0.14) !important;
+  height: 100% !important;
+}
+
 /* El halo protagonista gana únicamente dentro del carrusel de Inicio. */
 #GamepadUI_Full_Root:has(#Main):has(
     [role="listitem"][data-id="GoToLibrary"]
