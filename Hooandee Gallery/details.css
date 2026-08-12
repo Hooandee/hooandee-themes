@@ -1081,6 +1081,19 @@
   transition: background-color 120ms ease, border-color 120ms ease !important;
 }
 
+/* Steam da a los logros contraídos una huella vertical más alta que su ancho.
+   Igualamos únicamente los pares no enfocados; el activo conserva el panel
+   expandido con texto y la navegación sigue calculándose con su tamaño real. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]:not(.gpfocus):not(:has(.gpfocus)) {
+  aspect-ratio: 1 / 1 !important;
+  height: 76px !important;
+  width: 76px !important;
+}
+
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
