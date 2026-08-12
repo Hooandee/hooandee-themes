@@ -1722,7 +1722,7 @@ html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"]
 
 html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"])),
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img),
 html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
   > .Panel.Focusable:not(:first-child) {
@@ -1733,13 +1733,15 @@ html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"]
 }
 
 html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
-  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"])) {
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img) {
   background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
+  border-color: transparent !important;
 }
 
 html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
-  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"]))
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img)
   :is(div, span, p) {
   color: var(--hdg-text-primary) !important;
 }

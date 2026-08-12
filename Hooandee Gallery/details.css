@@ -1079,10 +1079,8 @@
   > [role="listitem"]
   > [role="button"]:is(.gpfocus, :has(.gpfocus)) {
   background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.1),
-    0 7px 18px var(--hdg-accent-glow) !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1) !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -1128,76 +1126,21 @@
   overflow: hidden !important;
 }
 
-/* Los assets de logros incluyen un bisel rectangular dentro del propio JPG.
-   La squircle vive en el wrapper y un recorte leve elimina esas esquinas sin
-   cambiar la caja de navegación ni invadir el halo exterior. */
+/* El marco forma parte del propio artwork. Se conserva completo y rectangular:
+   el vidrio redondeado pertenece a la tarjeta, no al icono del logro. */
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="button"]
-  div:has(> img[src*="/community_assets/images/apps/"]),
+  :is([role="link"], div:has(> img[src*="/community_assets/images/apps/"]), img[src*="/community_assets/images/apps/"]),
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="link"]
-  div:has(> img[src*="/community_assets/images/apps/"]),
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
-  [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img[src*="/community_assets/images/apps/"])
-  div:has(> img[src*="/community_assets/images/apps/"]) {
-  border-radius: 11px !important;
-  isolation: isolate;
-  overflow: hidden !important;
-  position: relative;
-}
-
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
-  [role="tabpanel"][id$="YourStuff_Content"]
-  [role="list"]
-  > [role="listitem"]
-  > [role="button"]
-  img[src*="/community_assets/images/apps/"],
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
-  [role="tabpanel"][id$="WhatsNew_Content"]
-  [role="link"]
-  img[src*="/community_assets/images/apps/"],
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
-  [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img[src*="/community_assets/images/apps/"])
-  img[src*="/community_assets/images/apps/"] {
-  border: 0 !important;
+  :is(div:has(> img[src*="/community_assets/images/apps/"]), img[src*="/community_assets/images/apps/"]) {
   border-radius: 0 !important;
-  height: 100% !important;
-  max-height: none !important;
-  max-width: none !important;
-  object-fit: cover !important;
-  transform: scale(1.075) !important;
-  transform-origin: center !important;
-  width: 100% !important;
-}
-
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
-  [role="tabpanel"][id$="YourStuff_Content"]
-  [role="list"]
-  > [role="listitem"]
-  > [role="button"]
-  div:has(> img[src*="/community_assets/images/apps/"])::after,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
-  [role="tabpanel"][id$="WhatsNew_Content"]
-  [role="link"]
-  div:has(> img[src*="/community_assets/images/apps/"])::after,
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
-  [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img[src*="/community_assets/images/apps/"])
-  div:has(> img[src*="/community_assets/images/apps/"])::after {
-  border: 1px solid var(--hdg-glass-stroke-soft) !important;
-  border-radius: inherit !important;
-  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
-  content: "" !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  position: absolute !important;
-  z-index: 1 !important;
+  overflow: visible !important;
+  transform: none !important;
 }
 
 /* El degradado nativo vive sobre la propia imagen y produce picos negros. */
@@ -1600,7 +1543,7 @@
    evita el corte contra el contenedor de desplazamiento. */
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"])) {
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 56%),
     var(--hdg-settings-row-surface) !important;
@@ -1611,46 +1554,62 @@
   margin-block: 6px !important;
   outline: none !important;
   overflow: visible !important;
-  position: relative !important;
+  position: absolute !important;
 }
 
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"]))
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   > div {
   border-radius: 13px !important;
   box-sizing: border-box;
-  overflow: hidden !important;
-  padding: 7px !important;
+  overflow: visible !important;
+  padding: 5px 7px !important;
 }
 
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"]))
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   img {
-  border-radius: 10px !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   display: block;
-  overflow: hidden !important;
+  overflow: visible !important;
+  transform: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"]))
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
+  div:has(> img[src*="/community_assets/images/apps/"]) {
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
+  div:has(> img[src*="/community_assets/images/apps/"])::after {
+  content: none !important;
+}
+
+#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   img::before,
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable:has(> div img):not(:has([role="tabpanel"]))
+  .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   img::after {
   content: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"])) {
+  .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img) {
   background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  box-shadow: 0 7px 18px var(--hdg-accent-glow) !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Steam dibuja un rectángulo móvil como primer hijo del contenedor de filas.
@@ -1681,13 +1640,13 @@
 
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"]))::before {
+  .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img)::before {
   content: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
   [role="tabpanel"][id$="achievements_Content"]
-  .Panel.Focusable.gpfocus:has(> div img):not(:has([role="tabpanel"]))::after {
+  .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img)::after {
   background: transparent !important;
   border: 1px solid var(--hdg-focus-ring) !important;
   border-radius: 19px !important;
