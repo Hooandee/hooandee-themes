@@ -1128,6 +1128,78 @@
   overflow: hidden !important;
 }
 
+/* Los assets de logros incluyen un bisel rectangular dentro del propio JPG.
+   La squircle vive en el wrapper y un recorte leve elimina esas esquinas sin
+   cambiar la caja de navegación ni invadir el halo exterior. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]
+  div:has(> img[src*="/community_assets/images/apps/"]),
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="link"]
+  div:has(> img[src*="/community_assets/images/apps/"]),
+#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable:has(> div img[src*="/community_assets/images/apps/"])
+  div:has(> img[src*="/community_assets/images/apps/"]) {
+  border-radius: 11px !important;
+  isolation: isolate;
+  overflow: hidden !important;
+  position: relative;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]
+  img[src*="/community_assets/images/apps/"],
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="link"]
+  img[src*="/community_assets/images/apps/"],
+#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable:has(> div img[src*="/community_assets/images/apps/"])
+  img[src*="/community_assets/images/apps/"] {
+  border: 0 !important;
+  border-radius: 0 !important;
+  height: 100% !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  transform: scale(1.075) !important;
+  transform-origin: center !important;
+  width: 100% !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]
+  div:has(> img[src*="/community_assets/images/apps/"])::after,
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="link"]
+  div:has(> img[src*="/community_assets/images/apps/"])::after,
+#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+  [role="tabpanel"][id$="achievements_Content"]
+  .Panel.Focusable:has(> div img[src*="/community_assets/images/apps/"])
+  div:has(> img[src*="/community_assets/images/apps/"])::after {
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: inherit !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  content: "" !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: 1 !important;
+}
+
 /* El degradado nativo vive sobre la propia imagen y produce picos negros. */
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="YourStuff_Content"]
