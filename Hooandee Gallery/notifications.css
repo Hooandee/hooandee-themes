@@ -52,6 +52,43 @@ body,
   width: 100% !important;
 }
 
+/* En las conexiones de amigos, Steam añade una franja de presencia a toda
+   altura. Dentro del avatar compacto se convierte en un indicador discreto. */
+[role="alert"]:not(:empty)
+  > :first-child
+  > .avatarHolder:has(> .avatarStatus):has(> img.avatar) {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+[role="alert"]:not(:empty)
+  > :first-child
+  > .avatarHolder:has(> .avatarStatus):has(> img.avatar)
+  > img.avatar {
+  border-radius: 10px !important;
+}
+
+[role="alert"]:not(:empty)
+  > :first-child
+  > .avatarHolder:has(> img.avatar)
+  > .avatarStatus {
+  border: 2px solid var(--hdg-glass-panel-fallback) !important;
+  border-radius: 50% !important;
+  bottom: 1px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.36) !important;
+  box-sizing: border-box;
+  height: 10px !important;
+  left: auto !important;
+  max-height: 10px !important;
+  max-width: 10px !important;
+  min-height: 10px !important;
+  min-width: 10px !important;
+  right: 1px !important;
+  top: auto !important;
+  transform: none !important;
+  width: 10px !important;
+}
+
 [role="alert"]:not(:empty) :is([role="button"], .gpfocus) {
   border-radius: var(--hdg-control-radius) !important;
 }
