@@ -717,6 +717,16 @@ html:root #Footer
   text-shadow: none !important;
 }
 
+#QuickAccess-Menu #quickaccess_content_3 .chatEntry {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(223, 231, 237, 0.42)) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .FriendsListContent > div:first-child div:only-child {
+  background:
+    linear-gradient(180deg, rgba(28, 46, 59, 0.1), transparent) !important;
+}
+
 #QuickAccess-Menu #quickaccess_content_3 .chatEntry textarea[role="button"],
 #QuickAccess-Menu #quickaccess_content_3 .chatEntry button[role="button"] {
   box-shadow:
