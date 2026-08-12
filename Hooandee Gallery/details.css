@@ -461,6 +461,7 @@
   [role="list"]
   > [role="link"]
   .avatarHolder:has(> .avatarStatus):has(> img.avatar) {
+  border: 0 !important;
   border-radius: 10px 0 0 10px !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24) !important;
   overflow: hidden !important;
@@ -474,10 +475,12 @@
   > [role="link"]
   .avatarHolder:has(> .avatarStatus):has(> img.avatar)
   > img.avatar {
+  border: 0 !important;
   border-radius: 10px 0 0 10px !important;
   box-shadow: none !important;
   height: 100% !important;
   object-fit: cover !important;
+  position: relative !important;
   width: calc(100% - 3px) !important;
 }
 
@@ -500,6 +503,13 @@
   top: 0 !important;
   transform: none !important;
   width: 3px !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  .avatarHolder:has(> .avatarStatus):has(> img.avatar)
+  > .avatarFrame {
+  display: none !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])

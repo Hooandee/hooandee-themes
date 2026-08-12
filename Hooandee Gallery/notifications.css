@@ -58,7 +58,9 @@ body,
 [role="alert"]:not(:empty)
   > :first-child
   > .avatarHolder:has(> .avatarStatus):has(> img.avatar) {
+  border: 0 !important;
   border-radius: 10px 0 0 10px !important;
+  box-shadow: none !important;
   overflow: hidden !important;
   position: relative !important;
 }
@@ -67,9 +69,12 @@ body,
   > :first-child
   > .avatarHolder:has(> .avatarStatus):has(> img.avatar)
   > img.avatar {
+  border: 0 !important;
   border-radius: 10px 0 0 10px !important;
+  box-shadow: none !important;
   height: 100% !important;
   object-fit: cover !important;
+  position: relative !important;
   width: calc(100% - 3px) !important;
 }
 
@@ -91,6 +96,13 @@ body,
   top: 0 !important;
   transform: none !important;
   width: 3px !important;
+}
+
+[role="alert"]:not(:empty)
+  > :first-child
+  > .avatarHolder:has(> .avatarStatus):has(> img.avatar)
+  > .avatarFrame {
+  display: none !important;
 }
 
 [role="alert"]:not(:empty) :is([role="button"], .gpfocus) {

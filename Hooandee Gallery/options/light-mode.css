@@ -12,6 +12,9 @@ html:root {
   --hdg-accent-surface-focus: var(--hdg-accent-surface-focus-light);
   --hdg-critical: #c92f46;
   --hdg-critical-glow: rgba(201, 47, 70, 0.26);
+  --hdg-alert-overlay: rgba(255, 255, 255, 0.68);
+  --hdg-alert-ink: #453a2e;
+  --hdg-alert-stroke: rgba(80, 61, 40, 0.32);
   --hdg-page-background:
     radial-gradient(circle at 18% 8%, var(--hdg-accent-surface-focus), transparent 34%),
     linear-gradient(145deg, #f7fafc, #e5edf2 72%);

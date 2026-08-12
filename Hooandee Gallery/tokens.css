@@ -19,6 +19,9 @@
   --hdg-accent-surface-focus-light: rgba(39, 109, 150, 0.14);
   --hdg-critical: #ff526b;
   --hdg-critical-glow: rgba(255, 82, 107, 0.34);
+  --hdg-alert-overlay: rgba(6, 10, 15, 0.5);
+  --hdg-alert-ink: #fff6dc;
+  --hdg-alert-stroke: rgba(255, 255, 255, 0.48);
   --hdg-page-background: linear-gradient(145deg, rgba(17, 26, 36, 0.94), rgba(6, 10, 15, 0.99) 64%);
   --hdg-overlay: rgba(4, 7, 10, 0.68);
   --hdg-shadow-color: rgba(0, 0, 0, 0.38);

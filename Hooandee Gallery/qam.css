@@ -199,6 +199,66 @@ body,
   scroll-padding-block: 12px 20px;
 }
 
+/* El aviso de batería es una cabecera propia de Notificaciones, no un toast ni
+ * una fila interactiva. Respira dentro del panel y conserva dos estados: aviso
+ * ámbar y crítico rojo por debajo del umbral ReallyLow de Steam. */
+#QuickAccess-Menu #quickaccess_content_0
+  > :last-child
+  > :first-child:not([role]):has(> svg + div + div) {
+  align-items: center !important;
+  /* Las capas dejan intacto el color semántico nativo: ámbar en aviso y rojo
+   * en crítico. Así no necesitamos conocer ninguna clase interna de Steam. */
+  background-image:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), transparent 54%),
+    linear-gradient(var(--hdg-alert-overlay), var(--hdg-alert-overlay)) !important;
+  border: 1px solid var(--hdg-alert-stroke) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.12),
+    0 5px 14px var(--hdg-shadow-color) !important;
+  box-sizing: border-box !important;
+  color: var(--hdg-alert-ink) !important;
+  display: grid !important;
+  gap: 8px !important;
+  grid-template-columns: 22px minmax(0, 1fr) auto !important;
+  margin: 4px 8px 6px !important;
+  min-height: 44px !important;
+  overflow: hidden !important;
+  padding: 8px 11px !important;
+  width: calc(100% - 16px) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_0
+  > :last-child
+  > :first-child:not([role]):has(> svg + div + div)
+  > svg {
+  color: currentColor !important;
+  height: 22px !important;
+  width: 22px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_0
+  > :last-child
+  > :first-child:not([role]):has(> svg + div + div)
+  > svg
+  + div {
+  color: currentColor !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.025em;
+  min-width: 0;
+}
+
+#QuickAccess-Menu #quickaccess_content_0
+  > :last-child
+  > :first-child:not([role]):has(> svg + div + div)
+  > :last-child {
+  color: currentColor !important;
+  font-size: 14px !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 750 !important;
+}
+
 #QuickAccess-Menu
   [role="tabpanel"][aria-labelledby="quickaccess_tab_0"]
   [role="button"] {
@@ -230,6 +290,45 @@ body,
   img {
   border-radius: 10px !important;
   object-fit: cover;
+}
+
+/* Actividad de amigos en Notificaciones: Steam separa la foto y una barra de
+ * presencia hermana. La foto termina recta y la barra completa exactamente su
+ * altura, de modo que ambas se leen como una sola pieza continua. */
+#QuickAccess-Menu #quickaccess_content_0
+  [role="button"]
+  > div:has(> div:first-child > img):has(> div:first-child + div + div)
+  > div:first-child:has(> img) {
+  border-radius: 10px 0 0 10px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_0
+  [role="button"]
+  > div:has(> div:first-child > img):has(> div:first-child + div + div)
+  > div:first-child:has(> img)
+  > img {
+  border: 0 !important;
+  border-radius: 10px 0 0 10px !important;
+  box-shadow: none !important;
+  display: block !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_0
+  [role="button"]
+  > div:has(> div:first-child > img):has(> div:first-child + div + div)
+  > div:first-child:has(> img)
+  + div {
+  align-self: center !important;
+  border: 0 !important;
+  border-radius: 0 2px 2px 0 !important;
+  box-shadow: none !important;
+  flex: 0 0 3px !important;
+  height: 44px !important;
+  margin: 0 !important;
+  min-height: 44px !important;
+  width: 3px !important;
 }
 
 /* Amigos y chat: dos planos de cristal integrados, sin divisor negro ni filas pesadas. */
@@ -348,14 +447,50 @@ body,
   border-radius: 10px !important;
 }
 
-#QuickAccess-Menu #quickaccess_content_3 .friend .avatarHolder > img.avatar {
-  border-radius: 9px 0 0 9px !important;
-  box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.3) !important;
+#QuickAccess-Menu #quickaccess_content_3 .friend
+  .avatarHolder:has(> .avatarStatus):has(> img.avatar) {
+  border: 0 !important;
+  border-radius: 9px 2px 2px 9px !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.26) !important;
+  box-sizing: border-box !important;
+  height: 31px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  width: 34px !important;
 }
 
-#QuickAccess-Menu #quickaccess_content_3 .friend .avatarHolder > .avatarStatus {
+#QuickAccess-Menu #quickaccess_content_3 .friend
+  .avatarHolder:has(> .avatarStatus):has(> img.avatar)
+  > img.avatar {
+  border: 0 !important;
+  border-radius: 9px 0 0 9px !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  inset: 0 3px 0 0 !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  width: calc(100% - 3px) !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .friend
+  .avatarHolder:has(> img.avatar)
+  > .avatarStatus {
+  border: 0 !important;
   border-radius: 0 2px 2px 0 !important;
-  transform: translateX(-1px) !important;
+  bottom: 0 !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  left: auto !important;
+  right: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  width: 3px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_3 .friend
+  .avatarHolder:has(> .avatarStatus):has(> img.avatar)
+  > .avatarFrame {
+  display: none !important;
 }
 
 #QuickAccess-Menu #quickaccess_content_3 .multiChatDialog {
