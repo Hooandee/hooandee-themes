@@ -79,7 +79,7 @@
 /* Visor: escenario seguro entre header y footer, con acciones integradas. */
 #Main .OpenedItemContainer {
   background:
-    radial-gradient(circle at 50% 38%, var(--hdg-accent-surface), transparent 48%),
+    radial-gradient(circle at 50% 38%, var(--hdg-accent-surface-focus), transparent 48%),
     rgba(3, 7, 12, 0.28) !important;
 }
 
@@ -109,7 +109,7 @@
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.08),
     0 18px 42px rgba(0, 0, 0, 0.34),
-    0 0 20px var(--hdg-accent-surface) !important;
+    0 0 20px var(--hdg-accent-surface-focus) !important;
   box-sizing: border-box;
   height: auto !important;
   max-height: 100% !important;
