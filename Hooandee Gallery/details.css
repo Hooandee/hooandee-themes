@@ -1014,7 +1014,7 @@
   > div:has([role="list"] [role="button"]),
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="YourStuff_Content"]
-  div:has(> [role="list"]:has([role="button"])) {
+  div:has(> [role="list"] > [role="listitem"] > [role="button"]) {
   box-sizing: border-box;
   overflow: visible !important;
 }
@@ -1030,9 +1030,13 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="YourStuff_Content"]
-  div:has(> [role="list"]:has([role="button"] img)) {
+  div:has(> [role="list"] > [role="listitem"] > [role="button"] img) {
   box-sizing: border-box !important;
-  padding: 6px 10px 8px !important;
+  /* El viewport horizontal recorta verticalmente por definición. Su altura
+     debe incluir el halo de 5px, no coincidir con la tarjeta expandida. */
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 7px 10px !important;
   scroll-padding-inline: 12px !important;
 }
 
