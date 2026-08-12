@@ -193,7 +193,7 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"]) {
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"])) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 52%),
     var(--hdg-settings-panel-surface) !important;
@@ -214,18 +214,18 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
   > :first-child,
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
   > :first-child
   div:has(img[role="button"]),
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   img[role="button"] {
   background: transparent !important;
   border: 0 !important;
@@ -237,7 +237,7 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
   > :first-child {
   overflow: hidden !important;
@@ -245,12 +245,12 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   div:has(> img[role="button"])
   + div,
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   div:has(> img[role="button"])
   + div
   * {
@@ -261,7 +261,7 @@
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:has(img[role="button"])
+  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
   > :first-child
   + div {
@@ -273,6 +273,48 @@
   box-sizing: border-box;
   color: var(--hdg-text-primary) !important;
   overflow: hidden !important;
+}
+
+/* Los vídeos usan una miniatura por `background-image`; el icono de play es
+   decoración, no el artwork, y no debe heredar el tamaño de la galería. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[src*="/play_icon"])
+  [role="button"][aria-labelledby]:has(> div[style*="background-image"]) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 15px 15px 0 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[src*="/play_icon"])
+  [role="button"][aria-labelledby]
+  > div[style*="background-image"] {
+  background-position: center !important;
+  background-size: cover !important;
+  border-radius: 15px 15px 0 0 !important;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has(img[src*="/play_icon"])
+  img[src*="/play_icon"] {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.72));
+  height: 52px !important;
+  inset: 50% auto auto 50% !important;
+  object-fit: contain !important;
+  overflow: visible !important;
+  position: absolute !important;
+  transform: translate(-50%, -50%) !important;
+  width: 52px !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])

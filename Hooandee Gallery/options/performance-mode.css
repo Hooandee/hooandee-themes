@@ -21,6 +21,11 @@
   > div
   > div
   > div:has([role="button"]),
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"]),
 #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"],
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])

@@ -272,3 +272,135 @@
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.36));
   opacity: 0.82;
 }
+
+/* El detalle de una captura de Comunidad vive en un modal propio, fuera de
+   `#Main`. Se identifica por la imagen UGC para no alterar otros overlays. */
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"]) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  overflow: hidden auto !important;
+  padding: 18px 20px !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"]) {
+  -webkit-backdrop-filter: blur(12px) saturate(116%);
+  backdrop-filter: blur(12px) saturate(116%);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 48%),
+    var(--hdg-glass-panel-fallback) !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 16px 36px var(--hdg-shadow-color, rgba(0, 0, 0, 0.3)) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  overflow: auto scroll !important;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  #GamepadUI_Full_Root
+    .FullModalOverlay
+    > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+    > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
+    > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"]) {
+    background:
+      linear-gradient(145deg, var(--hdg-glass-highlight), transparent 48%),
+      var(--hdg-glass-panel) !important;
+  }
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
+  > div:first-child {
+  box-sizing: border-box;
+  padding: 16px 16px 8px !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"]) {
+  background: var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.07),
+    0 12px 28px rgba(0, 0, 0, 0.24) !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  img[src*="steamusercontent.com/ugc/"] {
+  border: 0 !important;
+  border-radius: 15px 15px 0 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  > img
+  + div {
+  background:
+    linear-gradient(180deg, var(--hdg-glass-highlight), transparent 72%),
+    var(--hdg-settings-row-surface) !important;
+  border-top: 1px solid var(--hdg-glass-stroke-soft) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  > img
+  + div
+  :is(div, span) {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  [role="button"] {
+  border-radius: 11px !important;
+  color: var(--hdg-text-primary) !important;
+  transform: none !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  [role="button"].gpfocus {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  color: var(--hdg-accent-on-fill) !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .SVGIcon_Arrow
+  polyline {
+  stroke: var(--hdg-text-secondary) !important;
+}
