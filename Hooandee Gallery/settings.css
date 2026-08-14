@@ -119,18 +119,22 @@
   padding: 10px 12px !important;
 }
 
-/* Cada curva anidada suma el radio de la capa interior y el aire que la
- * separa: control 10px -> fila 20px -> panel de sección 30px. */
+/* La fila suma el radio del control y el aire que los separa: 10px -> 20px. */
 :scope
   :is(.DialogBody, [role="region"], .DialogControlsSection)
   > .Panel:has(:is([role="combobox"], [role="checkbox"], [role="button"])):not(:has(.DialogControlsSection)) {
   border-radius: calc(var(--hdg-control-radius) + 10px) !important;
 }
 
+/* Mando agrupa todas sus secciones en un Panel estructural que las demás
+ * categorías no dibujan. Conservamos su layout, pero no una tercera card. */
 :scope
   .DialogBody
   > .Panel:has(> .DialogControlsSection) {
-  border-radius: calc(var(--hdg-glass-radius-panel) + 10px) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 :scope
@@ -522,6 +526,17 @@
   background: var(--hdg-accent-fill) !important;
   border-color: var(--hdg-focus-ring) !important;
   box-shadow: 0 6px 18px var(--hdg-accent-glow) !important;
+}
+
+/* Los dropdowns compuestos de Sistema fijan colores nativos en sus hojas
+ * internas. El texto debe seguir la tinta del modo, también bajo foco. */
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/system"][role="tab"][aria-selected="true"])
+  button[role="combobox"],
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/system"][role="tab"][aria-selected="true"])
+  button[role="combobox"]
+  * {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 /* Las tarjetas profundas conservan aire respecto al panel y al footer. */

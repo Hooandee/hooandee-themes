@@ -261,6 +261,17 @@ html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [
   color: var(--hdg-text-primary) !important;
 }
 
+/* La envolvente estructural de Mando no debe reaparecer como otra card en
+ * Hielo después de neutralizarla en settings.css. */
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
+  .DialogBody
+  > .Panel:has(> .DialogControlsSection) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
 html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/customization"][role="tab"][aria-selected="true"])
   .DialogBody
   .Panel:has(> div:first-child:nth-last-child(2)):has(> div:last-child .SliderControlPanelGroup > [role="slider"]) {
@@ -301,6 +312,15 @@ html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [
   :is(div, span, svg) {
   color: inherit !important;
   fill: currentColor !important;
+}
+
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/system"][role="tab"][aria-selected="true"])
+  button[role="combobox"],
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/system"][role="tab"][aria-selected="true"])
+  button[role="combobox"]
+  * {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 /* Descargas. */

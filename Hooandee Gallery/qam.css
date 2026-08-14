@@ -842,6 +842,15 @@ html:root #QuickAccess-Menu [role="tabpanel"]
     0 0 0 2px var(--hdg-accent-glow) !important;
 }
 
+/* En los parámetros del tema el knob ya comunica el foco. Un segundo halo
+ * alrededor de toda la pista se percibe como otra cápsula contenedora. */
+#QuickAccess-Menu .CSSLoader_ThemeListContainer
+  [role="slider"].gpfocus
+  .SliderTrack {
+  border-color: var(--hdg-glass-stroke-soft) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.34) !important;
+}
+
 #QuickAccess-Menu [role="slider"] .SliderTrack::before {
   background: var(--hdg-accent-fill) !important;
   border-radius: 999px !important;
