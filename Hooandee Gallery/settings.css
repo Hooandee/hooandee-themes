@@ -119,14 +119,18 @@
   padding: 10px 12px !important;
 }
 
-/* Cuando una fila envuelve un control de 10px con unos 10px de aire, su
- * curva exterior debe sumar ambos radios. Así las dos siluetas son paralelas
- * en lugar de parecer dos cápsulas independientes. Los paneles que agrupan
- * secciones completas conservan su radio propio. */
+/* Cada curva anidada suma el radio de la capa interior y el aire que la
+ * separa: control 10px -> fila 20px -> panel de sección 30px. */
 :scope
   :is(.DialogBody, [role="region"], .DialogControlsSection)
   > .Panel:has(:is([role="combobox"], [role="checkbox"], [role="button"])):not(:has(.DialogControlsSection)) {
   border-radius: calc(var(--hdg-control-radius) + 10px) !important;
+}
+
+:scope
+  .DialogBody
+  > .Panel:has(> .DialogControlsSection) {
+  border-radius: calc(var(--hdg-glass-radius-panel) + 10px) !important;
 }
 
 :scope
