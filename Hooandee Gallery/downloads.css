@@ -7,9 +7,12 @@
   background:
     radial-gradient(circle at 18% 12%, var(--hdg-accent-glow), transparent 34%),
     linear-gradient(145deg, rgba(20, 30, 41, 0.9), rgba(7, 12, 18, 0.98) 62%) !important;
-  flex: 0 0 calc(100% - var(--hdg-downloads-header-clearance)) !important;
+  /* La reserva pertenece al eje vertical. Usarla como flex-basis también
+     estrechaba la página 43px y dejaba una franja negra a la derecha. */
+  flex: 1 1 auto !important;
   height: calc(100% - var(--hdg-downloads-header-clearance)) !important;
   max-height: calc(100% - var(--hdg-downloads-header-clearance)) !important;
+  width: 100% !important;
 }
 
 /* BasicUI reserva 240px para el resumen superior. Al existir una barra de

@@ -6,9 +6,10 @@
   --hdg-details-background-blur: 14px;
 }
 
-/* Steam reutiliza este wrapper también en Inicio. Las pestañas semánticas son
- * el guard que confirma que la ficha está montada antes de activar el scope. */
-@scope (#Main > ._1DLmEVjfX3d7Ec8CW7vJnt.Panel:has([role="tab"][aria-controls$="GameInfo_Content"])) {
+/* La raíz superior también existe en Inicio. Anclamos el scope al viewport
+ * interior exclusivo de la ficha para que los cambios de gpfocus del carrusel
+ * no obliguen a reevaluar un :has() de ruta en cada frame. */
+@scope (#Main ._3VQUewWB8g6Z5qB4C7dGFr) {
 
 :scope
   img[src*="/library_hero.jpg"] {
@@ -1132,6 +1133,9 @@
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05) !important;
   box-sizing: border-box;
   margin: 5px !important;
+  /* Steam dimensiona tres logros al 33% y después suma sus márgenes. El
+     tercero rebasa la pista justo lo suficiente para cortar el halo. */
+  max-width: calc(33% - 8px) !important;
   outline: none !important;
   overflow: visible !important;
   padding: 6px !important;

@@ -570,6 +570,16 @@
     filter 160ms ease;
 }
 
+/* Steam conserva renderizado todo el panel editorial inferior mientras el
+ * foco recorre la galería. Sus grids y selectores relacionales multiplican el
+ * recálculo de estilo en cada cambio de juego. La clase sola también aparece
+ * en Detalles: el tab semántico limita esta compuerta exclusivamente a Inicio.
+ * Steam añade gpfocuswithin antes de bajar, por lo que el contenido vuelve a
+ * participar en layout y pintura antes de recibir el foco real. */
+#Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="WhatsNew"]):not(.gpfocuswithin) {
+  content-visibility: hidden !important;
+}
+
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])

@@ -85,8 +85,8 @@ html:root {
 
 /* Tinta de sistema. El contenido que vive directamente sobre artwork conserva su blanco nativo. */
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #Main:has([data-rbd-droppable-context-id][role="list"]),
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #Main > .Panel:has([data-rbd-droppable-context-id][role="list"]),
     #QuickAccess-Menu,
     #MainNavMenuContainer,
     [role="alert"]:not(:empty)
@@ -95,8 +95,8 @@ html:root {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #Main:has([data-rbd-droppable-context-id][role="list"]),
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #Main > .Panel:has([data-rbd-droppable-context-id][role="list"]),
     #QuickAccess-Menu,
     #MainNavMenuContainer,
     [role="alert"]:not(:empty)
@@ -106,8 +106,8 @@ html:root {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #Main:has([data-rbd-droppable-context-id][role="list"]),
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #Main > .Panel:has([data-rbd-droppable-context-id][role="list"]),
     #QuickAccess-Menu,
     #MainNavMenuContainer,
     [role="alert"]:not(:empty)
@@ -128,30 +128,29 @@ html:root {
 }
 
 /* Ajustes y propiedades: página hielo, sidebar continuo y tarjetas claras. */
-html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]) {
   background: var(--hdg-page-background) !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   > div,
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
-  .DialogContent:has([role="tab"][id*="/properties/"]) {
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"]) {
   background: var(--hdg-page-background) !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContent:has([id*="/settings/"][role="tab"]) {
   background: var(--hdg-page-background) !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .Panel:has(> .DialogContent) {
   background: transparent !important;
   box-shadow: none !important;
   filter: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .Panel:has(> .DialogContent) {
   background: transparent !important;
   box-shadow: none !important;
@@ -159,23 +158,23 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   .DialogContent_InnerWidth
   > .Panel:has(> .PageListColumn):has(> .DialogContentTransition),
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   .PageListColumn {
   background: transparent !important;
   box-shadow: none !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition,
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition {
   background:
     radial-gradient(circle at 76% 12%, var(--hdg-accent-surface-focus), transparent 38%),
@@ -184,8 +183,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   [role="tablist"][aria-orientation="vertical"] {
   background:
@@ -197,8 +196,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"]:not(.gpfocus):not([aria-selected="true"]) {
@@ -206,8 +205,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"]:is(.gpfocus, [aria-selected="true"]) {
@@ -217,8 +216,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"]:is(.gpfocus, [aria-selected="true"])
@@ -228,21 +227,21 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   :is(.DialogBody, [role="region"], .DialogControlsSection)
   > .Panel:has(:is([role="combobox"], [role="checkbox"], [role="button"], input)),
-#Main:has([id*="/settings/"][role="tab"][aria-selected="true"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   :is(.DialogBody, [role="region"], .DialogControlsSection)
   > .Panel:not(:has(:is([role], button, input))),
-#Main:has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]):has([id*="/settings/gamerecording"][role="tab"][aria-selected="true"])
   [role="radiogroup"]
   > [role="radio"],
-#Main:has([id*="/settings/customization"][role="tab"][aria-selected="true"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]):has([id*="/settings/customization"][role="tab"][aria-selected="true"])
   [role="radiogroup"]
   > .Panel,
-#Main:has([id*="/settings/"][role="tab"][aria-selected="true"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   [role="button"]:not(.DialogButton) {
   background:
@@ -254,8 +253,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   :is(.DialogButton, button[role="combobox"]):not(.gpfocus) {
   background:
@@ -266,8 +265,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   :is(.DialogButton, button[role="combobox"]).gpfocus {
   background: var(--hdg-accent-fill) !important;
@@ -275,8 +274,8 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 :is(
-    #Main:has([id*="/settings/"][role="tab"]),
-    #GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+    #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
+    #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   )
   :is(.DialogButton, button[role="combobox"]).gpfocus
   :is(div, span, svg) {
@@ -285,32 +284,32 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 /* Descargas. */
-#Main:has([data-rbd-droppable-context-id][role="list"]) {
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"]) {
   background: var(--hdg-page-background) !important;
   color: var(--hdg-text-primary) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   div:has(> div:empty:first-child + .Panel) {
   box-shadow: 0 8px 24px rgba(38, 55, 68, 0.12) !important;
 }
 
 /* La página de Descargas añade otro lienzo oscuro dentro de Main y una placa vacía
    bajo su encabezado. Ambos deben dejar ver el fondo hielo del modo claro. */
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   .Panel:has([data-rbd-droppable-context-id][role="list"]),
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   div:has(> div:empty:first-child + .Panel)
   > div:empty:first-child {
   background: transparent !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   :is(div, span, p, h1, h2, h3) {
   color: var(--hdg-text-primary) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   [role="listitem"]
   > [data-rbd-draggable-id][role="button"] {
   background:
@@ -323,7 +322,7 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
   color: var(--hdg-text-primary) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   [role="listitem"]
   > [data-rbd-draggable-id][role="button"]
   * {
@@ -331,7 +330,7 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
   fill: currentColor !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])
   [role="listitem"]
   > [data-rbd-draggable-id][role="button"].gpfocus {
   background:
@@ -341,7 +340,7 @@ html:root #GamepadUI_Full_Root:has(#Main [id*="/settings/"][role="tab"]) {
 }
 
 /* El foco pertenece al control, no al panel que agrupa los vídeos de inicio. */
-html:root #Main:has([id*="/settings/customization"][role="tab"][aria-selected="true"])
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]):has([id*="/settings/customization"][role="tab"][aria-selected="true"])
   [role="region"]
   > .Panel.gpfocuswithin:has([role="radiogroup"]) {
   background:
@@ -869,9 +868,9 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   fill: currentColor !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tablist"]:has([role="tab"][id$="WhatsNew"]),
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"]) {
   background:
     radial-gradient(circle at 50% 10%, var(--hdg-accent-glow), transparent 34%),
@@ -880,14 +879,14 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   color: var(--hdg-text-primary) !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"]:not(.gpfocus):not([aria-selected="true"]) {
   color: var(--hdg-text-secondary) !important;
   opacity: 1 !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"]:not(.gpfocus):not([aria-selected="true"])
   :is(div, span, svg, path) {
@@ -896,10 +895,10 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   opacity: 1 !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"]:is(.gpfocus, [aria-selected="true"]),
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"]:is(.gpfocus, [aria-selected="true"])
   :is(div, span, svg, path) {
@@ -908,7 +907,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   opacity: 1 !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is([role="button"], [role="link"]):not(.gpfocus) {
   background:
@@ -920,7 +919,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
 
 /* El lector de novedades se monta fuera del tabpanel y por eso no heredaba
  * la apariencia Hielo. Se limita a su carrusel estructural de artículos. */
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="listitem"]
   > .Panel
   > .Panel:has(> [role="button"] > div > img) {
@@ -931,7 +930,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   color: var(--hdg-text-primary) !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="listitem"]
   > .Panel
   > .Panel
@@ -944,7 +943,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   color: var(--hdg-text-primary) !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="listitem"]
   > .Panel
   > .Panel
@@ -955,7 +954,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   -webkit-text-fill-color: currentColor;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="listitem"]
   > .Panel
   > .Panel
@@ -968,14 +967,14 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   -webkit-text-fill-color: currentColor;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is(h1, h2, h3, h4) {
   color: var(--hdg-text-primary) !important;
   -webkit-text-fill-color: currentColor;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tabpanel"]:is([id$="Friends_Content"], [id$="Recommended_Content"])
   [role="listitem"][data-id]
   [role="link"]:has(img) {
@@ -985,7 +984,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   color: var(--hdg-text-primary) !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tabpanel"][id$="Friends_Content"]
   :is([role="button"], [role="link"])
   :is(div, span, p) {
@@ -995,7 +994,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
 
 /* El contador de Amigos usa verde Steam y un icono oscuro. Se integra como
  * una insignia compacta del acento, sin añadir otra placa al tab completo. */
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tab"][id$="Friends"]
   > div:has(> svg + div) {
   background: var(--hdg-accent-surface-focus) !important;
@@ -1005,7 +1004,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   color: var(--hdg-accent-ink) !important;
 }
 
-html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+html:root #Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tab"][id$="Friends"]
   > div:has(> svg + div)
   :is(svg, path, div) {
@@ -1013,7 +1012,7 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
   fill: currentColor !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="Friends"])
   [role="tabpanel"][id$="Recommended_Content"]
   [role="link"]:has(.StoreSalePriceWidgetContainer)
   > :last-child:has(.StoreSalePriceWidgetContainer) {
@@ -1022,22 +1021,22 @@ html:root #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
 }
 
 /* Detalles y multimedia. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *) {
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"]:not([aria-label]):has(> svg + div):not(#header *):not([role="dialog"] *),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *) {
   color: var(--hdg-accent-on-fill) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="tabpanel"][id$="WhatsNew_Content"]
   :is([role="link"], [role="button"]):not(.gpfocus),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="generic"]:not(.gpfocus):is(
     :has(> [role="list"] > [role="link"]),
@@ -1163,46 +1162,46 @@ html:root
 }
 
 /* Steam asigna blanco directamente a muchos nodos de texto internos. */
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   :is(div, span, p, label, button, [role="button"], [role="combobox"]) {
   color: var(--hdg-text-primary) !important;
   -webkit-text-fill-color: currentColor;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   :is(.DialogBodyText, .DialogBodyTextSmall, small) {
   color: var(--hdg-text-secondary) !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   :is([aria-disabled="true"], :disabled) {
   color: var(--hdg-text-secondary) !important;
   opacity: 0.76 !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   :is(svg, svg *) {
   color: currentColor;
   fill: currentColor;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   :is(.DialogButton, button[role="combobox"]).gpfocus,
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   [role="checkbox"][aria-checked="true"] {
   color: var(--hdg-accent-on-fill) !important;
 }
 
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   :is(.DialogButton, button[role="combobox"]).gpfocus *,
-#Main:has([id*="/settings/"][role="tab"])
+#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
   .DialogContentTransition
   [role="checkbox"][aria-checked="true"] * {
   color: inherit !important;
@@ -1438,7 +1437,7 @@ html:root #GamepadUI_Full_Root
 }
 
 /* La sección especial de actualizaciones no usa Panel ni roles de control. */
-html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"])
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]):has([id*="/settings/downloads"][role="tab"][aria-selected="true"])
   .DialogControlsSection
   > div:not(.Panel):has(button[role="combobox"]) {
   background:
@@ -1449,10 +1448,10 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
 }
 
 /* Propiedades: contrato claro completo para títulos, paneles y tablas nativas. */
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .PageListColumn
   > :first-child:not([role="tablist"]),
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .PageListColumn
   > :first-child:not([role="tablist"])
   * {
@@ -1460,7 +1459,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   -webkit-text-fill-color: currentColor;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .PageListColumn
   > :first-child:not([role="tablist"]) {
   box-sizing: border-box;
@@ -1472,7 +1471,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   padding-top: 39px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition
   :is(
     .DialogHeader,
@@ -1495,17 +1494,17 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   -webkit-text-fill-color: currentColor;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition
   :is(.DialogBodyText, .DialogBodyTextSmall, small, [aria-disabled="true"], :disabled) {
   color: var(--hdg-text-secondary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   :is(.DialogBody, .DialogControlsSection)
   > .Panel,
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   .DialogBody
   > div
@@ -1523,17 +1522,17 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   padding: 10px 12px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"] {
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"]
   > :first-child,
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tablist"][aria-orientation="vertical"]
   > [role="tab"]
   > :first-child
@@ -1546,7 +1545,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   white-space: nowrap !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="table"] {
   background:
@@ -1560,7 +1559,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="row"] {
   background: var(--hdg-glass-surface-strong) !important;
@@ -1570,7 +1569,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="table"]
   [role="row"] {
@@ -1581,14 +1580,14 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   box-shadow: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="table"]
   [role="row"]:last-child {
   border-bottom: 0 !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="table"]
   :is([role="cell"], [role="columnheader"]) {
@@ -1597,7 +1596,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="table"]
   div:has(> img) {
@@ -1607,27 +1606,27 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   a:not(.gpfocus) {
   color: var(--hdg-accent-ink) !important;
   -webkit-text-fill-color: currentColor;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition
   :is(.DialogButton, button[role="combobox"], [role="button"]):is(.gpfocus, [aria-selected="true"]),
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition
   [role="checkbox"][aria-checked="true"] {
   color: var(--hdg-accent-on-fill) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition
   :is(.DialogButton, button[role="combobox"], [role="button"]):is(.gpfocus, [aria-selected="true"])
   *,
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   .DialogContentTransition
   [role="checkbox"][aria-checked="true"]
   * {
@@ -1636,7 +1635,7 @@ html:root #Main:has([id*="/settings/downloads"][role="tab"][aria-selected="true"
   -webkit-text-fill-color: currentColor;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+#GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
   [role="tabpanel"][id*="/properties/"]
   [role="row"]:is(.gpfocus, [aria-selected="true"]) {
   background: var(--hdg-accent-surface-focus) !important;
@@ -1661,18 +1660,18 @@ html:root #Footer
 }
 
 /* Ficha del juego: hero conservado y bandeja de contenido en cristal claro. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"]) {
+#Main ._3VQUewWB8g6Z5qB4C7dGFr {
   background: var(--hdg-page-background) !important;
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(img[src*="/library_hero.jpg"]) {
   background-color: transparent !important;
   background-image: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   img[src*="/library_hero.jpg"] {
   filter:
     blur(var(--hdg-details-background-blur))
@@ -1680,7 +1679,7 @@ html:root #Footer
     brightness(0.9) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   ) {
@@ -1696,7 +1695,7 @@ html:root #Footer
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )
@@ -1709,11 +1708,11 @@ html:root #Footer
  * En claro se sustituyen visualmente por dos keycaps glass idénticas; el img
  * permanece en el DOM para conservar semántica, layout y navegación. */
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_l1.svg"]),
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_r1.svg"]) {
   align-items: center !important;
@@ -1738,12 +1737,12 @@ html:root
 }
 
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_l1.svg"])
   > img,
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_r1.svg"])
   > img {
@@ -1751,11 +1750,11 @@ html:root
 }
 
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_l1.svg"])::after,
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_r1.svg"])::after {
   align-items: center !important;
@@ -1773,14 +1772,14 @@ html:root
 }
 
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_l1.svg"])::after {
   content: "L1" !important;
 }
 
 html:root
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
   div:has(> img[src*="/steaminputglyphs/sd_r1.svg"])::after {
   content: "R1" !important;
@@ -1860,7 +1859,7 @@ html:root #GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"]
 }
 
 /* Los rótulos sobre capturas conservan blanco: siguen viviendo encima del artwork. */
-html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+html:root #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )
@@ -1868,7 +1867,7 @@ html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content
   [role="gridcell"]:has(img[role="button"])
   div:has(> img[role="button"])
   + div,
-html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+html:root #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )
@@ -1906,7 +1905,7 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
   fill: currentColor !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )
@@ -1916,7 +1915,7 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
 
 /* Al fijarse durante el scroll, Steam pinta el fondo del tablist en un pseudo-elemento
    del abuelo. Se tinta esa capa sin depender de su clase generada. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div > [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])::before {
   -webkit-backdrop-filter: blur(12px) saturate(1.06) !important;
   backdrop-filter: blur(12px) saturate(1.06) !important;
@@ -1928,7 +1927,7 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
     0 8px 24px var(--hdg-shadow-color) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )
@@ -1940,10 +1939,10 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="tabpanel"][id$="WhatsNew_Content"]
   :is([role="link"], [role="button"]):not(.gpfocus),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="generic"]:not(.gpfocus):is(
     :has(> [role="list"] > [role="link"]),
@@ -1957,12 +1956,12 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"][aria-label]:has(> svg:first-child):not(.gpfocus),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"][aria-label]:has(> svg:first-child):not(.gpfocus)
   > svg:first-child,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"][aria-label]:has(> svg:first-child):not(.gpfocus)
   > svg:first-child
   * {
@@ -1970,9 +1969,9 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
   fill: currentColor !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"]:not([aria-label]):has(> svg + div),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   [role="button"]:not([aria-label]):has(> svg + div)
   * {
   color: var(--hdg-accent-on-fill) !important;
@@ -1980,12 +1979,12 @@ html:root #QuickAccess-Menu #quickaccess_content_5260355 .pdc-root [role="button
   -webkit-text-fill-color: currentColor;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )
   [role="button"]:not([aria-label]):has(> svg + div),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
     > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
   )

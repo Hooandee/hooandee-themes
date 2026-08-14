@@ -1,7 +1,7 @@
-/* Ajustes comparte documento con Inicio. El scope conserva #Main como raíz
- * semántica de la ruta: así las variantes específicas pueden comprobar la
- * pestaña activa sin escapar del ámbito ni invalidarse al mover el carrusel. */
-@scope (#Main:has(.DialogContent.DialogContent .PageListColumn [id*="/settings/"][role="tab"])) {
+/* Ajustes comparte documento con Inicio. Su DialogContent de página completa
+ * es una raíz semántica estrecha; evita reevaluar un :has() sobre todo Main
+ * cada vez que cambia el foco del carrusel. */
+@scope (#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])) {
 
 :scope
   > div {

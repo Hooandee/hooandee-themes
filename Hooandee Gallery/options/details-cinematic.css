@@ -54,7 +54,10 @@ html:root #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content
  * abría una costura sobre el artwork. */
 html:root:has([role="tab"][aria-controls$="GameInfo_Content"])
   #Footer {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
   background: var(--hdg-details-cinematic-footer) !important;
+  border-top: 0 !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
@@ -64,7 +67,9 @@ html:root:has([role="tab"][aria-controls$="GameInfo_Content"])
   > div:first-child {
   background: var(--hdg-details-cinematic-band) !important;
   box-sizing: border-box !important;
-  padding-block: 26px 6px !important;
+  /* Conserva la altura útil de la franja y deja sólo dos píxeles lógicos
+     entre las acciones y el footer; Steam escala esta unidad con su UI. */
+  padding-block: 31px 2px !important;
 }
 
 #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
