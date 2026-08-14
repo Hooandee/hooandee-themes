@@ -119,6 +119,16 @@
   padding: 10px 12px !important;
 }
 
+/* Cuando una fila envuelve un control de 10px con unos 10px de aire, su
+ * curva exterior debe sumar ambos radios. Así las dos siluetas son paralelas
+ * en lugar de parecer dos cápsulas independientes. Los paneles que agrupan
+ * secciones completas conservan su radio propio. */
+:scope
+  :is(.DialogBody, [role="region"], .DialogControlsSection)
+  > .Panel:has(:is([role="combobox"], [role="checkbox"], [role="button"])):not(:has(.DialogControlsSection)) {
+  border-radius: calc(var(--hdg-control-radius) + 10px) !important;
+}
+
 :scope
   :is(.DialogBody, [role="region"], .DialogControlsSection)
   > .Panel.gpfocus.gpfocuswithin:has(:is([role="combobox"], [role="checkbox"], [role="button"])):not(:has(:is([role="radiogroup"], .SliderControlPanelGroup, [role="slider"]))) {
@@ -896,6 +906,14 @@
 /* Selector de unidad: Steam lo trata como tabs horizontales y aplica una pill
  * clara de poco contraste. Se conserva el rol y se convierte en una card
  * compacta, legible en ambos modos. */
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="tabpanel"]
+  [role="tablist"]:not([aria-orientation="vertical"]) {
+  box-sizing: border-box;
+  margin-block: -20px -10px !important;
+  padding-block: 20px !important;
+}
+
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
   [role="tabpanel"]
   [role="tablist"]:not([aria-orientation="vertical"])
