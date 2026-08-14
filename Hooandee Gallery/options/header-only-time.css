@@ -1,5 +1,9 @@
 /* Indicadores del header: conserva la hora y oculta la batería. */
 
-#header > [role="link"]:has(> div > div > svg > svg > rect) {
+#header
+  > :is(
+    [role="link"]:has(> div > div > svg > svg > rect):not(:has([role="button"])),
+    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i]):not(:has([role="button"]))
+  ) {
   display: none !important;
 }

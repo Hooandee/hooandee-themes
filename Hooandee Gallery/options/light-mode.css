@@ -37,6 +37,9 @@ html:root {
   --hdg-control-highlight: rgba(255, 255, 255, 0.76);
   --hdg-control-track: rgba(37, 53, 65, 0.18);
   --hdg-control-thumb: linear-gradient(145deg, #ffffff, #dbe4ea 78%);
+  --hdg-card-placeholder-surface: rgba(207, 217, 224, 0.96);
+  --hdg-card-placeholder-stroke: rgba(42, 59, 71, 0.26);
+  --hdg-card-placeholder-spinner-track: rgba(42, 59, 71, 0.28);
   --hdg-text-primary: #2f3c45;
   --hdg-text-secondary: #5b6871;
   --hdg-battery-ink: #344650;
@@ -551,7 +554,10 @@ html:root #Footer
 
 /* Carcasas propias de batería adaptadas al cristal claro. */
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > :is(
+    [role="link"]:has(> div > div > svg > svg > rect),
+    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i])
+  )
   > div
   > div::before,
 #QuickAccess-Menu
@@ -568,7 +574,10 @@ html:root #Footer
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > :is(
+    [role="link"]:has(> div > div > svg > svg > rect),
+    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i])
+  )
   > div
   > div::after,
 #QuickAccess-Menu
@@ -1244,6 +1253,15 @@ html:root #header
   > svg
   > svg
   > rect {
+  fill: var(--hdg-battery-ink) !important;
+}
+
+html:root #header
+  > [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i])
+  > div
+  > div
+  > svg[viewBox="0 0 42 36"]
+  > path:first-child {
   fill: var(--hdg-battery-ink) !important;
 }
 

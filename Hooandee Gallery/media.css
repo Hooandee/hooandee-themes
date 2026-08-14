@@ -326,7 +326,7 @@
   > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
   > div:first-child {
   box-sizing: border-box;
-  padding: 16px 16px 8px !important;
+  padding: 16px 16px 18px !important;
 }
 
 #GamepadUI_Full_Root
@@ -386,6 +386,113 @@
   border-radius: 11px !important;
   color: var(--hdg-text-primary) !important;
   transform: none !important;
+}
+
+/* Cerrar es una acción separada de la pieza foto+autor. El margen evita que
+   parezca adherida a la imagen y deja respirar el acceso a comentarios. */
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  [role="button"] {
+  margin-top: 12px !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  > div:first-child {
+  row-gap: 10px !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  > div:not(:first-child) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 56%),
+    var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
+  box-sizing: border-box !important;
+  color: var(--hdg-text-primary) !important;
+  margin-top: 14px !important;
+  overflow: visible !important;
+  padding: 10px 12px !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  > div:not(:first-child)
+  > div {
+  background: transparent !important;
+  border-radius: 12px !important;
+  color: var(--hdg-text-primary) !important;
+  padding-inline: 8px !important;
+}
+
+/* El listado de comentarios añade una placa rectangular dos niveles más
+   adentro. La superficie ya la aporta su padre de cristal. */
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  > div:not(:first-child)
+  > div
+  > div {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  color: var(--hdg-text-primary) !important;
+  padding: 6px 8px 24px !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  > div:not(:first-child)
+  > div
+  > div
+  :is(div, span, a) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
+  opacity: 1 !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  > div:not(:first-child)
+  :is([role="button"], .Focusable) {
+  border-radius: 10px !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  .Panel.Focusable:has(> img[src*="steamusercontent.com/ugc/"])
+  ~ div:has(> div > [role="button"])
+  :is(input, textarea) {
+  background: var(--hdg-control-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 11px !important;
+  color: var(--hdg-text-primary) !important;
+  outline: none !important;
 }
 
 #GamepadUI_Full_Root

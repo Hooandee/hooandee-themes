@@ -43,6 +43,9 @@
   --hdg-control-highlight: rgba(255, 255, 255, 0.09);
   --hdg-control-track: rgba(5, 10, 16, 0.54);
   --hdg-control-thumb: linear-gradient(145deg, #ffffff, #dcecf5 78%);
+  --hdg-card-placeholder-surface: rgba(10, 17, 25, 0.94);
+  --hdg-card-placeholder-stroke: rgba(240, 248, 255, 0.16);
+  --hdg-card-placeholder-spinner-track: rgba(240, 248, 255, 0.24);
   --hdg-text-primary: rgba(255, 255, 255, 0.96);
   --hdg-text-secondary: rgba(225, 234, 240, 0.72);
   --hdg-glass-blur: 12px;

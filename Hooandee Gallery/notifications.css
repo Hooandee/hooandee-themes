@@ -52,6 +52,42 @@ body,
   width: 100% !important;
 }
 
+/* Notificación nativa de amigo: Steam compone foto, estado y texto como tres
+ * hermanos directos. La foto abre la pieza y la franja se une a su canto
+ * recto, pero respira cuatro píxeles arriba y abajo. Este selector no comparte
+ * geometría con Amigos, Actividad ni los toasts personalizados de Decky. */
+[role="alert"]:not(:empty)
+  > [role="button"]
+  > :first-child:has(> img)
+  + div:not(:last-child) {
+  align-self: center !important;
+  border: 0 !important;
+  border-radius: 0 2px 2px 0 !important;
+  box-shadow: none !important;
+  flex: 0 0 3px !important;
+  height: 27px !important;
+  min-height: 0 !important;
+  width: 3px !important;
+}
+
+[role="alert"]:not(:empty)
+  > [role="button"]
+  > :first-child:has(> img) {
+  border: 0 !important;
+  border-radius: 10px 0 0 10px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+[role="alert"]:not(:empty)
+  > [role="button"]
+  > :first-child:has(> img)
+  > img {
+  border: 0 !important;
+  border-radius: 10px 0 0 10px !important;
+  box-shadow: none !important;
+}
+
 /* En las conexiones de amigos, la franja de presencia termina exactamente a
    la altura de la foto. Ambas forman una pieza continua; nunca una barra a
    toda la altura de la notificación. */
@@ -94,18 +130,18 @@ body,
   .avatarHolder:has(> img.avatar)
   > .avatarStatus {
   border: 0 !important;
-  border-radius: 0 !important;
-  bottom: 0 !important;
+  border-radius: 0 2px 2px 0 !important;
+  bottom: 4px !important;
   box-shadow: none !important;
-  height: 100% !important;
+  height: auto !important;
   left: auto !important;
   max-height: none !important;
   max-width: 3px !important;
-  min-height: 100% !important;
+  min-height: 0 !important;
   min-width: 3px !important;
   position: absolute !important;
   right: 0 !important;
-  top: 0 !important;
+  top: 4px !important;
   transform: none !important;
   width: 3px !important;
 }

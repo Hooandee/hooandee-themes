@@ -1,7 +1,7 @@
 /* Indicador Hooandee: carcasa propia y nivel dinámico conservado. */
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div {
   position: relative;
@@ -19,7 +19,7 @@
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div::before {
   content: "";
@@ -43,7 +43,7 @@
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div::after {
   content: "";
@@ -59,7 +59,7 @@
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div
   > svg {
@@ -78,7 +78,7 @@
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div
   > svg
@@ -86,10 +86,27 @@
   opacity: 0 !important;
 }
 
+/* Steam usa un SVG alternativo al completar la carga. Conservamos sólo su
+   superficie llena y la hacemos encajar en la misma carcasa Hooandee. */
+#header
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > div
+  > div
+  > svg[viewBox="0 0 42 36"]
+  > path:first-child {
+  opacity: 1 !important;
+  fill: var(--hdg-accent-light, #ddf5ff) !important;
+  clip-path: inset(0 round 4px);
+  transform: translate(-0.1px, 0) scaleX(1.2845);
+  transform-box: fill-box;
+  transform-origin: left center;
+  filter: drop-shadow(0 0 3px var(--hdg-accent-glow, rgba(124, 198, 239, 0.3)));
+}
+
 /* Steam añade un segundo path solo durante la carga: conservamos el rayo,
    pero no su carcasa, y lo centramos en el canal Hooandee. */
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div
   > svg
@@ -108,8 +125,21 @@
     drop-shadow(0 0 2px rgba(255, 255, 255, 0.42));
 }
 
+/* La variante de carga completa tiene tres paths y el último es el check
+ * nativo, no el rayo. El relleno propio ya comunica el 100 % sin otro glifo. */
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:has(
+    > div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i]
+  )
+  > div
+  > div
+  > svg[viewBox="0 0 42 36"]
+  > path:last-child {
+  opacity: 0 !important;
+}
+
+#header
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div
   > svg
@@ -122,7 +152,7 @@
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div
   > svg
@@ -139,7 +169,7 @@
 }
 
 #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
   > div
   > div
   > svg
@@ -150,7 +180,7 @@
 }
 
 #header
-  > [role="link"]:has(rect[fill="#E01D79" i]):not(:has([role="button"]))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):has(rect[fill="#E01D79" i])
   > div
   > div::before {
   border-color: rgba(255, 210, 218, 0.78);
@@ -161,7 +191,7 @@
 }
 
 #header
-  > [role="link"]:has(rect[fill="#E01D79" i]):not(:has([role="button"]))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):has(rect[fill="#E01D79" i])
   > div
   > div::after {
   background: var(--hdg-critical, #ff526b);
@@ -169,7 +199,7 @@
 }
 
 #header
-  > [role="link"].gpfocus:has(> div > div > svg > svg > rect)
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)).gpfocus
   > div
   > div::before {
   border-color: var(--hdg-focus-ring, rgba(221, 245, 255, 0.94));
@@ -182,7 +212,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   #header
-    > [role="link"]:has(> div > div > svg > svg > rect)
+    > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
     > div
     > div::before {
     transition: none;

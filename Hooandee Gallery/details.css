@@ -6,7 +6,11 @@
   --hdg-details-background-blur: 14px;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+/* Steam reutiliza este wrapper también en Inicio. Las pestañas semánticas son
+ * el guard que confirma que la ficha está montada antes de activar el scope. */
+@scope (#Main > ._1DLmEVjfX3d7Ec8CW7vJnt.Panel:has([role="tab"][aria-controls$="GameInfo_Content"])) {
+
+:scope
   img[src*="/library_hero.jpg"] {
   filter:
     blur(var(--hdg-details-background-blur))
@@ -19,7 +23,7 @@
   width: calc(100vw + (2 * (var(--hdg-details-background-blur) + 24px))) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   div:has(> [role="button"]:not([aria-label]) > svg:first-child + div) {
   background: transparent !important;
   border: 0 !important;
@@ -29,18 +33,18 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:not([aria-label]):has(> svg + div)::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:not([aria-label]):has(> svg + div)::after {
   content: none !important;
 }
 
 /* El desplegable contiguo hereda un barrido verde animado de Steam al recibir foco. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:not([aria-label]):has(> svg:first-child + div)
   + [role="button"][aria-label]:has(> svg:first-child)::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:not([aria-label]):has(> svg:first-child + div)
   + [role="button"][aria-label]:has(> svg:first-child)::after {
   animation: none !important;
@@ -48,14 +52,14 @@
   transition: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:not([aria-label]):has(> svg:first-child + div)
   + [role="button"][aria-label]:not(.gpfocus):has(> svg:first-child)
   > svg:first-child {
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *) {
   -webkit-backdrop-filter: blur(12px) saturate(1.16);
   backdrop-filter: blur(12px) saturate(1.16);
@@ -76,7 +80,7 @@
     filter 160ms ease;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:not([aria-label]):has(> svg + div):not(#header *):not([role="dialog"] *) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 52%),
@@ -84,7 +88,7 @@
   border-color: var(--hdg-accent-stroke) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *) {
   background: var(--hdg-accent-fill) !important;
   border-color: var(--hdg-accent-stroke) !important;
@@ -98,7 +102,7 @@
 }
 
 /* Descarga activa: progreso integrado bajo la acción principal. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="progressbar"] {
   background:
     linear-gradient(180deg, var(--hdg-glass-highlight), transparent 64%),
@@ -114,7 +118,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="progressbar"]
   > :first-child {
   background: var(--hdg-accent-fill) !important;
@@ -127,20 +131,20 @@
 }
 
 /* Steam oscurece los glifos de estas dos acciones al mover el foco real. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"][aria-label]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="button"][aria-label]:has(> svg:first-child).gpfocus:not(#header *):not([role="dialog"] *)
   > svg:first-child {
   color: #fff !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tablist"]:not([role="dialog"] *) {
   border-bottom: 1px solid rgba(234, 244, 252, 0.1);
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tablist"]
   [role="tab"]:not([role="dialog"] *) {
   background: transparent !important;
@@ -154,7 +158,7 @@
     box-shadow 160ms ease;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tablist"]
   [role="tab"]:not([role="dialog"] *)
   > span {
@@ -162,7 +166,7 @@
   -webkit-text-fill-color: currentColor !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tablist"]
   [role="tab"][aria-selected="true"]:not([role="dialog"] *) {
   background:
@@ -174,24 +178,92 @@
     0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tablist"]
   [role="tab"].gpfocus:not([role="dialog"] *) {
+  border-color: transparent !important;
   color: var(--hdg-text-primary) !important;
-  box-shadow:
-    0 0 0 2px var(--hdg-focus-ring),
-    0 0 0 3px var(--hdg-accent-stroke),
-    0 8px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 3px !important;
 }
 
 /* Comunidad: la captura y su autor forman una sola pieza de galería. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="row"] {
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+/* Guías y otros formatos de Comunidad también son gridcells accionables,
+   aunque su imagen no sea el control. Todos comparten la misma card clara u
+   oscura; después cada tipo ajusta sólo su artwork. */
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has([role="button"]) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 52%),
+    var(--hdg-settings-panel-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.065),
+    0 9px 24px rgba(0, 0, 0, 0.2) !important;
+  box-sizing: border-box !important;
+  color: var(--hdg-text-primary) !important;
+  outline: 1px solid transparent !important;
+  outline-offset: 3px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has([role="button"])
+  [role="button"] {
+  color: var(--hdg-text-primary) !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has([role="button"])
+  > div
+  > [role="button"] {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 15px !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]:has([role="button"])
+  > div
+  > [role="button"]
+  img {
+  border-radius: 12px !important;
+}
+
+/* Los títulos se superponen al artwork sobre una cortina negra tanto en fotos
+   como en vídeos; por ello conservan tinta blanca también en modo claro. */
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]
+  div:has(> :is(img[role="button"], [role="button"]))
+  + div,
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"]
+  div:has(> :is(img[role="button"], [role="button"]))
+  + div
+  :is(div, span) {
+  color: rgba(255, 255, 255, 0.94) !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.72) !important;
+}
+
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"])) {
   background:
@@ -212,18 +284,18 @@
     outline-color 150ms ease;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
   > :first-child,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
   > :first-child
   div:has(img[role="button"]),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   img[role="button"] {
@@ -235,7 +307,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
@@ -243,12 +315,12 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   div:has(> img[role="button"])
   + div,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   div:has(> img[role="button"])
@@ -259,7 +331,7 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.72);
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"]))
   > :first-child
@@ -277,7 +349,7 @@
 
 /* Los vídeos usan una miniatura por `background-image`; el icono de play es
    decoración, no el artwork, y no debe heredar el tamaño de la galería. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:has(img[src*="/play_icon"])
   [role="button"][aria-labelledby]:has(> div[style*="background-image"]) {
@@ -289,7 +361,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:has(img[src*="/play_icon"])
   [role="button"][aria-labelledby]
@@ -300,7 +372,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
   [role="gridcell"]:has(img[src*="/play_icon"])
   img[src*="/play_icon"] {
@@ -317,9 +389,9 @@
   width: 52px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="Community_Content"]
-  [role="gridcell"]:is(:has(img[role="button"]), :has(img[src*="/play_icon"])):has(.gpfocus) {
+  [role="gridcell"].gpfocuswithin:is(:has(img[role="button"]), :has(img[src*="/play_icon"])) {
   border-color: var(--hdg-accent-stroke) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.11),
@@ -329,13 +401,44 @@
   outline-offset: 3px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"].gpfocuswithin:has([role="button"]) {
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    0 10px 28px rgba(0, 0, 0, 0.28),
+    0 0 20px var(--hdg-accent-glow) !important;
+  outline-color: var(--hdg-focus-ring) !important;
+}
+
+/* Steam coloca sobre la tarjeta enfocada una capa rectangular animada. El
+   halo del tema ya vive en el gridcell completo, así que esta segunda capa
+   sólo provocaba un parpadeo y un selector de radio incorrecto. */
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  [role="gridcell"].gpfocuswithin
+  > div:first-child:has(> div:only-child) {
+  display: none !important;
+}
+
+/* En esta rejilla el indicador también puede vivir en el wrapper que es
+   hermano del grid, no dentro del gridcell. Es la capa cuadrada que aún se
+   alcanzaba a ver alrededor de fotos y vídeos al mover el mando. */
+:scope
+  [role="tabpanel"][id$="Community_Content"]
+  .Panel.Focusable.gpfocuswithin
+  > div:first-child:has(> div:only-child) {
+  display: none !important;
+}
+
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"] {
   padding-bottom: 72px !important;
   scroll-padding-bottom: 72px;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   > [role="generic"]:has([role="list"] > [role="link"]) {
@@ -353,7 +456,7 @@
 }
 
 /* Steam coloca una segunda placa rectangular bajo el carrusel de amigos. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   > [role="generic"]:has([role="list"] > [role="link"])
@@ -367,7 +470,7 @@
   padding-inline: 5px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]:has(> [role="link"]) {
@@ -378,16 +481,7 @@
   scroll-padding-inline: 15px !important;
 }
 
-/* El rectángulo móvil de Steam es una capa hermana del carrusel. Nuestro
-   estado de foco ya vive en la card y conserva toda la navegación. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
-  [role="tabpanel"][id$="WhatsNew_Content"]
-  .Panel.Focusable.gpfocuswithin:has([role="list"] > [role="link"].gpfocus)
-  > div:first-child:has(> div:only-child) {
-  display: none !important;
-}
-
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -407,7 +501,7 @@
     box-shadow 150ms ease;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -421,7 +515,7 @@
     0 6px 16px var(--hdg-accent-glow) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -429,7 +523,7 @@
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -444,7 +538,7 @@
   position: absolute !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -455,7 +549,7 @@
 }
 
 /* Actividad: la foto y la franja de presencia son una sola pieza. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -468,7 +562,7 @@
   position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -484,7 +578,7 @@
   width: calc(100% - 3px) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="list"]
@@ -505,14 +599,14 @@
   width: 3px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   .avatarHolder:has(> .avatarStatus):has(> img.avatar)
   > .avatarFrame {
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -526,7 +620,7 @@
   padding: 4px 5px 6px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -544,20 +638,18 @@
   position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
   > div:has(> [role="button"])
   [role="button"].gpfocus {
   background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 6px 16px var(--hdg-accent-glow) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -565,7 +657,7 @@
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -580,7 +672,7 @@
   position: absolute !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -590,7 +682,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -601,13 +693,13 @@
   box-shadow: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
   [role="button"]
   img::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
   [role="generic"]:has([role="button"] [role="link"])
@@ -616,7 +708,7 @@
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   div:has(> [role="button"]:only-child):has(> [role="button"] img) {
@@ -630,7 +722,7 @@
   padding: 4px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="button"]:not(button):not(textarea) {
@@ -642,30 +734,29 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   box-sizing: border-box;
   outline: none !important;
-  overflow: hidden !important;
+  overflow: visible !important;
+  position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="button"]:not(button):not(textarea).gpfocus {
   background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 6px 16px var(--hdg-accent-glow) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="button"]:not(button):not(textarea).gpfocus::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="button"]:not(button):not(textarea)
   img::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="button"]:not(button):not(textarea)
@@ -673,7 +764,7 @@
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="button"]:not(button):not(textarea).gpfocus::after {
@@ -687,7 +778,98 @@
   position: absolute !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+/* Algunas actividades muestran logros como enlaces directos dentro de una
+   lista, sin el grupo de avatar que usa la variante social. Conservan el
+   selector rectangular de Steam si sólo cubrimos el grupo completo. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="list"]
+  > [role="listitem"]
+  > [role="link"] {
+  background: var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05) !important;
+  box-sizing: border-box;
+  outline: none !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="list"]
+  > [role="listitem"]
+  > [role="link"].gpfocus {
+  background: var(--hdg-accent-surface-focus) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22) !important;
+}
+
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="list"]
+  > [role="listitem"]
+  > [role="link"].gpfocus::before {
+  content: none !important;
+}
+
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="list"]
+  > [role="listitem"]
+  > [role="link"].gpfocus::after {
+  background: transparent !important;
+  border: 1px solid var(--hdg-focus-ring) !important;
+  border-radius: 17px !important;
+  box-shadow: 0 4px 16px var(--hdg-accent-glow) !important;
+  content: "" !important;
+  inset: -5px !important;
+  pointer-events: none !important;
+  position: absolute !important;
+}
+
+/* Algunos controles del feed (por ejemplo “Ver las últimas noticias”) viven
+   directamente dentro del grupo enfocado. En esa variante el indicador
+   nativo no envuelve un enlace, pero sigue siendo el mismo primer hermano. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  .Panel.Focusable.gpfocuswithin:has(
+    [role="button"]:not(textarea).gpfocus
+  )
+  > div:first-child:has(> div:only-child) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  outline: 0 !important;
+  pointer-events: none !important;
+}
+
+/* El grupo principal del feed usa una capa de navegación vacía como primer
+   hijo y coloca el botón enfocado en un hermano posterior. La capa se
+   reconoce por el único hijo posicionado con la geometría del foco. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  .Panel.Focusable.gpfocuswithin
+  > div:has(
+    > div:only-child[style*="left:"][style*="top:"][style*="height:"][style*="width:"]
+  ) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  outline: 0 !important;
+  pointer-events: none !important;
+}
+
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -696,7 +878,7 @@
   scroll-margin-block: 64px;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -715,7 +897,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -728,7 +910,7 @@
     0 8px 20px var(--hdg-accent-glow) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -741,7 +923,7 @@
 
 /* Actividad: los grupos de logros nativos eran dos rectángulos superpuestos
    (cabecera + contenido). Se convierten en una sola tarjeta con aire interno. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -752,17 +934,17 @@
     linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 56%),
     var(--hdg-settings-panel-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
-  border-radius: 16px !important;
+  border-radius: 18px !important;
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.065),
     0 8px 22px rgba(0, 0, 0, 0.16) !important;
   box-sizing: border-box;
   margin-block: 12px !important;
   overflow: visible !important;
-  padding: 6px !important;
+  padding: 8px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -772,10 +954,10 @@
   > .Panel.Focusable:first-child {
   background: var(--hdg-settings-row-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
-  border-radius: 12px !important;
+  border-radius: 13px !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05) !important;
   box-sizing: border-box;
-  margin-bottom: 6px !important;
+  margin-bottom: 8px !important;
   min-height: 44px !important;
   overflow: hidden !important;
   padding: 4px 9px !important;
@@ -783,7 +965,7 @@
 
 /* Avatar y estado forman una única pieza: el lado derecho queda recto para
    recibir la barra de estado sin duplicar bordes ni generar esquinas negras. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -795,7 +977,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -809,7 +991,7 @@
 
 /* El contenido ya vive dentro del cristal exterior; eliminamos la segunda
    placa y espaciamos cada logro como elemento independiente. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -819,15 +1001,30 @@
   > :not(.Panel.Focusable:first-child) {
   background: transparent !important;
   border: 0 !important;
-  border-radius: 12px !important;
+  border-radius: 13px !important;
   box-shadow: none !important;
   box-sizing: border-box;
   overflow: visible !important;
 }
 
+/* Steam ensancha esta pista 12 px a cada lado. Dentro de la nueva card ese
+   margen negativo rompe la silueta y vuelve a enseñar las esquinas nativas. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has(textarea[role="button"])
+  [role="region"]
+  .Panel.Focusable:has(
+    > .Panel.Focusable:first-child [role="presentation"] img.avatar
+  )
+  > :not(.Panel.Focusable:first-child)
+  > .Panel
+  > div:last-child {
+  margin-inline: 0 !important;
+}
+
 /* Steam reserva una franja inferior vacía para acciones que no existen en
    estos grupos. Al no tener contenido sólo añadía un rectángulo de aire. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   [role="region"]
@@ -838,7 +1035,7 @@
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -848,7 +1045,7 @@
   padding: 6px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -859,7 +1056,7 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -878,7 +1075,7 @@
   position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -886,11 +1083,11 @@
   )
   [role="link"].gpfocus {
   background: var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  box-shadow: 0 6px 18px var(--hdg-accent-glow) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -900,7 +1097,7 @@
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -917,7 +1114,7 @@
   position: absolute !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -931,7 +1128,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -939,7 +1136,7 @@
   )
   [role="link"]
   img::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has(textarea[role="button"])
   .Panel.Focusable:has(
@@ -952,7 +1149,7 @@
 
 /* Tus cosas: Logros forma una única bandeja de cristal. Se conserva el
    carrusel con overflow visible para que el halo del mando no se recorte. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]
   > div:has(div[style*="width:"][style*="%"]) {
@@ -970,7 +1167,7 @@
 }
 
 /* El resumen era una franja opaca de ancho completo dentro del cristal. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]
   > div:has(div[style*="width:"][style*="%"])
@@ -986,10 +1183,10 @@
   padding: 10px 12px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   div:has(> div[style*="width:"][style*="%"]),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   div:has(> div[style*="width:"][style*="%"])
   > div[style*="width:"][style*="%"] {
@@ -998,7 +1195,7 @@
   height: 7px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   div:has(> div[style*="width:"][style*="%"]) {
   background:
@@ -1009,7 +1206,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   div:has(> div[style*="width:"][style*="%"])
   > div[style*="width:"][style*="%"] {
@@ -1017,19 +1214,19 @@
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.24) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]
   > div:has(div[style*="width:"][style*="%"])
   > div:has([role="list"] [role="button"]),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   div:has(> [role="list"] > [role="listitem"] > [role="button"]) {
   box-sizing: border-box;
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]:has([role="button"] img) {
   box-sizing: border-box;
@@ -1038,7 +1235,20 @@
   scroll-padding-inline: 12px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+/* Steam monta el indicador rectangular del mando como un hermano absoluto
+   del contenido. Estas tres pestañas ya dibujan su foco sobre cada control;
+   conservar ambas capas provoca doble borde y parpadeo al navegar. */
+:scope
+  :is(
+    [role="tabpanel"][id$="YourStuff_Content"],
+    [role="tabpanel"][id$="Community_Content"],
+    [role="tabpanel"][id$="GameInfo_Content"]
+  )
+  > div:first-child:has(> div:only-child) {
+  display: none !important;
+}
+
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   div:has(> [role="list"] > [role="listitem"] > [role="button"] img) {
   box-sizing: border-box !important;
@@ -1050,7 +1260,7 @@
   scroll-padding-inline: 12px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   .Panel.Focusable.gpfocuswithin:has(
     [role="list"] > [role="listitem"] > [role="button"].gpfocus
@@ -1059,7 +1269,7 @@
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]:has([role="button"] img)
   > [role="listitem"] {
@@ -1068,7 +1278,7 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
@@ -1098,39 +1308,75 @@
 /* Steam da a los logros contraídos una huella vertical más alta que su ancho.
    Igualamos únicamente los pares no enfocados; el activo conserva el panel
    expandido con texto y la navegación sigue calculándose con su tamaño real. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
-  > [role="button"]:not(.gpfocus):not(:has(.gpfocus)) {
+  > [role="button"]:not(.gpfocus):not(.gpfocuswithin) {
   aspect-ratio: 1 / 1 !important;
   height: 76px !important;
   width: 76px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+/* La huella nativa del enlace interior conserva algunos píxeles más de alto
+   que la tarjeta. En los logros contraídos ambos niveles deben compartir el
+   mismo cuadrado; el artwork mantiene su marco original sin redondeo. */
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
-  > [role="button"]:is(.gpfocus, :has(.gpfocus)) {
-  background: var(--hdg-accent-surface-focus) !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  > [role="button"]:not(.gpfocus):not(.gpfocuswithin)
+  > [role="link"],
+:scope
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]:not(.gpfocus):not(.gpfocuswithin)
+  > [role="link"]
+  > .Panel.Focusable {
+  aspect-ratio: 1 / 1 !important;
+  box-sizing: border-box !important;
+  height: 74px !important;
+  min-height: 74px !important;
+  width: 74px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
-  > [role="button"]:is(.gpfocus, :has(.gpfocus))::before {
+  > [role="button"]:is(.gpfocus, .gpfocuswithin) {
+  /* Sticky puede superponer el logro activo a sus vecinos al restaurar el
+     foco. Una base opaca del propio tema evita que se transparenten debajo. */
+  background:
+    linear-gradient(
+      var(--hdg-accent-surface-focus),
+      var(--hdg-accent-surface-focus)
+    ),
+    var(--hdg-glass-panel-fallback) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  /* En la reentrada Steam calcula el scroll con el trofeo aún contraído. Al
+     expandirlo, el extremo derecho puede quedar fuera. Sticky lo contiene en
+     el viewport horizontal sin alterar el índice ni la navegación del mando. */
+  position: sticky !important;
+  right: 12px !important;
+  z-index: 2;
+}
+
+:scope
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]:is(.gpfocus, .gpfocuswithin)::before {
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
-  > [role="button"]:is(.gpfocus, :has(.gpfocus))::after {
+  > [role="button"]:is(.gpfocus, .gpfocuswithin)::after {
   background: transparent !important;
   border: 1px solid var(--hdg-focus-ring) !important;
   border-radius: 18px !important;
@@ -1141,13 +1387,13 @@
   position: absolute !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="button"]
   [role="link"],
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
@@ -1163,13 +1409,13 @@
 
 /* El marco forma parte del propio artwork. Se conserva completo y rectangular:
    el vidrio redondeado pertenece a la tarjeta, no al icono del logro. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="button"]
   :is([role="link"], div:has(> img[src*="/community_assets/images/apps/"]), img[src*="/community_assets/images/apps/"]),
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="link"]
   :is(div:has(> img[src*="/community_assets/images/apps/"]), img[src*="/community_assets/images/apps/"]) {
@@ -1179,25 +1425,25 @@
 }
 
 /* El degradado nativo vive sobre la propia imagen y produce picos negros. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="button"]
   img::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="button"]
   img::after,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="button"]
   [role="link"]::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="list"]
   > [role="listitem"]
@@ -1207,7 +1453,7 @@
 }
 
 /* Todas las secciones inferiores de Tus cosas comparten la misma jerarquía. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]
   > .Panel.Focusable {
@@ -1224,7 +1470,7 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]
   > .Panel.Focusable
@@ -1234,7 +1480,7 @@
 
 /* DLC: las ilustraciones eran rectángulos sin recorte dentro de un cristal
    redondeado. Cada mosaico y el contador comparten ahora el mismo radio. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"] {
@@ -1246,7 +1492,7 @@
   position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"]
@@ -1260,7 +1506,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"]
@@ -1268,7 +1514,7 @@
   > div
   > .Panel.Focusable
   > div,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"]
@@ -1281,7 +1527,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"]
@@ -1296,7 +1542,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"].gpfocus {
@@ -1304,14 +1550,14 @@
   box-shadow: 0 7px 20px var(--hdg-accent-glow) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"].gpfocus::before {
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="YourStuff_Content"]
   [role="region"]:has(> h2 + [role="link"] .Panel.Focusable)
   > [role="link"].gpfocus::after {
@@ -1330,7 +1576,7 @@
    Se identifica por el tabpanel semántico de logros; esta ruta se monta fuera
    de la ficha del juego y necesita su propia jerarquía de cristal. */
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"]) {
+:scope {
   background: var(--hdg-page-background) !important;
   color: var(--hdg-text-primary) !important;
 }
@@ -1338,7 +1584,7 @@
 /* Las capas de enrutado de Steam conservan fondos opacos aunque la página ya
    tenga su propio backdrop. Al vaciarlas evitamos bandas rectangulares entre
    la cabecera, las pestañas y la lista. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable:has([role="tabpanel"][id$="achievements_Content"]):not(
     [role="tabpanel"]
   ) {
@@ -1347,7 +1593,7 @@
 
 /* La cabecera y el contenido son hermanos: la primera se integra como una
    lámina continua, sin convertirla en otra tarjeta flotante. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable:has(
     + .Panel.Focusable [role="tabpanel"][id$="achievements_Content"]
   ) {
@@ -1360,21 +1606,21 @@
 
 /* Overlay que Steam coloca delante del artwork ancho. Se reconoce por ser el
    primer hijo vacío del mismo nodo que contiene la imagen de fondo. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   div:has(> div:nth-child(2) img[src*="/library_"])
   > div:first-child:empty {
   background: linear-gradient(180deg, rgba(5, 9, 13, 0.08), rgba(7, 12, 17, 0.78)) !important;
 }
 
 /* El soporte de pestañas permanece integrado, sin una banda opaca adicional. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   div:has(> div > [role="tablist"]):has(
     [role="tabpanel"][id$="achievements_Content"]
   ) {
   background: transparent !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"] {
   box-sizing: border-box;
   padding: 58px 18px 72px !important;
@@ -1382,28 +1628,28 @@
 }
 
 /* Portada: esquinas limpias y sin fondo rectangular heredado. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   div:has(> img[src*="/library_"]):not([role="tabpanel"]),
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   img[src*="/library_"] {
   border-radius: 16px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   div:has(> img[src*="/library_"]) {
   background: transparent !important;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22) !important;
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   img[src*="/library_"] {
   display: block;
   overflow: hidden !important;
 }
 
 /* Resumen superior: sustituye la banda gris nativa por un panel compacto. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(
     div[style*="width:"][style*="%"]
   )
@@ -1422,7 +1668,7 @@
 
 /* El resumen no es una acción: Steam le aplica gpfocus sólo para trasladar la
    navegación a la lista. Neutralizamos su marco rectangular sin tocar el foco. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(
     div[style*="width:"][style*="%"]
   ) {
@@ -1431,11 +1677,11 @@
   outline: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(
     div[style*="width:"][style*="%"]
   )::before,
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(
     div[style*="width:"][style*="%"]
   )::after {
@@ -1444,18 +1690,18 @@
 
 /* Marcador móvil observado: es el único hijo de una capa absoluta de tamaño
    cero. Se elimina sólo en esta ruta porque el resumen no es accionable. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   > div
   .Panel.Focusable.gpfocuswithin
   > div:first-child:has(> div:only-child):not(:has(img)) {
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(div[style*="width:"][style*="%"])
   > div
   div:has(> div[style*="width:"][style*="%"]),
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(div[style*="width:"][style*="%"])
   > div
   div:has(> div[style*="width:"][style*="%"])
@@ -1465,7 +1711,7 @@
   height: 7px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(div[style*="width:"][style*="%"])
   > div
   div:has(> div[style*="width:"][style*="%"]):not(:has(img)) {
@@ -1475,7 +1721,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .Panel.Focusable.gpfocus:has(div[style*="width:"][style*="%"])
   > div
   div:has(> div[style*="width:"][style*="%"])
@@ -1485,7 +1731,7 @@
 }
 
 /* Pestañas de la vista completa: estado seleccionado y foco homogéneos. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tablist"] {
   border-bottom: 1px solid var(--hdg-glass-stroke-soft) !important;
   box-sizing: border-box;
@@ -1493,7 +1739,7 @@
   padding: 5px 18px 8px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tablist"]
   [role="tab"] {
   background: transparent !important;
@@ -1504,7 +1750,7 @@
   padding: 8px 16px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tablist"]
   [role="tab"][aria-selected="true"] {
   background: var(--hdg-settings-row-surface) !important;
@@ -1512,7 +1758,7 @@
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.06) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tablist"]
   [role="tab"].gpfocus {
   background: var(--hdg-accent-surface-focus) !important;
@@ -1523,7 +1769,7 @@
 }
 
 /* Contenido, filtro y comparación. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   > .Panel.Focusable:not(:first-child) {
   background: transparent !important;
@@ -1531,7 +1777,7 @@
   padding: 8px 12px 18px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   > .Panel.Focusable:not(:first-child)
   > .Panel.Focusable:first-child {
@@ -1541,9 +1787,9 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   .DialogInput_Wrapper,
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="combobox"] {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 54%),
@@ -1556,16 +1802,16 @@
   outline: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   :is(input, .DialogInput),
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   :is(input, .DialogInput)::placeholder {
   color: var(--hdg-text-secondary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
-  :is(.DialogInput_Wrapper, [role="combobox"]):has(.gpfocus),
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
+  :is(.DialogInput_Wrapper, [role="combobox"]).gpfocuswithin,
+:scope
   :is(.DialogInput_Wrapper, [role="combobox"]).gpfocus {
   background: var(--hdg-accent-surface-focus) !important;
   border-color: var(--hdg-accent-stroke) !important;
@@ -1576,7 +1822,7 @@
 
 /* Cada logro es una tarjeta respirada; el margen mantiene el halo separado y
    evita el corte contra el contenedor de desplazamiento. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img) {
   background:
@@ -1592,7 +1838,7 @@
   position: absolute !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   > div {
@@ -1602,7 +1848,7 @@
   padding: 5px 7px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   img {
@@ -1613,7 +1859,7 @@
   transform: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   div:has(> img[src*="/community_assets/images/apps/"]) {
@@ -1621,25 +1867,25 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   div:has(> img[src*="/community_assets/images/apps/"])::after {
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   img::before,
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable[style*="position: absolute"][style*="height:"]:has(> div img)
   img::after {
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img) {
   background: var(--hdg-accent-surface-focus) !important;
@@ -1649,7 +1895,7 @@
 
 /* Steam dibuja un rectángulo móvil como primer hijo del contenedor de filas.
    El halo redondeado ya está en la tarjeta enfocada. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable.gpfocuswithin:has(
     > div .Panel.Focusable.gpfocus:has(> div img)
@@ -1658,13 +1904,13 @@
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   > div:first-child:has(> div:only-child) {
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable.gpfocuswithin:has(
     .Panel.Focusable.gpfocus:has(> div img)
@@ -1673,13 +1919,13 @@
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img)::before {
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable.gpfocus[style*="position: absolute"][style*="height:"]:has(> div img)::after {
   background: transparent !important;
@@ -1693,7 +1939,7 @@
 }
 
 /* El placeholder de logros ocultos no contiene una imagen real. */
-#GamepadUI_Full_Root:has([role="tabpanel"][id$="achievements_Content"])
+:scope
   [role="tabpanel"][id$="achievements_Content"]
   .Panel.Focusable:has(> div > div:first-child + div):not(:has(img)):not(:empty) {
   background: var(--hdg-settings-row-surface) !important;
@@ -1706,7 +1952,7 @@
 }
 
 /* Información: compatibilidad y enlaces dejan de ser bloques azules nativos. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   div:has(> [role="button"]:last-child):has(> div:first-child) {
   background:
@@ -1716,26 +1962,36 @@
   border-radius: 14px !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.06) !important;
   box-sizing: border-box;
-  overflow: hidden !important;
+  align-items: center !important;
+  column-gap: 12px !important;
+  min-height: 52px !important;
+  overflow: visible !important;
+  padding: 7px 12px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   div:has(> [role="button"]:last-child):has(> div:first-child)
   > [role="button"] {
+  align-items: center !important;
   background: var(--hdg-control-surface) !important;
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: 10px !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.055) !important;
   color: var(--hdg-text-primary) !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  min-height: 36px !important;
   outline: none !important;
+  padding: 7px 14px !important;
+  position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   div:has(> [role="button"]:last-child):has(> div:first-child)
   > [role="button"].gpfocus,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   [role="list"]
   > [role="listitem"]
@@ -1747,14 +2003,39 @@
     0 6px 16px var(--hdg-accent-glow) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
+  [role="tabpanel"][id$="GameInfo_Content"]
+  div:has(> [role="button"]:last-child):has(> div:first-child)
+  > [role="button"].gpfocus::before {
+  animation: none !important;
+  content: none !important;
+  transition: none !important;
+}
+
+:scope
+  [role="tabpanel"][id$="GameInfo_Content"]
+  div:has(> [role="button"]:last-child):has(> div:first-child)
+  > [role="button"].gpfocus::after {
+  animation: none !important;
+  background: transparent !important;
+  border: 1px solid var(--hdg-focus-ring) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 16px var(--hdg-accent-glow) !important;
+  content: "" !important;
+  inset: -5px !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  transition: none !important;
+}
+
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   div:has(> [role="list"] > [role="listitem"] > [role="link"]) {
   padding-inline: 8px !important;
   scroll-padding-inline: 8px !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   [role="list"]
   > [role="listitem"]
@@ -1770,25 +2051,92 @@
   box-sizing: border-box;
   color: var(--hdg-text-primary) !important;
   outline: none !important;
-  overflow: hidden !important;
+  overflow: visible !important;
+  position: relative !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   [role="list"]
   > [role="listitem"]
-  > [role="link"].gpfocus::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  > [role="link"].gpfocus::before {
+  content: none !important;
+}
+
+:scope
   [role="tabpanel"][id$="GameInfo_Content"]
   [role="list"]
   > [role="listitem"]
   > [role="link"].gpfocus::after {
+  animation: none !important;
+  background: transparent !important;
+  border: 1px solid var(--hdg-focus-ring) !important;
+  border-radius: 17px !important;
+  box-shadow: 0 5px 18px var(--hdg-accent-glow) !important;
+  content: "" !important;
+  inset: -5px !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  transition: none !important;
+}
+
+/* La colección usa un mosaico independiente del listado de enlaces. Se
+   presenta como una card de galería y se neutraliza el barrido rectangular. */
+:scope
+  [role="tabpanel"][id$="GameInfo_Content"]
+  [role="grid"]
+  [role="gridcell"]
+  > [role="link"] {
+  background: var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.06),
+    0 9px 22px rgba(0, 0, 0, 0.2) !important;
+  box-sizing: border-box !important;
+  color: var(--hdg-text-primary) !important;
+  outline: none !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+:scope
+  [role="tabpanel"][id$="GameInfo_Content"]
+  [role="grid"]
+  [role="gridcell"]
+  > [role="link"].gpfocus {
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px var(--hdg-focus-ring),
+    0 8px 22px var(--hdg-accent-glow) !important;
+}
+
+:scope
+  [role="tabpanel"][id$="GameInfo_Content"]
+  [role="grid"]
+  [role="gridcell"]
+  > [role="link"].gpfocus::before {
   content: none !important;
+}
+
+:scope
+  [role="tabpanel"][id$="GameInfo_Content"]
+  [role="grid"]
+  [role="gridcell"]
+  > [role="link"].gpfocus::after {
+  animation: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  transition: none !important;
 }
 
 /* Actividad abre las noticias en un carrusel fullscreen sin role=dialog.
    El artículo activo se identifica por la grilla accesible y su contenido. */
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="generic"].ReactVirtualized__Grid:has(
     > [role="list"] > [role="listitem"] [role="button"] img
   )
@@ -1812,7 +2160,7 @@
 }
 
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  :scope
     [role="generic"].ReactVirtualized__Grid:has(
       > [role="list"] > [role="listitem"] [role="button"] img
     )
@@ -1826,7 +2174,7 @@
   }
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="generic"].ReactVirtualized__Grid:has(
     > [role="list"] > [role="listitem"] [role="button"] img
   )
@@ -1841,7 +2189,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="generic"].ReactVirtualized__Grid:has(
     > [role="list"] > [role="listitem"] [role="button"] img
   )
@@ -1858,14 +2206,14 @@
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="generic"].ReactVirtualized__Grid:has(
     > [role="list"] > [role="listitem"] [role="button"] img
   )
   > [role="list"]
   > [role="listitem"]
   [role="button"]:is(.gpfocus, .gpfocuswithin)::before,
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="generic"].ReactVirtualized__Grid:has(
     > [role="list"] > [role="listitem"] [role="button"] img
   )
@@ -1875,7 +2223,7 @@
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+:scope
   [role="generic"].ReactVirtualized__Grid:has(
     > [role="list"] > [role="listitem"] [role="button"] img
   )
@@ -1886,21 +2234,22 @@
 }
 
 @supports not (backdrop-filter: blur(1px)) {
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  :scope
     [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *) {
     background-color: rgba(28, 38, 49, 0.9) !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  :scope
     :is([role="button"], [role="tab"]):not(#header *):not([role="dialog"] *) {
     transition: none;
   }
 
-  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  :scope
     [role="progressbar"]
     > :first-child {
     transition: none;
   }
+}
 }

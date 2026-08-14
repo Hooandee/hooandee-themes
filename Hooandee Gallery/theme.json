@@ -2,7 +2,7 @@
   "name": "Hooandee Gallery",
   "display_name": "Hooandee Gallery",
   "author": "Hooandee",
-  "version": "v0.5.50",
+  "version": "v0.6.0",
   "description": "Transforma Steam en una galería y un sistema glass coherente, con artwork dinámico, controles refinados y acentos elegantes configurables.",
   "target": "System-Wide",
   "manifest_version": 9,
@@ -107,6 +107,87 @@
         }
       }
     },
+    "Posición del nombre": {
+      "default": "Arriba",
+      "type": "slider",
+      "values": {
+        "Arriba": {},
+        "Abajo": {
+          "options/game-name-bottom.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Mostrar nombre del juego": {
+      "default": "Yes",
+      "type": "checkbox",
+      "values": {
+        "No": {
+          "options/hide-game-name.css": [
+            "bigpicture"
+          ]
+        },
+        "Yes": {}
+      }
+    },
+    "Mostrar tiempo jugado": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {
+          "options/hide-playtime.css": [
+            "bigpicture"
+          ]
+        },
+        "Yes": {}
+      }
+    },
+    "Vista inicial de Detalles": {
+      "default": "Cinemática",
+      "type": "slider",
+      "values": {
+        "Cinemática": {
+          "options/details-cinematic.css": [
+            "bigpicture"
+          ]
+        },
+        "Completa": {}
+      }
+    },
+    "Profundidad del carrusel": {
+      "default": "Sutil",
+      "type": "slider",
+      "values": {
+        "2D": {
+          "options/carousel-depth-2d.css": [
+            "bigpicture"
+          ]
+        },
+        "Sutil": {
+          "options/carousel-depth-subtle.css": [
+            "bigpicture"
+          ]
+        },
+        "Cover Flow": {
+          "options/carousel-depth-coverflow.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
+    "Panel de cristal de Inicio": {
+      "default": "Yes",
+      "type": "checkbox",
+      "values": {
+        "No": {
+          "options/home-stage-panel-hidden.css": [
+            "bigpicture"
+          ]
+        },
+        "Yes": {}
+      }
+    },
     "Difuminado de parrilla": {
       "default": "Medio",
       "type": "slider",
@@ -174,32 +255,8 @@
         }
       }
     },
-    "Ocultar nombre del juego": {
-      "default": "No",
-      "type": "checkbox",
-      "values": {
-        "No": {},
-        "Yes": {
-          "options/hide-game-name.css": [
-            "bigpicture"
-          ]
-        }
-      }
-    },
-    "Ocultar tiempo jugado": {
-      "default": "No",
-      "type": "checkbox",
-      "values": {
-        "No": {},
-        "Yes": {
-          "options/hide-playtime.css": [
-            "bigpicture"
-          ]
-        }
-      }
-    },
     "Contenido del header": {
-      "default": "Completo",
+      "default": "Solo indicadores",
       "type": "slider",
       "values": {
         "Completo": {},
@@ -251,7 +308,7 @@
       }
     },
     "Contenido del footer": {
-      "default": "Completo",
+      "default": "Esencial",
       "type": "slider",
       "values": {
         "Completo": {},

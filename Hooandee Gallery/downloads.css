@@ -1,4 +1,8 @@
-#Main:has([data-rbd-droppable-context-id][role="list"]) {
+/* La lista de descargas es una raíz estable observada. Evaluarla una vez
+ * mantiene esta hoja fuera del camino crítico del carrusel de Inicio. */
+@scope (#Main > .Panel:has([data-rbd-droppable-context-id][role="list"])) {
+
+:scope {
   --hdg-downloads-header-clearance: 43px;
   background:
     radial-gradient(circle at 18% 12%, var(--hdg-accent-glow), transparent 34%),
@@ -11,7 +15,7 @@
 /* BasicUI reserva 240px para el resumen superior. Al existir una barra de
  * sistema visible, descontamos la misma franja para conservar intacto el
  * viewport de la lista inferior y desplazarlo por encima del footer. */
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   div:has(> div:empty:first-child + .Panel) {
   flex: 0 0 calc(240px - var(--hdg-downloads-header-clearance)) !important;
   height: calc(240px - var(--hdg-downloads-header-clearance)) !important;
@@ -20,13 +24,13 @@
 }
 
 /* Etiqueta informativa redundante que Steam posiciona sobre la gráfica activa. */
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   div:has(> div:empty:first-child + .Panel)
   > .Panel {
   display: none !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [data-rbd-droppable-context-id][role="list"] {
   background: transparent !important;
   border: 0 !important;
@@ -35,7 +39,7 @@
   padding: 8px !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [role="listitem"]
   > [data-rbd-draggable-id][role="button"] {
   background:
@@ -55,7 +59,7 @@
     box-shadow 150ms ease;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [role="listitem"]
   > [data-rbd-draggable-id][role="button"].gpfocus {
   background:
@@ -67,7 +71,7 @@
     0 8px 24px var(--hdg-accent-glow) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [data-rbd-draggable-id][role="button"]
   [role="link"]:has(> img) {
   border: 1px solid var(--hdg-glass-stroke) !important;
@@ -76,7 +80,7 @@
   overflow: hidden !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [data-rbd-draggable-id][role="button"]
   [role="link"]
   > img {
@@ -84,14 +88,14 @@
 }
 
 /* El artwork real de Descargas no siempre expone role="link". */
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [data-rbd-draggable-id][role="button"]
   div:has(> img) {
   border-radius: 10px !important;
   overflow: hidden !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [data-rbd-draggable-id][role="button"]
   img {
   border-radius: 10px !important;
@@ -99,18 +103,18 @@
   overflow: hidden;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(h2, h3) {
   color: var(--hdg-text-primary) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(button.DialogButton, button[role="button"]) {
   border-radius: var(--hdg-control-radius) !important;
 }
 
 /* Acción de la descarga activa: squircle estable, sin el marco rectangular nativo. */
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(
     button[aria-label="Parar descarga"],
     button[aria-label="Pausar descarga"],
@@ -136,7 +140,7 @@
   width: 38px !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(
     button[aria-label="Parar descarga"],
     button[aria-label="Pausar descarga"],
@@ -151,7 +155,7 @@
   width: 20px !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(
     button[aria-label="Parar descarga"],
     button[aria-label="Pausar descarga"],
@@ -168,7 +172,7 @@
   color: var(--hdg-accent-on-fill) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(
     button[aria-label="Parar descarga"],
     button[aria-label="Pausar descarga"],
@@ -177,7 +181,7 @@
     button[aria-label="Pause download"],
     button[aria-label="Resume download"]
   )::before,
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   :is(
     button[aria-label="Parar descarga"],
     button[aria-label="Pausar descarga"],
@@ -191,7 +195,7 @@
 
 /* La etiqueta vive como hermana absoluta de la lista activa. La insetamos para
  * que su cristal no coincida con el trazo exterior de la tarjeta. */
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   div:has(> [data-rbd-droppable-context-id][role="list"])
   + .Panel.Focusable {
   bottom: 10px !important;
@@ -202,7 +206,7 @@
   top: auto !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   div:has(> [data-rbd-droppable-context-id][role="list"])
   + .Panel.Focusable
   > div {
@@ -221,7 +225,7 @@
   padding: 6px 10px !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   div:has(> [data-rbd-droppable-context-id][role="list"])
   + .Panel.Focusable
   > div
@@ -229,7 +233,7 @@
   color: var(--hdg-accent-ink) !important;
 }
 
-#Main:has([data-rbd-droppable-context-id][role="list"])
+:scope
   [role="progressbar"] {
   accent-color: var(--hdg-accent);
   border-radius: 999px !important;
@@ -237,9 +241,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #Main:has([data-rbd-droppable-context-id][role="list"])
+  :scope
     [role="listitem"]
     > [data-rbd-draggable-id][role="button"] {
     transition: none;
   }
+}
+
 }

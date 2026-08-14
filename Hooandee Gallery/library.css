@@ -5,12 +5,16 @@
   --hdg-library-radius: 16px;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+/* Una sola comprobación de ruta evita reevaluar AllGames por cada card cuando
+ * el foco cambia en Inicio. Las reglas internas conservan la misma cascada. */
+@scope (#Main .Panel:has(> div > div > [role="tablist"] [role="tab"][id*="AllGames"])) {
+
+:scope
   [role="tabpanel"][id$="_Content"] {
   isolation: isolate;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]::after {
   background:
     linear-gradient(90deg, rgba(5, 8, 12, 0.64), rgba(5, 8, 12, 0.3) 56%, rgba(5, 8, 12, 0.48)),
@@ -22,7 +26,7 @@
   z-index: 1;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   div:has(> [role="link"].gpfocus ~ div > img[role="presentation"]) {
@@ -30,7 +34,7 @@
   will-change: auto !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus
@@ -39,7 +43,7 @@
   transform: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus
@@ -59,13 +63,13 @@
   z-index: 0 !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"] > * {
   position: relative;
   z-index: 2;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"] {
@@ -80,7 +84,7 @@
     filter 160ms ease;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]
@@ -90,7 +94,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]
@@ -98,18 +102,18 @@
   border-radius: calc(var(--hdg-library-radius) - 1px) !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]::before,
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]::after {
   border-radius: inherit !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"]
@@ -117,7 +121,7 @@
   outline: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus {
@@ -127,7 +131,7 @@
   outline-offset: 5px;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"]):has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus {
@@ -136,11 +140,11 @@
   outline-offset: 5px !important;
 }
 
-#GamepadUI_Full_Root:has(#header input[type="search"]):has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus::before,
-#GamepadUI_Full_Root:has(#header input[type="search"]):has([role="tab"][id$="AllGames"])
+:scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]
   [role="link"].gpfocus::after {
@@ -150,7 +154,7 @@
 }
 
 @supports not (filter: blur(1px)) {
-  #GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  :scope
     [role="tabpanel"][id$="_Content"]
     [role="grid"]
     [role="link"].gpfocus
@@ -161,10 +165,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #GamepadUI_Full_Root:has([role="tab"][id$="AllGames"])
+  :scope
     [role="tabpanel"][id$="_Content"]
     [role="grid"]
     [role="link"] {
     transition: none;
   }
+}
+
 }

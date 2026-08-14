@@ -1,0 +1,48 @@
+/* La bandeja real de Detalles contiene la acción principal en su primer hijo y
+ * la navegación/contenido en los siguientes. Steam calcula la navegación con
+ * la geometría renderizada: mover u ocultar por display/visibility estos hijos
+ * impide que ArrowDown encuentre las pestañas. El recorte conserva sus cajas y
+ * los revela en cuanto el foco entra en la zona secundaria. */
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
+    > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
+  ):not(:has(
+    > div:first-child ~ :is(.gpfocus, .gpfocuswithin),
+    > div:first-child ~ * :is(.gpfocus, .gpfocuswithin)
+  ))
+  > div:first-child
+  ~ * {
+  clip-path: inset(0 0 100% 0) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: clip-path 180ms cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
+    > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
+  ):has(
+    > div:first-child ~ :is(.gpfocus, .gpfocuswithin),
+    > div:first-child ~ * :is(.gpfocus, .gpfocuswithin)
+  )
+  > div:first-child
+  ~ * {
+  clip-path: inset(0 0 0 0) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: clip-path 160ms cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+    div:has(> div:first-child [role="button"]:not([aria-label]) > svg + div):has(
+      > div:nth-child(4) [role="tab"][aria-controls$="GameInfo_Content"]
+    )
+    > div:first-child
+    ~ * {
+    clip-path: inset(0 0 0 0) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
