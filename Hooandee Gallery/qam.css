@@ -117,7 +117,7 @@ body,
 
 #QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child {
   align-items: center !important;
-  background: transparent !important;
+  background: var(--hdg-glass-panel-fallback) !important;
   border: 0 !important;
   border-bottom: 1px solid var(--hdg-glass-stroke-soft) !important;
   box-sizing: border-box !important;
