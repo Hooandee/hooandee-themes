@@ -46,6 +46,18 @@
   --hdg-card-placeholder-surface: rgba(10, 17, 25, 0.94);
   --hdg-card-placeholder-stroke: rgba(240, 248, 255, 0.16);
   --hdg-card-placeholder-spinner-track: rgba(240, 248, 255, 0.24);
+  --hdg-details-cinematic-band:
+    linear-gradient(180deg, rgba(7, 12, 18, 0), rgba(7, 12, 18, 0.6) 44%, rgba(7, 12, 18, 0.82));
+  --hdg-details-cinematic-band-base: rgba(7, 12, 18, 0.82);
+  --hdg-details-cinematic-footer:
+    linear-gradient(180deg, rgba(7, 12, 18, 0.82), rgba(2, 5, 8, 0.94));
+  --hdg-details-cinematic-artwork-brightness: 0.78;
+  --hdg-details-cinematic-veil: linear-gradient(180deg, rgba(7, 12, 18, 0.9), rgba(7, 12, 18, 0.985) 28%);
+  --hdg-downloads-hero-opacity: 0.48;
+  --hdg-downloads-hero-filter: saturate(0.9) brightness(0.78);
+  --hdg-downloads-hero-gradient:
+    linear-gradient(90deg, transparent 8%, rgba(8, 14, 21, 0.28) 54%, rgba(8, 14, 21, 0.94) 100%);
+  --hdg-downloads-graph-blend: screen;
   --hdg-text-primary: rgba(255, 255, 255, 0.96);
   --hdg-text-secondary: rgba(225, 234, 240, 0.72);
   --hdg-glass-blur: 12px;

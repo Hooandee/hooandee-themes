@@ -481,6 +481,18 @@
   scroll-padding-inline: 15px !important;
 }
 
+/* El scrollport horizontal mide de base exactamente lo mismo que las cards y
+ * fuerza overflow-y:hidden. Absorbemos los 10 px que Steam ya reserva fuera
+ * de él para que el halo quede dentro del área pintable sin mover las cards. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  div:has(> [role="list"] > [role="link"]) {
+  box-sizing: content-box !important;
+  margin-block: -10px !important;
+  padding-block: 10px !important;
+}
+
 :scope
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="region"]:has([role="list"] > [role="link"])
@@ -509,10 +521,8 @@
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 56%),
     var(--hdg-accent-surface-focus) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 6px 16px var(--hdg-accent-glow) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 :scope
@@ -531,11 +541,30 @@
   background: transparent !important;
   border: 1px solid var(--hdg-focus-ring) !important;
   border-radius: 16px !important;
-  box-shadow: 0 4px 16px var(--hdg-accent-glow) !important;
+  box-shadow: none !important;
   content: "" !important;
   inset: -5px !important;
   pointer-events: none !important;
   position: absolute !important;
+}
+
+/* El carrusel de amigos conserva un proxy de foco animado entre el item y el
+ * enlace real. Nuestro halo ya sigue al enlace con su radio exacto; mantener
+ * ambos dibuja un segundo rectángulo y duplica el brillo. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="region"]:has([role="list"] > [role="link"])
+  .Panel.Focusable.gpfocuswithin
+  > div:first-child:has(
+    > div:only-child[style*="left:"][style*="top:"][style*="height:"][style*="width:"]
+  ) {
+  animation: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  outline: 0 !important;
+  pointer-events: none !important;
 }
 
 :scope
@@ -604,6 +633,40 @@
   .avatarHolder:has(> .avatarStatus):has(> img.avatar)
   > .avatarFrame {
   display: none !important;
+}
+
+/* En la tira compacta de Jugados anteriormente el estado vive debajo, no al
+ * lado. Sólo las esquinas superiores pertenecen a la foto; el borde inferior
+ * recto enlaza con una barra de presencia deliberadamente rectangular. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="link"]
+  > .Panel.Focusable
+  > .avatarHolder:has(> .avatarStatus):has(> img.avatar),
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="link"]
+  > .Panel.Focusable
+  > .avatarHolder:has(> .avatarStatus):has(> img.avatar)
+  > img.avatar {
+  border-radius: 9px 9px 0 0 !important;
+  overflow: visible !important;
+}
+
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  [role="link"]
+  > .Panel.Focusable
+  > .avatarHolder:has(> img.avatar)
+  > .avatarStatus {
+  border-radius: 0 !important;
+  bottom: auto !important;
+  height: 3px !important;
+  left: 0 !important;
+  min-height: 3px !important;
+  right: auto !important;
+  top: 100% !important;
+  width: 100% !important;
 }
 
 :scope
@@ -1084,7 +1147,7 @@
   [role="link"].gpfocus {
   background: var(--hdg-accent-surface-focus) !important;
   border-color: transparent !important;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: none !important;
 }
 
 :scope
@@ -1107,11 +1170,23 @@
   background: transparent !important;
   border: 1px solid var(--hdg-focus-ring) !important;
   border-radius: 17px !important;
-  box-shadow: 0 4px 16px var(--hdg-accent-glow) !important;
+  box-shadow: none !important;
   content: "" !important;
   inset: -5px !important;
   pointer-events: none !important;
   position: absolute !important;
+}
+
+/* Los posts sociales también aparecen en feeds sin el compositor de texto.
+ * Este remate deliberadamente más local evita que la regla genérica de los
+ * carruseles vuelva a añadir una sombra que su pista horizontal recorta. */
+:scope
+  [role="tabpanel"][id$="WhatsNew_Content"]
+  .Panel.Focusable:has(
+    > .Panel.Focusable:first-child [role="presentation"] img.avatar
+  )
+  [role="link"].gpfocus::after {
+  box-shadow: none !important;
 }
 
 :scope
@@ -1256,7 +1331,7 @@
      debe incluir el halo de 5px, no coincidir con la tarjeta expandida. */
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  padding: 6px 10px !important;
+  padding: 12px 10px !important;
   scroll-padding-inline: 12px !important;
 }
 
@@ -1295,7 +1370,7 @@
      el sexto logro expandido rebasa el viewport y hace que toda la hilera
      parezca desplazada. Cuatro píxeles entre tarjetas mantienen aire y dejan
      dentro tanto el panel activo como su halo. */
-  margin-inline: 2px !important;
+  margin-inline: 8px !important;
   outline: none !important;
   overflow: visible !important;
   position: relative !important;
@@ -1361,6 +1436,8 @@
      el viewport horizontal sin alterar el índice ni la navegación del mando. */
   position: sticky !important;
   right: 12px !important;
+  margin-left: 12px !important;
+  max-width: 376px !important;
   z-index: 2;
 }
 
@@ -1686,15 +1763,6 @@
     div[style*="width:"][style*="%"]
   )::after {
   content: none !important;
-}
-
-/* Marcador móvil observado: es el único hijo de una capa absoluta de tamaño
-   cero. Se elimina sólo en esta ruta porque el resumen no es accionable. */
-:scope
-  > div
-  .Panel.Focusable.gpfocuswithin
-  > div:first-child:has(> div:only-child):not(:has(img)) {
-  display: none !important;
 }
 
 :scope
@@ -2231,6 +2299,40 @@
   > [role="listitem"]
   [role="button"]:is(.gpfocus, .gpfocuswithin) {
   outline: none !important;
+}
+
+/* Los iconos de logros bloqueados son más pequeños que su enlace nativo.
+ * Esta regla cierra el bloque después de las normalizaciones compartidas que
+ * convierten el enlace en block, para que grid sea realmente el valor final. */
+:scope
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]
+  > [role="link"],
+:scope
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]
+  > [role="link"]
+  div:has(> img[src*="/community_assets/images/apps/"]) {
+  display: grid !important;
+  place-items: center !important;
+}
+
+:scope
+  [role="tabpanel"][id$="YourStuff_Content"]
+  [role="list"]
+  > [role="listitem"]
+  > [role="button"]
+  > [role="link"]
+  > .Panel.Focusable {
+  box-sizing: border-box !important;
+  display: grid !important;
+  height: 100% !important;
+  place-items: center !important;
+  width: 100% !important;
 }
 
 @supports not (backdrop-filter: blur(1px)) {

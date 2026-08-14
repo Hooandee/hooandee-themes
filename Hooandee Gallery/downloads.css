@@ -30,6 +30,218 @@
   display: none !important;
 }
 
+/* Cabecera activa inspeccionada en Steam 2026-08-14. El cliente superpone el
+ * hero ampliado a 1.8x sobre la gráfica y lo mezcla en multiply; en cristal
+ * claro eso produce una mancha negra y pisa el nombre. Se identifica la fila
+ * activa por su acción semántica y la gráfica por sus dos hijos visuales. */
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--hdg-text-primary) !important;
+  overflow: hidden !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:first-child {
+  max-width: 38% !important;
+  opacity: var(--hdg-downloads-hero-opacity) !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:first-child
+  > div:first-child {
+  -webkit-mask-image: linear-gradient(90deg, #000 34%, transparent 100%) !important;
+  mask-image: linear-gradient(90deg, #000 34%, transparent 100%) !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:first-child
+  > div:first-child
+  img {
+  filter: var(--hdg-downloads-hero-filter) !important;
+  transform: scale(1.08) !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:first-child
+  > div:first-child
+  > div:last-child:not(:has(img)) {
+  background: var(--hdg-downloads-hero-gradient) !important;
+  mix-blend-mode: normal !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:first-child
+  > div:nth-child(2):has(img) {
+  display: none !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:nth-child(2) {
+  margin-left: 24px !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:nth-child(2)
+  > div {
+  mix-blend-mode: var(--hdg-downloads-graph-blend) !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:nth-child(2)
+  svg
+  :is(rect, line) {
+  color: var(--hdg-accent) !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:nth-child(2)
+  svg
+  path {
+  stroke: var(--hdg-accent-ink) !important;
+}
+
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:nth-child(n + 3),
+:scope
+  [data-rbd-draggable-id][role="button"]:has(
+    :is(
+      button[aria-label="Parar descarga"],
+      button[aria-label="Pausar descarga"],
+      button[aria-label="Continuar descarga"],
+      button[aria-label="Stop download"],
+      button[aria-label="Pause download"],
+      button[aria-label="Resume download"]
+    )
+  )
+  div:has(> div:first-child img):has(> div:nth-child(2) svg)
+  > div:nth-child(n + 3)
+  * {
+  color: var(--hdg-text-primary) !important;
+}
+
 :scope
   [data-rbd-droppable-context-id][role="list"] {
   background: transparent !important;

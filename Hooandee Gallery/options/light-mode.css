@@ -40,6 +40,39 @@ html:root {
   --hdg-card-placeholder-surface: rgba(207, 217, 224, 0.96);
   --hdg-card-placeholder-stroke: rgba(42, 59, 71, 0.26);
   --hdg-card-placeholder-spinner-track: rgba(42, 59, 71, 0.28);
+  --hdg-details-cinematic-band:
+    linear-gradient(180deg, rgba(237, 243, 247, 0), rgba(237, 243, 247, 0.58) 44%, rgba(237, 243, 247, 0.84));
+  --hdg-details-cinematic-band-base: rgba(237, 243, 247, 0.84);
+  --hdg-details-cinematic-footer:
+    linear-gradient(180deg, rgba(237, 243, 247, 0.84), rgba(225, 234, 240, 0.96));
+  --hdg-details-cinematic-artwork-brightness: 0.92;
+  --hdg-details-cinematic-veil: linear-gradient(180deg, rgba(237, 243, 247, 0.9), rgba(237, 243, 247, 0.985) 28%);
+  --hdg-downloads-hero-opacity: 0.2;
+  --hdg-downloads-hero-filter: saturate(0.72) brightness(1.18);
+  --hdg-downloads-hero-gradient:
+    linear-gradient(90deg, transparent 4%, rgba(244, 248, 250, 0.32) 52%, rgba(244, 248, 250, 0.98) 100%);
+  --hdg-downloads-graph-blend: normal;
+  --hdg-home-background-brightness: 0.94;
+  --hdg-home-stage-wash:
+    linear-gradient(180deg, rgba(248, 251, 253, 0.2), transparent 32%),
+    linear-gradient(0deg, rgba(225, 233, 239, 0.38), rgba(248, 251, 253, 0.03) 64%);
+  --hdg-home-stage-wash-without-panel:
+    linear-gradient(180deg, rgba(248, 251, 253, 0.08), transparent 28%),
+    linear-gradient(0deg, rgba(225, 233, 239, 0.16), transparent 58%);
+  --hdg-home-stage-surface:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 30%),
+    radial-gradient(circle at 18% 0%, var(--hdg-accent-surface-focus), transparent 38%),
+    radial-gradient(circle at 86% 100%, rgba(255, 255, 255, 0.34), transparent 36%),
+    rgba(244, 248, 250, 0.62);
+  --hdg-home-stage-border: 1px solid var(--hdg-glass-stroke);
+  --hdg-home-stage-shadow:
+    0 28px 70px rgba(38, 55, 68, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.82),
+    inset 0 -1px rgba(28, 46, 59, 0.08);
+  --hdg-home-card-shadow: 0 10px 16px rgba(38, 55, 68, 0.22);
+  --hdg-home-focused-card-shadow:
+    0 10px 16px rgba(38, 55, 68, 0.26),
+    0 0 18px var(--hdg-focus-glow);
   --hdg-text-primary: #2f3c45;
   --hdg-text-secondary: #5b6871;
   --hdg-battery-ink: #344650;
@@ -555,8 +588,8 @@ html:root #Footer
 /* Carcasas propias de batería adaptadas al cristal claro. */
 #header
   > :is(
-    [role="link"]:has(> div > div > svg > svg > rect),
-    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i])
+    [role="link"]:has(> div > div > svg > svg > rect):not(:has(> div > div > svg + svg)),
+    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i]):not(:has(> div > div > svg + svg))
   )
   > div
   > div::before,
@@ -575,8 +608,8 @@ html:root #Footer
 
 #header
   > :is(
-    [role="link"]:has(> div > div > svg > svg > rect),
-    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i])
+    [role="link"]:has(> div > div > svg > svg > rect):not(:has(> div > div > svg + svg)),
+    [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i]):not(:has(> div > div > svg + svg))
   )
   > div
   > div::after,
@@ -795,6 +828,11 @@ html:root #Footer
   filter: none !important;
 }
 
+/* El menú descansa sobre el footer oscuro: la esquina inferior debe cerrar a ras. */
+html:root #MainNavMenuContainer > [role="menu"][aria-label] {
+  border-bottom-right-radius: 0 !important;
+}
+
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"]) {
   background:
@@ -829,43 +867,6 @@ html:root #Footer
 #MainNavMenuContainer [role="menuitem"].gpfocus * {
   color: inherit !important;
   fill: currentColor !important;
-}
-
-/* Inicio secundario: cristal claro; la galería protagonista mantiene artwork oscuro y legible. */
-html:root #GamepadUI_Full_Root img[src*="/library_hero.jpg"] {
-  filter: blur(var(--hdg-background-blur)) saturate(1.12) brightness(0.84) !important;
-}
-
-html:root #GamepadUI_Full_Root div:has(
-    > h2
-      + div
-      [role="generic"].ReactVirtualized__Grid
-      > [role="list"].ReactVirtualized__Grid__innerScrollContainer
-      > [role="listitem"][data-id="GoToLibrary"]
-  )::before {
-  background:
-    linear-gradient(180deg, rgba(237, 243, 247, 0.34), transparent 34%),
-    linear-gradient(0deg, rgba(220, 229, 236, 0.58), rgba(237, 243, 247, 0.08) 66%) !important;
-}
-
-html:root #GamepadUI_Full_Root div:has(
-    > h2
-      + div
-      [role="generic"].ReactVirtualized__Grid
-      > [role="list"].ReactVirtualized__Grid__innerScrollContainer
-      > [role="listitem"][data-id="GoToLibrary"]
-  )::after {
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.72), transparent 30%),
-    radial-gradient(circle at 18% 0%, var(--hdg-accent-surface-focus), transparent 38%),
-    radial-gradient(circle at 86% 100%, rgba(255, 255, 255, 0.34), transparent 36%),
-    rgba(244, 248, 250, 0.62) !important;
-  border: 1px solid var(--hdg-glass-stroke) !important;
-  box-sizing: border-box;
-  box-shadow:
-    0 28px 70px rgba(38, 55, 68, 0.24),
-    inset 0 1px rgba(255, 255, 255, 0.82),
-    inset 0 -1px rgba(28, 46, 59, 0.08) !important;
 }
 
 #GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
@@ -1247,7 +1248,7 @@ html:root
 }
 
 html:root #header
-  > [role="link"]:has(> div > div > svg > svg > rect)
+  > [role="link"]:has(> div > div > svg > svg > rect):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg
@@ -1257,7 +1258,7 @@ html:root #header
 }
 
 html:root #header
-  > [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i])
+  > [role="link"]:has(> div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i]):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg[viewBox="0 0 42 36"]
@@ -1702,6 +1703,87 @@ html:root #Footer
   :is(div, span, p, h1, h2, h3, label, [role="tab"], [role="link"]) {
   color: var(--hdg-text-primary) !important;
   -webkit-text-fill-color: currentColor;
+}
+
+/* Los bumpers de la navegación de Detalles usan SVG blancos propios de Steam.
+ * En claro se sustituyen visualmente por dos keycaps glass idénticas; el img
+ * permanece en el DOM para conservar semántica, layout y navegación. */
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_l1.svg"]),
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_r1.svg"]) {
+  align-items: center !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(225, 234, 240, 0.46)),
+    rgba(205, 218, 227, 0.56) !important;
+  border: 1px solid rgba(28, 46, 59, 0.22) !important;
+  border-radius: 10px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.86),
+    0 3px 8px rgba(28, 46, 59, 0.18) !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex: 0 0 32px !important;
+  height: 32px !important;
+  justify-content: center !important;
+  max-width: 32px !important;
+  min-width: 32px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  width: 32px !important;
+}
+
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_l1.svg"])
+  > img,
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_r1.svg"])
+  > img {
+  opacity: 0 !important;
+}
+
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_l1.svg"])::after,
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_r1.svg"])::after {
+  align-items: center !important;
+  color: var(--hdg-text-primary) !important;
+  display: flex !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  inset: 0 !important;
+  justify-content: center !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+  position: absolute !important;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.7) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_l1.svg"])::after {
+  content: "L1" !important;
+}
+
+html:root
+  #GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> [role="tablist"] [role="tab"][aria-controls$="GameInfo_Content"])
+  div:has(> img[src*="/steaminputglyphs/sd_r1.svg"])::after {
+  content: "R1" !important;
 }
 
 /* Vista completa de logros: se monta fuera de la ficha y no hereda la tinta

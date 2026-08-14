@@ -1,7 +1,7 @@
 /* Indicador Hooandee: carcasa propia y nivel dinámico conservado. */
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div {
   position: relative;
@@ -19,7 +19,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div::before {
   content: "";
@@ -43,7 +43,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div::after {
   content: "";
@@ -59,7 +59,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg {
@@ -78,7 +78,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg
@@ -89,7 +89,7 @@
 /* Steam usa un SVG alternativo al completar la carga. Conservamos sólo su
    superficie llena y la hacemos encajar en la misma carcasa Hooandee. */
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg[viewBox="0 0 42 36"]
@@ -106,7 +106,7 @@
 /* Steam añade un segundo path solo durante la carga: conservamos el rayo,
    pero no su carcasa, y lo centramos en el canal Hooandee. */
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg
@@ -130,7 +130,7 @@
 #header
   > [role="link"]:has(
     > div > div > svg[viewBox="0 0 42 36"] > path[fill="#59BF40" i]
-  )
+  ):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg[viewBox="0 0 42 36"]
@@ -139,7 +139,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg
@@ -152,7 +152,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg
@@ -169,7 +169,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
   > div
   > div
   > svg
@@ -180,7 +180,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):has(rect[fill="#E01D79" i])
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg)):has(rect[fill="#E01D79" i])
   > div
   > div::before {
   border-color: rgba(255, 210, 218, 0.78);
@@ -191,7 +191,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):has(rect[fill="#E01D79" i])
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg)):has(rect[fill="#E01D79" i])
   > div
   > div::after {
   background: var(--hdg-critical, #ff526b);
@@ -199,7 +199,7 @@
 }
 
 #header
-  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)).gpfocus
+  > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg)).gpfocus
   > div
   > div::before {
   border-color: var(--hdg-focus-ring, rgba(221, 245, 255, 0.94));
@@ -212,7 +212,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   #header
-    > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect))
+    > [role="link"]:is(:has(> div > div > svg[viewBox="0 0 42 36"]), :has(> div > div > svg > svg > rect)):not(:has(> div > div > svg + svg))
     > div
     > div::before {
     transition: none;

@@ -84,6 +84,59 @@
     filter 160ms ease;
 }
 
+/* Colecciones usa mosaicos cuadrados y un segundo overlay de foco separado.
+ * La máscara pertenece a la card; el halo único pertenece al enlace. */
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  [role="grid"]
+  [role="link"] {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 52%),
+    var(--hdg-glass-surface) !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  [role="grid"]
+  [role="link"]
+  > div:first-child {
+  border-radius: inherit !important;
+  overflow: hidden !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  [role="grid"]
+  [role="link"]:not(:has(img)),
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  [role="grid"]
+  [role="link"]:not(:has(img)) * {
+  color: var(--hdg-text-primary) !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  [role="grid"]
+  [role="link"]::before,
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  [role="grid"]
+  [role="link"]::after {
+  animation: none !important;
+  background: none !important;
+  content: none !important;
+}
+
+:scope
+  [role="tabpanel"][id$="Collections_Content"]
+  > div:not(.Panel)
+  > div:only-child:not([role]) {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 :scope
   [role="tabpanel"][id$="_Content"]
   [role="grid"]

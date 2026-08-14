@@ -519,6 +519,24 @@
   overflow: hidden !important;
 }
 
+/* El título de la nota vive fuera del cuerpo tipográfico que hereda nuestros
+ * tokens. Se limita al segundo bloque de la cabecera observada para no teñir
+ * contadores, acciones ni metadatos del carrusel. */
+:scope
+  [role="generic"].ReactVirtualized__Grid
+  > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]
+  > .Panel
+  > .Panel
+  > [role="button"]
+  > div:first-child
+  > div:first-child
+  > div:first-child
+  > div:nth-child(2) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
 :scope
   [role="generic"].ReactVirtualized__Grid
   > [role="list"].ReactVirtualized__Grid__innerScrollContainer

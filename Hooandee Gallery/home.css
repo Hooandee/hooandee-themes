@@ -5,6 +5,27 @@
   --hdg-feature-radius: 18px;
   --hdg-cover-radius: 16px;
   --hdg-home-stage-content: "";
+  --hdg-home-background-brightness: 0.7;
+  --hdg-home-stage-wash:
+    linear-gradient(180deg, rgba(2, 5, 8, 0.34), transparent 32%),
+    linear-gradient(0deg, rgba(2, 5, 8, 0.88), rgba(2, 5, 8, 0.06) 64%);
+  --hdg-home-stage-wash-without-panel:
+    linear-gradient(180deg, rgba(2, 5, 8, 0.24), transparent 30%),
+    linear-gradient(0deg, rgba(2, 5, 8, 0.58), rgba(2, 5, 8, 0.03) 62%);
+  --hdg-home-stage-surface:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.15), transparent 24%),
+    radial-gradient(circle at 18% 0%, rgba(205, 228, 255, 0.13), transparent 36%),
+    radial-gradient(circle at 86% 100%, rgba(132, 184, 235, 0.1), transparent 34%),
+    rgba(13, 19, 27, 0.38);
+  --hdg-home-stage-border: 0 solid transparent;
+  --hdg-home-stage-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  --hdg-home-card-shadow: 0 14px 20px rgba(0, 0, 0, 0.42);
+  --hdg-home-focused-card-shadow:
+    0 12px 18px rgba(0, 0, 0, 0.46),
+    0 0 22px var(--hdg-focus-glow);
   --hdg-focus-color: var(--hdg-focus-ring, rgba(246, 251, 255, 0.94));
   --hdg-focus-glow: var(--hdg-accent-glow, rgba(184, 218, 255, 0.34));
   --hdg-home-name-shift-down: 10px;
@@ -23,7 +44,7 @@
 }
 
 #Main img[src*="/library_hero.jpg"] {
-  filter: blur(var(--hdg-background-blur)) saturate(1.2) brightness(0.7) !important;
+  filter: blur(var(--hdg-background-blur)) saturate(1.2) brightness(var(--hdg-home-background-brightness)) !important;
   height: calc(100vh + (2 * (var(--hdg-background-blur) + 24px))) !important;
   inset: calc(-1 * (var(--hdg-background-blur) + 24px)) !important;
   max-height: none !important;
@@ -54,9 +75,7 @@
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 > ._282X0J4BtrSF1IXctmOe-X::before {
-  background:
-    linear-gradient(180deg, rgba(2, 5, 8, 0.34), transparent 32%),
-    linear-gradient(0deg, rgba(2, 5, 8, 0.88), rgba(2, 5, 8, 0.06) 64%);
+  background: var(--hdg-home-stage-wash);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -65,16 +84,11 @@
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 > ._282X0J4BtrSF1IXctmOe-X::after {
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.15), transparent 24%),
-    radial-gradient(circle at 18% 0%, rgba(205, 228, 255, 0.13), transparent 36%),
-    radial-gradient(circle at 86% 100%, rgba(132, 184, 235, 0.1), transparent 34%),
-    rgba(13, 19, 27, 0.38);
+  background: var(--hdg-home-stage-surface);
+  border: var(--hdg-home-stage-border);
   border-radius: var(--hdg-stage-radius);
-  box-shadow:
-    0 34px 90px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: var(--hdg-home-stage-shadow);
+  box-sizing: border-box;
   content: var(--hdg-home-stage-content);
   height: 438px;
   left: 24px;
@@ -282,7 +296,7 @@
   img:first-of-type {
   animation: none !important;
   border-radius: var(--hdg-cover-radius);
-  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.42);
+  box-shadow: var(--hdg-home-card-shadow);
   transition:
     border-radius 110ms ease,
     box-shadow 110ms ease,
@@ -315,9 +329,7 @@
   > [role="listitem"][data-id]
   [role="link"].gpfocus
   img:first-of-type {
-  box-shadow:
-    0 12px 18px rgba(0, 0, 0, 0.46),
-    0 0 22px var(--hdg-focus-glow);
+  box-shadow: var(--hdg-home-focused-card-shadow);
   filter: brightness(1.04) saturate(1.025);
   outline: 1px solid var(--hdg-focus-color) !important;
   outline-offset: 5px !important;
