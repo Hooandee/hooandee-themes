@@ -1,0 +1,49 @@
+:root {
+  --hdg-glass-panel: var(--hdg-glass-panel-performance);
+}
+
+#GamepadUI_Full_Root [role="menu"]:has(> [role="menuitem"]),
+#GamepadUI_Full_Root [role="listbox"]:has(> [role="option"]),
+#GamepadUI_Full_Root #popup_target [role="dialog"],
+#GamepadUI_Full_Root
+  .DialogContent.GenericConfirmDialog,
+#GamepadUI_Full_Root
+  .ModalOverlayContent.active:has(.DialogContent.GenericConfirmDialog),
+#GamepadUI_Full_Root .ModalOverlayBackground,
+#header,
+#header > div:has(> input[type="search"]):is(.gpfocuswithin, :focus-within, :hover),
+#Footer,
+#Main:has([id*="/settings/"][role="tab"])
+  [role="tablist"][aria-orientation="vertical"],
+#Main .OpenedItemContainer
+  div:has(> img:not([aria-label]))
+  + div
+  > div
+  > div
+  > div:has([role="button"]),
+#GamepadUI_Full_Root
+  .FullModalOverlay
+  > .ModalOverlayContent.active:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"])
+  > .Panel.Focusable:has(img[src*="steamusercontent.com/ugc/"]),
+#GamepadUI_Full_Root:has([role="tab"][id*="/properties/"])
+  [role="tablist"][aria-orientation="vertical"],
+#GamepadUI_Full_Root:has([role="tab"][aria-controls$="GameInfo_Content"])
+  [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *),
+#popup_target
+  > .BasicUI
+  > div:not(#Footer):not(:has(#GamepadUI_Full_Root)):has([role="button"] [role="slider"]):has(svg),
+#QuickAccess-Menu,
+#MainNavMenuContainer > [role="menu"][aria-label],
+[role="alert"]:not(:empty) > :first-child {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#header {
+  background-color: var(--hdg-header-performance) !important;
+}
+
+#Footer {
+  background-color: var(--hdg-footer-performance) !important;
+}

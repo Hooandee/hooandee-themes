@@ -1,0 +1,210 @@
+/* Cover Flow compacto: una pila izquierda, el foco y una pila derecha. Steam
+ * conserva el orden y el scroll; ampliar la pieza dentro del slot existente
+ * da densidad sin reconstruir distancias mediante selectores relacionales. */
+:root {
+  --hdg-coverflow-card-height: 228px;
+  --hdg-coverflow-card-width: 152px;
+}
+
+#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid {
+  transform: none !important;
+  transform-origin: center center !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"]) {
+  transform: translate3d(-76px, 0, 0) !important;
+  visibility: visible !important;
+  z-index: 1 !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child {
+  transform: translate3d(-73px, 0, 0) !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"] {
+  backface-visibility: hidden !important;
+  margin-inline: -3px !important;
+  transform: perspective(1400px) translate3d(24px, 0, 0) rotateY(34deg) scale(0.84) !important;
+  transform-origin: right center !important;
+  transition: transform 110ms cubic-bezier(0.2, 0.82, 0.24, 1) !important;
+}
+
+/* El foco tapa el centro de las portadas apiladas. El indicador de carga se
+ * desplaza hacia la franja que permanece visible, sin consultar el DOM con
+ * selectores relacionales durante el movimiento. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]:empty::after {
+  left: 28% !important;
+}
+
+/* Los badges de instalación, mando y actividad son útiles en la portada
+ * frontal. Sobre una lateral en perspectiva se convierten en fragmentos
+ * flotantes; se revelan de nuevo al llegar el foco, sin eliminarlos del DOM. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]:not(.gpfocus)
+  > :not(:first-child) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 80ms linear !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"].gpfocus
+  > :not(:first-child) {
+  opacity: 1 !important;
+  transition: opacity 100ms ease-out !important;
+}
+
+/* La actividad de amigos vive fuera del link de la portada. Su avatar conserva
+ * el plano 2D nativo y atraviesa una card inclinada, por eso solo se presenta
+ * en la pieza frontal, igual que el resto de información contextual. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not(.gpfocuswithin):not([data-id="GoToLibrary"])
+  .avatarHolder {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id].gpfocuswithin:not([data-id="GoToLibrary"])
+  .avatarHolder {
+  opacity: 1 !important;
+}
+
+#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not(:first-child):not([data-id="GoToLibrary"])
+  [role="link"] {
+  height: var(--hdg-coverflow-card-height) !important;
+  min-height: var(--hdg-coverflow-card-height) !important;
+  min-width: var(--hdg-coverflow-card-width) !important;
+  width: var(--hdg-coverflow-card-width) !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id].gpfocuswithin:not([data-id="GoToLibrary"]) {
+  z-index: 4 !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id].gpfocuswithin:not([data-id="GoToLibrary"])
+  ~ [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"] {
+  transform: perspective(1400px) translate3d(-24px, 0, 0) rotateY(-34deg) scale(0.84) !important;
+  transform-origin: left center !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id].gpfocuswithin:not([data-id="GoToLibrary"])
+  ~ [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"]:empty::after {
+  left: 72% !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"].gpfocus {
+  transform: translate3d(0, var(--hdg-home-focus-shift), 0) scale(1.14) !important;
+  transform-origin: center center !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  [role="link"].gpfocus:empty::after {
+  left: 50% !important;
+}
+
+/* La primera pieza es panorámica. Con foco se convierte en un hero real que
+ * ocupa la mitad izquierda; conserva el formato 920:430 del artwork, sin
+ * estirarlo ni recortarlo. Fuera del foco usa el mismo marco pero se repliega
+ * mediante escala y perspectiva, así no hay un salto de layout al navegar. */
+#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child [role="link"],
+#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child [role="link"] > ._1R9r2OBCxAmtuUVrgBEUBw,
+#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child [role="link"] img:first-of-type {
+  min-width: 430px !important;
+  width: 430px !important;
+}
+
+#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child [role="link"] img:first-of-type {
+  height: 201px !important;
+  object-fit: cover !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child:not(.gpfocuswithin)
+  [role="link"] {
+  margin-inline: 10px !important;
+  transform: perspective(1400px) translate3d(-38px, 8px, 0) rotateY(24deg) scale(0.50) !important;
+  transform-origin: right center !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child.gpfocuswithin
+  [role="link"].gpfocus {
+  margin-inline: 10px !important;
+  transform: translate3d(
+    112px,
+    calc(var(--hdg-home-focus-shift) + 14px),
+    0
+  ) scale(1) !important;
+  transform-origin: center center !important;
+  transition: transform 110ms cubic-bezier(0.2, 0.82, 0.24, 1) !important;
+}
+
+/* La panorámica frontal se desplaza dentro de su slot. Sus metadatos viven
+ * como hermano del link, así que comparten la misma compensación horizontal
+ * para no quedar detrás del borde izquierdo del viewport. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child.gpfocuswithin {
+  --hdg-home-metadata-transform: translate3d(calc(-50% + 118px), 0, 0);
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child.gpfocuswithin
+  ~ [role="listitem"][data-id]:not([data-id="GoToLibrary"]) {
+  transform: translate3d(104px, 0, 0) !important;
+  transition: transform 110ms cubic-bezier(0.2, 0.82, 0.24, 1) !important;
+}
+
+/* «Ver más» conserva la posición que Steam calcula para el final de la lista. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
+    > [role="listitem"][data-id="GoToLibrary"].gpfocuswithin
+  )
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"]) {
+  transform: translate3d(-486px, 0, 0) !important;
+  transition: transform 110ms cubic-bezier(0.2, 0.82, 0.24, 1) !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id="GoToLibrary"]
+  [role="link"] {
+  opacity: 1 !important;
+  transform: none !important;
+  z-index: 2 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+    > [role="listitem"][data-id],
+  #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+    > [role="listitem"][data-id]
+    [role="link"] {
+    transition: none !important;
+  }
+}

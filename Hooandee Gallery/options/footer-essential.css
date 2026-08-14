@@ -1,0 +1,7 @@
+/* Footer esencial: conserva únicamente Seleccionar y Atrás. */
+
+#Footer
+  > :first-child
+  > :has(img[src*="/steaminputglyphs/"]):not(:has(img[src$="/shared_button_a.svg"])):not(:has(img[src$="/shared_button_b.svg"])) {
+  display: none !important;
+}
