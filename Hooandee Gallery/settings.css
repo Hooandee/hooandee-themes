@@ -332,6 +332,62 @@
     0 0 8px var(--hdg-accent-glow) !important;
 }
 
+/* Detalles del adaptador integrado de Steam Machine. Esta subvista conserva
+ * la ruta semántica de Mando y monta otro DialogContent dentro del panel. La
+ * ficha informativa y las cuatro ranuras necesitan superficies propias; el
+ * foco permanece únicamente en el botón para evitar una selección doble. */
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/controller/"][role="tab"][aria-selected="true"])
+  .DialogContent[role="tabpanel"]
+  .DialogBody
+  > .Panel
+  > .Panel
+  > .DialogHeader
+  + .Panel {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 56%),
+    var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin: 6px 4px 8px !important;
+  min-height: 64px !important;
+  overflow: hidden !important;
+  padding: 11px 14px !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/controller/"][role="tab"][aria-selected="true"])
+  .DialogContent[role="tabpanel"]
+  .DialogBody
+  > .Panel
+  > .Panel
+  > .DialogHeader
+  + .Panel
+  ~ .Panel:has(> button.DialogButton) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
+    var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin: 6px 4px 0 !important;
+  min-height: 50px !important;
+  overflow: visible !important;
+  padding: 5px 8px 5px 12px !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/controller/"][role="tab"][aria-selected="true"])
+  .DialogContent[role="tabpanel"]
+  .DialogBody
+  > .Panel
+  > .Panel
+  > .DialogHeader {
+  margin-bottom: 12px !important;
+}
+
 /* Personalización usa filas sin roles semánticos para opciones y vídeos. */
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/keyboard"][role="tab"][aria-selected="true"])
   [role="region"]
