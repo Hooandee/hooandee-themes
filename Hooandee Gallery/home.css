@@ -146,22 +146,18 @@
  * permanece siempre en el eje del cristal; en la variante superior sacamos
  * sólo los metadatos del flujo para que esa reserva no desplace la parrilla. */
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
-  > [role="listitem"][data-id]:not([data-id="GoToLibrary"]):has(
-    [role="link"] img:first-of-type
-  )
-  > div
-  > div:has(> div > div > [role="link"]) {
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C {
   display: flex !important;
   flex-direction: column !important;
   position: relative;
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
-  > [role="listitem"][data-id]:not([data-id="GoToLibrary"]):has(
-    [role="link"] img:first-of-type
-  )
-  > div
-  > div:has(> div > div > [role="link"])
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C
   > div:last-child:not(:only-child) {
   bottom: calc(100% - 4px) !important;
   position: absolute !important;
@@ -271,15 +267,15 @@
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
-  > div
-  > div:has([role="link"]) {
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C {
   background-color: transparent !important;
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]
   [role="link"]
-  > div:has(> img:first-of-type) {
+  > ._1R9r2OBCxAmtuUVrgBEUBw {
   background: transparent !important;
   border-radius: inherit;
   overflow: visible !important;
@@ -339,9 +335,10 @@
  * la corta en seco. Conservamos el halo propio y retiramos solo esa capa hermana. */
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]
-  > div
-  > div:has(> div > div > [role="link"])
-  > div:has(> div > [role="link"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C
+  > div:first-child
+  > div:last-child
   > div:not(:has([role="link"])) {
   display: none !important;
 }
@@ -547,13 +544,13 @@
   -webkit-text-fill-color: currentColor !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
   > [role="listitem"][data-id]
   > :is([role="button"], [role="link"]),
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
@@ -576,17 +573,17 @@
  * en Detalles: el tab semántico limita esta compuerta exclusivamente a Inicio.
  * Steam añade gpfocuswithin antes de bajar, por lo que el contenido vuelve a
  * participar en layout y pintura antes de recibir el foco real. */
-#Main ._18zGL1e9n34BrE_eFXryjc.Panel:has([role="tab"][id$="WhatsNew"]):not(.gpfocuswithin) {
+#Main ._3PhGYbMWIcIaZCfllWN19N ._18zGL1e9n34BrE_eFXryjc.Panel:not(.gpfocuswithin) {
   content-visibility: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
   > [role="listitem"][data-id]
   > :is([role="button"], [role="link"]).gpfocus,
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
@@ -601,13 +598,13 @@
   transform: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
   > [role="listitem"][data-id]
   > :is([role="button"], [role="link"])::before,
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
@@ -617,7 +614,7 @@
 }
 
 /* Superficie editorial que vive bajo la galería principal de Inicio. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tablist"]:has([role="tab"][id$="WhatsNew"]) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.085), transparent 58%),
@@ -637,7 +634,7 @@
   width: 430px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"] {
   background: transparent !important;
@@ -653,7 +650,7 @@
     box-shadow 150ms ease;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"][aria-selected="true"] {
   background:
@@ -664,7 +661,7 @@
   color: var(--hdg-text-primary) !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"].gpfocus {
   box-shadow:
@@ -673,16 +670,16 @@
   outline: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"].gpfocus::before,
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tablist"]:has([role="tab"][id$="WhatsNew"])
   [role="tab"].gpfocus::after {
   content: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"]) {
   background:
     radial-gradient(circle at 50% 10%, var(--hdg-accent-glow), transparent 34%),
@@ -694,7 +691,7 @@
 
 /* Estas pestañas ya dibujan un foco redondeado en el control real. Steam añade
  * además una capa absoluta rectangular; se desactiva únicamente en estos paneles. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   > div:has(
     > div[style*="left:"][style*="top:"][style*="height:"][style*="width:"]:empty
@@ -704,13 +701,13 @@
   outline: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="button"]:has(img),
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   :is([role="button"], [role="link"]),
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Recommended_Content"]
   > div
   [role="button"] {
@@ -726,7 +723,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="button"]:has(img)
   img {
@@ -735,7 +732,7 @@
 
 /* El tipo de contenido ya lo comunica la pestaña; Steam lo repite sobre cada
  * noticia y esa fila termina bajo la navegación fija. Se conserva su hueco. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="WhatsNew_Content"]
   [role="listitem"][data-id]
   > div:has(> [role="button"])
@@ -744,14 +741,14 @@
   visibility: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   :is([role="button"], [role="link"])
   img {
   border-radius: 11px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Recommended_Content"]
   > div
   [role="button"]
@@ -759,7 +756,7 @@
   border-radius: 12px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="Friends_Content"], [id$="Recommended_Content"])
   [role="listitem"][data-id]
   [role="link"]:has(img) {
@@ -770,7 +767,7 @@
   overflow: visible !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="Friends_Content"], [id$="Recommended_Content"])
   [role="listitem"][data-id]
   [role="link"]:has(img)
@@ -779,7 +776,7 @@
   overflow: hidden !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is([role="button"], [role="link"]).gpfocus {
   border-color: var(--hdg-accent-stroke) !important;
@@ -791,10 +788,10 @@
   outline-offset: 4px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is([role="button"], [role="link"]).gpfocus::before,
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is([role="button"], [role="link"]).gpfocus::after {
   content: none !important;
@@ -803,7 +800,7 @@
 /* Los carruseles secundarios miden exactamente lo mismo que sus cards. Un
  * outline exterior queda cortado por su viewport; aquí el foco se resuelve
  * dentro de la propia superficie, conservando contraste y geometría limpia. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"]:is([id$="WhatsNew_Content"], [id$="Friends_Content"], [id$="Recommended_Content"])
   :is([role="button"], [role="link"]).gpfocus {
   background:
@@ -820,7 +817,7 @@
 /* Amigos mezcla cabecera y actividad en dos placas rectas. Esta anatomía es
  * exclusiva del feed social de Inicio: se integra como una única card glass
  * sin tocar la actividad de Detalles ni los carruseles de juegos. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -841,7 +838,7 @@
   padding: 8px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -862,7 +859,7 @@
   padding: 4px 9px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -879,7 +876,7 @@
   padding: 6px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -890,7 +887,7 @@
   display: none !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -903,7 +900,7 @@
   margin-inline: 0 !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -912,7 +909,7 @@
   ):has(> div:nth-child(2))
   > .Panel:first-child
   [role="presentation"]:has(.avatarHolder > img.avatar),
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Friends_Content"]
   [role="region"]
   > div
@@ -929,7 +926,7 @@
 
 /* El lector de noticias no expone role=dialog: Steam lo compone como un
  * carrusel de artículos. La relación estructural evita tratar otros grids. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="listitem"]
   > .Panel
   > .Panel:has(> [role="button"] > div > img) {
@@ -944,7 +941,7 @@
   width: calc(100% - 16px) !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="listitem"]
   > .Panel
   > .Panel
@@ -959,7 +956,7 @@
   outline-offset: 0 !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="listitem"]
   > .Panel
   > .Panel
@@ -971,7 +968,7 @@
 
 /* La portada y la información comercial forman una única card: la imagen
  * abre la pieza y la franja de precio es quien cierra sus esquinas. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Recommended_Content"]
   [role="listitem"][data-id]
   [role="link"]:has(.StoreSalePriceWidgetContainer)
@@ -982,7 +979,7 @@
   border-top-right-radius: 13px !important;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Recommended_Content"]
   [role="link"]:has(.StoreSalePriceWidgetContainer)
   > :last-child:has(.StoreSalePriceWidgetContainer) {
@@ -996,7 +993,7 @@
 /* En estas cards el artwork se pinta por encima del contenedor interactivo y
  * ocultaba su outline interior. El foco se superpone a la pieza completa para
  * unir portada y precio sin depender de un halo exterior que el grid recorta. */
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Recommended_Content"]
   [role="link"]:has(.StoreSalePriceWidgetContainer).gpfocus {
   isolation: isolate;
@@ -1004,7 +1001,7 @@
   position: relative;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="tabpanel"][id$="Recommended_Content"]
   [role="link"]:has(.StoreSalePriceWidgetContainer).gpfocus::after {
   border: 1px solid var(--hdg-focus-color) !important;
@@ -1020,14 +1017,14 @@
   z-index: 2;
 }
 
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
   > [role="listitem"][data-id]
   > div
   > :is([role="button"], [role="link"])::before,
-#GamepadUI_Full_Root:has([role="listitem"][data-id="GoToLibrary"])
+#Main ._3PhGYbMWIcIaZCfllWN19N
   [role="list"].ReactVirtualized__Grid__innerScrollContainer:not(
     :has(> [role="listitem"][data-id="GoToLibrary"])
   )
@@ -1129,8 +1126,8 @@
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
     > [role="listitem"][data-id]
-    > div
-    > div:has(> div > div > [role="link"]) {
+    > ._3YYQ98HSj-wh5uljwl12bW
+    > ._1HIFNGSxh4-jOhPiDynR4C {
     position: relative;
     top: 25px;
   }
