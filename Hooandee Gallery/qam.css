@@ -867,7 +867,7 @@ html:root #QuickAccess-Menu [role="tabpanel"]
     0 0 12px var(--hdg-accent-glow),
     inset 0 1px rgba(255, 255, 255, 0.86) !important;
   margin: 0 !important;
-  transform: translateY(-1px) !important;
+  transform: translateY(-0.5px) !important;
 }
 
 #QuickAccess-Menu [role="slider"].gpfocus .SliderHandle {
@@ -942,7 +942,10 @@ html:root #QuickAccess-Menu [role="tabpanel"]
   > :last-child {
   box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
   min-width: 0;
+  overflow: visible;
+  padding-inline: 10px;
   width: 100%;
 }
 
@@ -951,9 +954,13 @@ html:root #QuickAccess-Menu [role="tabpanel"]
   > [role="slider"]
   > :last-child
   > div {
-  flex: 1 1 0;
+  align-items: center;
+  display: flex;
+  flex: 0 0 0;
+  flex-direction: column;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
   text-align: center;
 }
 
@@ -965,6 +972,7 @@ html:root #QuickAccess-Menu [role="tabpanel"]
   > :first-child {
   background: var(--hdg-accent) !important;
   box-shadow: 0 0 6px var(--hdg-accent-glow) !important;
+  flex: 0 0 auto;
 }
 
 #QuickAccess-Menu .CSSLoader_ThemeListContainer
@@ -976,10 +984,11 @@ html:root #QuickAccess-Menu [role="tabpanel"]
   box-sizing: border-box;
   font-size: 8px !important;
   line-height: 10px !important;
-  max-width: 100%;
-  overflow: hidden;
-  padding-inline: 1px;
-  text-overflow: ellipsis;
+  max-width: none;
+  overflow: visible;
+  padding-inline: 0;
+  text-overflow: clip;
+  width: max-content;
   white-space: nowrap !important;
 }
 
