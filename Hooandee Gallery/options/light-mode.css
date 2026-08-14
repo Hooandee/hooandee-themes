@@ -23,7 +23,6 @@ html:root {
   --hdg-glass-panel: rgba(248, 251, 253, 0.87);
   --hdg-glass-panel-fallback: #eef3f6;
   --hdg-glass-panel-performance: rgba(244, 248, 250, 0.96);
-  --hdg-qam-header-surface: #f8fbfd;
   --hdg-header-performance: rgba(244, 248, 250, 0.94);
   --hdg-footer-performance: rgba(232, 239, 244, 0.96);
   --hdg-glass-surface: rgba(255, 255, 255, 0.62);

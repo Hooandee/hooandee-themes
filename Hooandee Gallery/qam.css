@@ -108,15 +108,17 @@ body,
   box-shadow: none !important;
 }
 
-/* La cabecera de CSS Loader es sticky. Una base mimética y scroll-padding
- * impiden que los nombres de las opciones se lean a través del título al
- * navegar con mando, sin convertir la cabecera en una placa independiente. */
+/* La cabecera forma parte del contenido: se desplaza con los ajustes y deja
+ * ver el cristal continuo del QAM, sin una placa opaca superpuesta. */
 #QuickAccess-Menu #quickaccess_content_999 {
-  scroll-padding-block: 50px 20px;
+  scroll-padding-block: 12px 20px;
 }
 
 #QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child {
-  background: var(--hdg-qam-header-surface) !important;
+  position: relative !important;
+  top: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
   padding-bottom: 6px !important;
 }
 
