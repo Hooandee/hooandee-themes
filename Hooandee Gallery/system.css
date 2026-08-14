@@ -896,6 +896,84 @@
   min-width: min(360px, 58%) !important;
 }
 
+/* Formulario de conexión Wi-Fi. El password y el selector de seguridad son la
+ * firma estable del diálogo; así no alteramos formularios genéricos ni las
+ * propiedades de una red ya guardada. */
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  ) {
+  color: var(--hdg-text-primary) !important;
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > :is(.DialogHeader, .DialogBody, .DialogFooter),
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogBody
+  > .Panel:first-child {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogHeader {
+  margin-bottom: 8px !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogBody {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+  overflow: visible !important;
+  padding: 2px 8px 6px !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogBody
+  > .Panel
+  + .Panel {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
+    var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin: 0 !important;
+  min-height: 42px !important;
+  overflow: visible !important;
+  padding: 8px 11px !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogFooter {
+  gap: 8px !important;
+  padding-top: 8px !important;
+}
+
 /* Detalles de red: el modal usa toda la altura segura entre header y footer.
  * La versión nativa reserva demasiado aire alrededor y deja IPv4 fuera del
  * primer viewport en pantallas de 800/900 px lógicos. */
@@ -911,7 +989,7 @@
 #GamepadUI_Full_Root
   .DialogContent.GenericConfirmDialog:has(.DialogHeader + .DialogBody > .DialogControlsSectionHeader) {
   height: calc(100% - 8px) !important;
-  max-height: 417px !important;
+  max-height: min(455px, calc(100vh - 78px)) !important;
   padding: 5px 18px !important;
 }
 
@@ -933,7 +1011,7 @@
   color: var(--hdg-text-primary) !important;
   font-size: clamp(24px, 3.1vw, 28px) !important;
   line-height: 1.08 !important;
-  margin-bottom: 4px !important;
+  margin-bottom: 7px !important;
 }
 
 #GamepadUI_Full_Root
@@ -944,11 +1022,11 @@
   color: var(--hdg-text-primary) !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 4px !important;
+  gap: 6px !important;
   min-height: 0 !important;
   overflow: hidden auto !important;
-  padding: 2px 8px 4px !important;
-  scroll-padding-block: 6px !important;
+  padding: 4px 8px 6px !important;
+  scroll-padding-block: 8px !important;
 }
 
 #GamepadUI_Full_Root
@@ -961,7 +1039,7 @@
   font-size: 15px !important;
   height: 18px !important;
   line-height: 18px !important;
-  margin: 3px 4px 0 !important;
+  margin: 4px 4px 1px !important;
   min-height: 18px !important;
   padding: 0 !important;
 }
@@ -981,11 +1059,11 @@
   color: var(--hdg-text-primary) !important;
   flex: 0 0 auto !important;
   margin: 0 !important;
-  min-height: 35px !important;
+  min-height: 38px !important;
   outline: 1px solid transparent !important;
   outline-offset: 2px !important;
   overflow: hidden !important;
-  padding: 5px 10px !important;
+  padding: 6px 11px !important;
 }
 
 /* El cuerpo sigue siendo desplazable como fallback para traducciones largas,

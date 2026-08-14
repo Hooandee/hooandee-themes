@@ -624,3 +624,18 @@
   polyline {
   stroke: var(--hdg-text-secondary) !important;
 }
+
+/* Igual que Ajustes, el reproductor de OST recibe un rectángulo móvil global
+ * como segundo foco. La firma exige la estructura de álbum y diez pistas, por
+ * lo que no alcanza a otras listas ni al carrusel de Inicio. */
+html:root
+  #GamepadUI_Full_Root:has(
+    #Main div > :first-child:not([role]) + [role="button"]
+  ):has(#Main div > [role="button"]:nth-child(10))
+  > div
+  > div[style*="left:"][style*="top:"][style*="height:"][style*="width:"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  outline: 0 !important;
+}

@@ -1244,6 +1244,33 @@ html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [
     0 7px 20px var(--hdg-accent-glow) !important;
 }
 
+/* Las superficies claras base se declaran después que settings.css; el foco
+ * debe recuperar aquí su tinte de acento o sólo quedaría una línea casi
+ * imperceptible. Se excluyen sliders para no recrear su burbuja exterior. */
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
+  .DialogContentTransition
+  [role="button"]:not(.DialogButton):not(:has([role="slider"])).gpfocus,
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="listitem"]
+  > [data-appid].gpfocus,
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/customization"][role="tab"][aria-selected="true"])
+  [role="radiogroup"]
+  > .Panel.gpfocus,
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
+  :is(.DialogBody, [role="region"], .DialogControlsSection)
+  > .Panel.gpfocus.gpfocuswithin:has(
+    :is([role="combobox"], [role="checkbox"], [role="button"])
+  ):not(:has(:is([role="radiogroup"], .SliderControlPanelGroup, [role="slider"]))) {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.68), transparent 52%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-focus-ring) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.76),
+    0 6px 18px var(--hdg-accent-glow) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
 html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/notifications"][role="tab"][aria-selected="true"])
   .DialogControlsSection
   [role="radiogroup"]
@@ -1745,6 +1772,34 @@ html:root #Footer
   )
   :is(div, span, p, h1, h2, h3, label, [role="tab"], [role="link"]) {
   color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Información también existe en juegos externos, donde el hero y la jerarquía
+ * superior no siempre coinciden con los assets de Steam. El id semántico del
+ * panel mantiene la tinta clara sin depender del proveedor del juego. */
+html:root #Main [role="tabpanel"][id$="GameInfo_Content"] {
+  background:
+    radial-gradient(circle at 86% 8%, var(--hdg-accent-surface-focus), transparent 36%),
+    var(--hdg-page-background) !important;
+  box-sizing: border-box !important;
+  color: var(--hdg-text-primary) !important;
+  padding-top: 16px !important;
+  scroll-padding-top: 16px !important;
+}
+
+html:root #Main [role="tabpanel"][id$="GameInfo_Content"]
+  :is(div, h1, h2, h3, h4, p, span, label, a) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+html:root #Main [role="tabpanel"][id$="GameInfo_Content"]
+  :is([role="button"], [role="link"]).gpfocus,
+html:root #Main [role="tabpanel"][id$="GameInfo_Content"]
+  :is([role="button"], [role="link"]).gpfocus * {
+  color: var(--hdg-accent-on-fill) !important;
+  fill: currentColor !important;
   -webkit-text-fill-color: currentColor;
 }
 

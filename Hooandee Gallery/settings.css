@@ -416,6 +416,8 @@
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.1),
     0 0 8px var(--hdg-accent-glow) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 2px !important;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/customization"][role="tab"][aria-selected="true"])
@@ -487,6 +489,8 @@
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.12),
     0 7px 20px var(--hdg-accent-glow) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 2px !important;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
@@ -545,6 +549,25 @@
     inset 0 1px rgba(255, 255, 255, 0.12),
     inset 0 0 0 1px var(--hdg-accent-glow),
     0 0 6px var(--hdg-accent-glow) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Internet renderiza las redes como botones directos sin listitem. Les damos
+ * el mismo aire lateral que al resto de listas y dejamos el halo fuera de la
+ * card para que no lo recorte el viewport desplazable. */
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/internet"][role="tab"][aria-selected="true"])
+  .DialogControlsSection
+  > [role="button"] {
+  margin: 4px 6px !important;
+  width: calc(100% - 12px) !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/internet"][role="tab"][aria-selected="true"])
+  .DialogControlsSection {
+  overflow: visible !important;
+  padding-block: 2px 4px !important;
+  scroll-padding-block: 8px !important;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
@@ -814,6 +837,40 @@
   );
 }
 
+/* Selector de unidad: Steam lo trata como tabs horizontales y aplica una pill
+ * clara de poco contraste. Se conserva el rol y se convierte en una card
+ * compacta, legible en ambos modos. */
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="tabpanel"]
+  [role="tablist"]:not([aria-orientation="vertical"])
+  > [role="tab"] {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 56%),
+    var(--hdg-settings-row-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: 12px !important;
+  color: var(--hdg-text-primary) !important;
+  min-height: 48px !important;
+  outline: 1px solid transparent !important;
+  outline-offset: 2px !important;
+  padding: 7px 12px !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="tabpanel"]
+  [role="tablist"]:not([aria-orientation="vertical"])
+  > [role="tab"]:is([aria-selected="true"], .gpfocus) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 54%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px var(--hdg-glass-highlight),
+    0 5px 14px var(--hdg-accent-glow) !important;
+  color: var(--hdg-text-primary) !important;
+  outline-color: var(--hdg-focus-ring) !important;
+}
+
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
   [role="listitem"]
   > :is([role="button"], [data-appid]) {
@@ -853,6 +910,8 @@
     inset 0 1px rgba(255, 255, 255, 0.12),
     inset 0 0 0 1px var(--hdg-accent-glow),
     0 0 6px var(--hdg-accent-glow) !important;
+  outline: 1px solid var(--hdg-focus-ring) !important;
+  outline-offset: 2px !important;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
@@ -1008,4 +1067,21 @@
   }
 }
 
+}
+
+/* Steam pinta el indicador espacial como una capa global hermana de #Main,
+ * no como descendiente de DialogContent. En Ajustes cada control ya expresa
+ * el foco con su propio borde y halo; ocultar sólo esta capa evita el segundo
+ * rectángulo sin alterar la geometría ni la navegación. */
+html:root
+  #GamepadUI_Full_Root:has(
+    #Main .DialogContent > .DialogContent_InnerWidth .PageListColumn
+      [id*="/settings/"][role="tab"][aria-selected="true"]
+  )
+  > div
+  > div[style*="left:"][style*="top:"][style*="height:"][style*="width:"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  outline: 0 !important;
 }

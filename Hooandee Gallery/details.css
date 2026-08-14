@@ -12,7 +12,10 @@
 @scope (#Main ._3VQUewWB8g6Z5qB4C7dGFr) {
 
 :scope
-  img[src*="/library_hero.jpg"] {
+  :is(
+    img[src*="/library_hero.jpg"],
+    img[src*="/customimages/"][src*="_hero.jpg"]
+  ) {
   filter:
     blur(var(--hdg-details-background-blur))
     saturate(1.14)
