@@ -302,6 +302,62 @@
   color: #fff !important;
 }
 
+/* El segundo nivel del selector de resolución cambia de listbox a menu, pero
+ * conserva role=option en sus filas. Se limita a ese patrón adyacente para no
+ * alterar menús contextuales ni opciones de plugins. */
+#GamepadUI_Full_Root
+  .BasicUIContextMenu
+  [role="listbox"]
+  + [role="menu"]
+  > [role="option"] {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--hdg-control-radius) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  margin: 2px 8px !important;
+  max-width: calc(100% - 16px) !important;
+  min-height: 40px !important;
+  padding: 8px 12px !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#GamepadUI_Full_Root
+  .BasicUIContextMenu:has([role="listbox"] + [role="menu"])
+  > div:first-child,
+#GamepadUI_Full_Root
+  .BasicUIContextMenu:has([role="listbox"] + [role="menu"])
+  [role="listbox"]
+  > :is([role="option"], [role="menuitem"]) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#GamepadUI_Full_Root
+  .BasicUIContextMenu
+  [role="listbox"]
+  + [role="menu"]
+  > [role="option"]:is(.gpfocus, [aria-selected="true"]) {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.18),
+    0 6px 18px var(--hdg-accent-glow) !important;
+  color: #fff !important;
+  outline: 0 !important;
+}
+
+#GamepadUI_Full_Root
+  .BasicUIContextMenu
+  [role="listbox"]
+  + [role="menu"]
+  > [role="option"]:is(.gpfocus, [aria-selected="true"])::after {
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  outline: 0 !important;
+}
+
 /* Los selectores largos deben terminar antes del footer en pantallas handheld bajas. */
 @media (max-height: 700px) {
   #GamepadUI_Full_Root [role="menu"] {
@@ -937,9 +993,6 @@
     button[role="combobox"]
   )
   > .DialogBody {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 7px !important;
   overflow: visible !important;
   padding: 2px 8px 6px !important;
 }
@@ -949,8 +1002,20 @@
     button[role="combobox"]
   )
   > .DialogBody
-  > .Panel
-  + .Panel {
+  > .Panel:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+  overflow: visible !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogBody
+  > .Panel:first-child
+  > .Panel {
   background:
     linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
     var(--hdg-settings-row-surface) !important;
@@ -960,9 +1025,21 @@
   box-sizing: border-box;
   color: var(--hdg-text-primary) !important;
   margin: 0 !important;
-  min-height: 42px !important;
+  min-height: 52px !important;
   overflow: visible !important;
   padding: 8px 11px !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  > .DialogBody
+  > .Panel:first-child
+  > .Panel
+  :is(div, span, label) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 #GamepadUI_Full_Root
@@ -972,6 +1049,92 @@
   > .DialogFooter {
   gap: 8px !important;
   padding-top: 8px !important;
+}
+
+/* Calibración de color. Esta vista no pertenece al DialogContent de Ajustes:
+ * su artwork identifica la pantalla y permite integrar la bandeja inferior sin
+ * tocar otras vistas de imagen ni volver a envolver cada control en una pill. */
+#Main
+  div:has(
+    > [style*="colorsettings_default_bg"]
+      + .Panel
+  ) {
+  background: var(--hdg-page-background) !important;
+  color: var(--hdg-text-primary) !important;
+}
+
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel {
+  -webkit-backdrop-filter: blur(10px) saturate(1.08) !important;
+  backdrop-filter: blur(10px) saturate(1.08) !important;
+  background:
+    linear-gradient(180deg, var(--hdg-glass-highlight), transparent 42%),
+    var(--hdg-glass-panel) !important;
+  border: 0 !important;
+  border-top: 1px solid var(--hdg-glass-stroke) !important;
+  box-shadow:
+    0 -12px 34px var(--hdg-shadow-color),
+    inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  overflow: visible !important;
+  padding: 10px 16px clamp(52px, 6vh, 68px) !important;
+}
+
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel
+  > .Panel {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  overflow: visible !important;
+  padding: 3px 18px !important;
+}
+
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel
+  > .Panel
+  + .Panel {
+  border-left: 1px solid var(--hdg-glass-stroke-soft) !important;
+}
+
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel
+  > .Panel
+  > .Panel,
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel
+  .SliderControlPanelGroup {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--hdg-text-primary) !important;
+  overflow: visible !important;
+}
+
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel
+  :is(div, span, label, p) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#Main
+  [style*="colorsettings_default_bg"]
+  + .Panel
+  :is(.DialogBodyText, .DialogBodyTextSmall, small) {
+  color: var(--hdg-text-secondary) !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 /* Detalles de red: el modal usa toda la altura segura entre header y footer.
@@ -1644,6 +1807,12 @@
   }
 
   #header > div:has(> input[type="search"]) {
+    background: var(--hdg-glass-panel-fallback) !important;
+  }
+
+  #Main
+    [style*="colorsettings_default_bg"]
+    + .Panel {
     background: var(--hdg-glass-panel-fallback) !important;
   }
 
