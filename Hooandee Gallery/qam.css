@@ -714,8 +714,10 @@ body,
   .SliderControlPanelGroup:has(> [role="slider"]) {
   background: transparent !important;
   border-color: transparent !important;
+  box-sizing: border-box;
   box-shadow: none !important;
   outline: none !important;
+  padding-inline: 12px !important;
 }
 
 /* Steam añade otra placa rectangular a la fila mediante gpfocuswithin. Se
