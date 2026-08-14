@@ -32,6 +32,10 @@
   --hdg-home-name-shift-up: -10px;
   --hdg-home-time-shift-down: 10px;
   --hdg-home-time-shift-up: -10px;
+  --hdg-home-focus-shift: var(--hdg-home-focus-shift-down);
+  --hdg-home-metadata-bottom: calc(100% + 18px);
+  --hdg-home-metadata-top: auto;
+  --hdg-home-metadata-transform: none;
   --hdg-home-focus-shift-down: clamp(
     0px,
     calc(var(--hdg-home-name-shift-down) + var(--hdg-home-time-shift-down)),
@@ -159,10 +163,45 @@
   > ._3YYQ98HSj-wh5uljwl12bW
   > ._1HIFNGSxh4-jOhPiDynR4C
   > div:last-child:not(:only-child) {
-  bottom: calc(100% - 4px) !important;
+  bottom: var(--hdg-home-metadata-bottom) !important;
+  height: auto !important;
+  max-width: min(460px, calc(100vw - 88px));
+  min-height: 0 !important;
+  padding-block: 0 !important;
   position: absolute !important;
-  top: auto !important;
+  top: var(--hdg-home-metadata-top) !important;
+  transform: var(--hdg-home-metadata-transform) !important;
   z-index: 2;
+}
+
+/* La fila nativa reserva 14 px superiores y 52 px de alto aunque sus dos
+ * líneas solo ocupan 38 px. Liberamos esa reserva para separar la información
+ * de la portada sin empujarla fuera del viewport del carrusel. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C
+  > div:last-child:not(:only-child)
+  > div,
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C
+  > div:last-child:not(:only-child)
+  > div
+  > div:first-child {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C
+  > div:last-child:not(:only-child)
+  > div {
+  margin-left: 0 !important;
+  width: 100% !important;
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
@@ -318,7 +357,7 @@
   box-shadow: none !important;
   filter: none !important;
   outline: none !important;
-  transform: translate3d(0, var(--hdg-home-focus-shift-down), 0) !important;
+  transform: translate3d(0, var(--hdg-home-focus-shift), 0) !important;
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
@@ -1117,9 +1156,10 @@
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ {
     contain: paint;
-    height: 310px !important;
+    height: 350px !important;
     left: var(--hdg-handheld-grid-inset);
-    top: calc(var(--hdg-handheld-stage-top) + 32px);
+    margin-top: 0 !important;
+    top: var(--hdg-handheld-stage-top);
     width: calc(100% - (2 * var(--hdg-handheld-grid-inset))) !important;
     zoom: 1;
   }
@@ -1129,7 +1169,7 @@
     > ._3YYQ98HSj-wh5uljwl12bW
     > ._1HIFNGSxh4-jOhPiDynR4C {
     position: relative;
-    top: 25px;
+    top: 49px;
   }
 
   /* La geometría inline de los wrappers llega un render antes que el artwork.
@@ -1156,7 +1196,7 @@
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
     > [role="listitem"][data-id]
     [role="link"].gpfocus {
-    transform: translate3d(0, var(--hdg-home-focus-shift-down), 0) !important;
+    transform: translate3d(0, var(--hdg-home-focus-shift), 0) !important;
   }
 }
 
@@ -1166,6 +1206,6 @@
   }
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ {
-    top: calc(var(--hdg-handheld-stage-top) + 20px);
+    top: var(--hdg-handheld-stage-top);
   }
 }

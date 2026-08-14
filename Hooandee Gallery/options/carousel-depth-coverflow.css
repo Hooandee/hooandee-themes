@@ -112,7 +112,7 @@
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
   [role="link"].gpfocus {
-  transform: translate3d(0, var(--hdg-home-focus-shift-down), 0) scale(1.14) !important;
+  transform: translate3d(0, var(--hdg-home-focus-shift), 0) scale(1.14) !important;
   transform-origin: center center !important;
 }
 
@@ -160,11 +160,19 @@
   margin-inline: 10px !important;
   transform: translate3d(
     112px,
-    calc(var(--hdg-home-focus-shift-down) + 14px),
+    calc(var(--hdg-home-focus-shift) + 14px),
     0
   ) scale(1) !important;
   transform-origin: center center !important;
   transition: transform 110ms cubic-bezier(0.2, 0.82, 0.24, 1) !important;
+}
+
+/* La panorámica frontal se desplaza dentro de su slot. Sus metadatos viven
+ * como hermano del link, así que comparten la misma compensación horizontal
+ * para no quedar detrás del borde izquierdo del viewport. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child.gpfocuswithin {
+  --hdg-home-metadata-transform: translate3d(112px, 0, 0);
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer

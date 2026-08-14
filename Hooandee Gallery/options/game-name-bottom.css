@@ -1,44 +1,8 @@
-/* Restaura la información bajo la carátula y compensa el foco en sentido
- * contrario. El carrusel, su viewport y los hit targets no se desplazan. */
-#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
-    > [role="listitem"][data-id="GoToLibrary"]
-  )
-  > [role="listitem"][data-id]:not([data-id="GoToLibrary"]):has(
-    [role="link"] img:first-of-type
-  )
-  > div
-  > div:has(> div > div > [role="link"]) {
-  flex-direction: column !important;
-}
-
-#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
-    > [role="listitem"][data-id="GoToLibrary"]
-  )
-  > [role="listitem"][data-id]:not([data-id="GoToLibrary"]):has(
-    [role="link"] img:first-of-type
-  )
-  > div
-  > div:has(> div > div > [role="link"])
-  > div:last-child {
-  bottom: auto !important;
-  position: absolute !important;
-  top: calc(100% - 63px) !important;
-}
-
-#GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
-    > [role="listitem"][data-id="GoToLibrary"]
-  )
-  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
-  [role="link"].gpfocus {
-  transform: translate3d(0, var(--hdg-home-focus-shift-up), 0) !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #GamepadUI_Full_Root [role="list"].ReactVirtualized__Grid__innerScrollContainer:has(
-      > [role="listitem"][data-id="GoToLibrary"]
-    )
-    > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
-    [role="link"].gpfocus {
-    transform: none !important;
-  }
+/* La hoja base posee la geometría. Esta opción solo cambia sus variables,
+ * de modo que también gobierna 2D, Sutil y Cover Flow sin otra pelea de
+ * especificidad ni nuevos selectores relacionales en la ruta caliente. */
+:root {
+  --hdg-home-focus-shift: var(--hdg-home-focus-shift-up);
+  --hdg-home-metadata-bottom: auto;
+  --hdg-home-metadata-top: calc(100% - 7px);
 }
