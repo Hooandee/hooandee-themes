@@ -80,17 +80,17 @@
 }
 
 @keyframes hdg-settings-label-pan {
-  from { transform: translateX(0); }
-  to { transform: translateX(-40px); }
+  from { text-indent: 0; }
+  to { text-indent: -40px; }
 }
 
 :scope
   [role="tablist"][aria-orientation="vertical"]
-  > [role="tab"][id*="/settings/gamerecording"]:is(.gpfocus, [aria-selected="true"])
+  > [role="tab"][id*="/settings/gamerecording"].gpfocus
   > div
   > :last-child {
   animation: hdg-settings-label-pan 2.8s ease-in-out 0.7s infinite alternate;
-  overflow: visible;
+  overflow: hidden;
   text-overflow: clip;
 }
 
