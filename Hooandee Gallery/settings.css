@@ -579,18 +579,20 @@
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
-  .DialogContentTransition
-  :is(.SliderControlPanelGroup, [role="button"]:has([role="slider"])).gpfocus {
+  .SliderControlPanelGroup.Panel.Focusable[role="button"]:has(> [role="slider"]).gpfocus {
   background: transparent !important;
-  border-color: transparent !important;
+  border: 0 !important;
   box-shadow: none !important;
+  outline: 0 !important;
 }
 
-/* La superficie ya pertenece a la fila exterior. El control del slider solo
- * aporta pista, knob y halo; una segunda placa produce la burbuja rectangular. */
-:scope
-  .DialogContentTransition
-  :is(.SliderControlPanelGroup, [role="button"]:has([role="slider"])) {
+/* En Ajustes el slider debe tener la misma anatomía limpia que en QAM: aire
+ * de layout, pista y knob, sin una placa exterior ni una cápsula intermedia. */
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
+  :is(.DialogBody, [role="region"], .DialogControlsSection)
+  > .Panel.Panel:has(.SliderControlPanelGroup > [role="slider"]),
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"][aria-selected="true"])
+  .SliderControlPanelGroup.Panel.Focusable[role="button"]:has(> [role="slider"]) {
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;

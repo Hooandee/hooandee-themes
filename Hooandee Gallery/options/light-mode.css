@@ -283,6 +283,21 @@ html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [
   color: var(--hdg-text-primary) !important;
 }
 
+/* Claro conserva la misma anatomía de slider que Oscuro y QAM. Estas reglas
+ * deben ir después de las superficies base para no recuperar sus cápsulas. */
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
+  :is(.DialogBody, [role="region"], .DialogControlsSection)
+  > .Panel:has(.SliderControlPanelGroup > [role="slider"]),
+html:root #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])
+  .SliderControlPanelGroup:has(> [role="slider"]) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  overflow: visible !important;
+}
+
 :is(
     #Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"]),
     #GamepadUI_Full_Root .DialogContent:has([role="tab"][id*="/properties/"])
