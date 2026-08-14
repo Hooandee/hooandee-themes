@@ -60,6 +60,9 @@
   --hdg-downloads-graph-blend: screen;
   --hdg-text-primary: rgba(255, 255, 255, 0.96);
   --hdg-text-secondary: rgba(225, 234, 240, 0.72);
+  --hdg-ost-artwork-filter: saturate(0.9) brightness(0.62);
+  --hdg-ost-page-veil:
+    linear-gradient(90deg, rgba(6, 10, 15, 0.86), rgba(6, 10, 15, 0.42) 55%, rgba(6, 10, 15, 0.74));
   --hdg-glass-blur: 12px;
   --hdg-glass-radius-panel: 20px;
   --hdg-glass-radius-menu: 18px;

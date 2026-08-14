@@ -817,7 +817,7 @@ body,
   border-radius: inherit !important;
 }
 
-#QuickAccess-Menu [role="checkbox"]:has(> :nth-child(2)) > :last-child {
+#QuickAccess-Menu [role="checkbox"]:has(> :nth-child(2)) > :nth-child(2) {
   background: var(--hdg-control-thumb) !important;
   border: 1px solid rgba(255, 255, 255, 0.44) !important;
   border-radius: 999px !important;

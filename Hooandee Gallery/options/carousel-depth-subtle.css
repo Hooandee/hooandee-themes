@@ -25,6 +25,23 @@
   transform-origin: center center !important;
 }
 
+/* La primera pieza es panorámica. Aplicarle la escala de una portada vertical
+ * hace que la perspectiva ensanche su bounding box fuera del viewport en
+ * monitores. Se repliega únicamente como lateral y recupera el plano heroico
+ * al recibir el foco, sin cambiar la geometría virtualizada de Steam. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child:not(.gpfocuswithin)
+  [role="link"] {
+  transform: perspective(1200px) rotateY(12deg) translateZ(-7px) scale(0.62) !important;
+  transform-origin: right center !important;
+}
+
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:first-child.gpfocuswithin
+  [role="link"].gpfocus {
+  transform: translate3d(0, calc(var(--hdg-home-focus-shift-down) - 3px), 0) scale(1) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
     > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
