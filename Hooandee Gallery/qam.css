@@ -24,7 +24,9 @@ body,
   border: 1px solid var(--hdg-glass-stroke);
   border-radius: var(--hdg-glass-radius-panel) 0 0 var(--hdg-glass-radius-panel);
   border-right: 0;
-  box-shadow: var(--hdg-glass-shadow);
+  box-shadow:
+    -18px 0 42px var(--hdg-shadow-color),
+    inset 0 1px var(--hdg-glass-highlight);
   box-sizing: border-box;
 }
 
@@ -103,8 +105,23 @@ body,
 
 #QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child,
 #QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child > div {
-  background: transparent !important;
   box-shadow: none !important;
+}
+
+/* La cabecera de CSS Loader es sticky. Una base mimética y scroll-padding
+ * impiden que los nombres de las opciones se lean a través del título al
+ * navegar con mando, sin convertir la cabecera en una placa independiente. */
+#QuickAccess-Menu #quickaccess_content_999 {
+  scroll-padding-block: 50px 20px;
+}
+
+#QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child {
+  background: var(--hdg-qam-header-surface) !important;
+  padding-bottom: 6px !important;
+}
+
+#QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child > div {
+  background: transparent !important;
 }
 
 #QuickAccess-Menu
@@ -763,7 +780,7 @@ body,
     0 0 12px var(--hdg-accent-glow),
     inset 0 1px rgba(255, 255, 255, 0.86) !important;
   margin: 0 !important;
-  transform: none !important;
+  transform: translateY(-1px) !important;
 }
 
 #QuickAccess-Menu [role="slider"].gpfocus .SliderHandle {

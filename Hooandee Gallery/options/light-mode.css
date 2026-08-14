@@ -23,6 +23,7 @@ html:root {
   --hdg-glass-panel: rgba(248, 251, 253, 0.87);
   --hdg-glass-panel-fallback: #eef3f6;
   --hdg-glass-panel-performance: rgba(244, 248, 250, 0.96);
+  --hdg-qam-header-surface: #f8fbfd;
   --hdg-header-performance: rgba(244, 248, 250, 0.94);
   --hdg-footer-performance: rgba(232, 239, 244, 0.96);
   --hdg-glass-surface: rgba(255, 255, 255, 0.62);
@@ -578,9 +579,9 @@ html:root #Footer {
   background-color: transparent !important;
   background-image: linear-gradient(
     180deg,
-    rgba(214, 224, 231, 0),
-    rgba(214, 224, 231, 0.38) 42%,
-    rgba(207, 217, 224, 0.72)
+    rgba(248, 251, 253, 0),
+    rgba(248, 251, 253, 0.14) 52%,
+    rgba(248, 251, 253, 0.32)
   ) !important;
   color: var(--hdg-text-primary) !important;
 }
@@ -644,7 +645,9 @@ html:root #Footer
     linear-gradient(145deg, var(--hdg-glass-highlight), transparent 34%),
     var(--hdg-glass-panel) !important;
   border-color: var(--hdg-glass-stroke) !important;
-  box-shadow: var(--hdg-glass-shadow) !important;
+  box-shadow:
+    -18px 0 42px var(--hdg-shadow-color),
+    inset 0 1px var(--hdg-glass-highlight) !important;
   color: var(--hdg-text-primary) !important;
 }
 
