@@ -35,7 +35,7 @@
   --hdg-home-focus-shift: var(--hdg-home-focus-shift-down);
   --hdg-home-metadata-bottom: calc(100% + 18px);
   --hdg-home-metadata-top: auto;
-  --hdg-home-metadata-transform: none;
+  --hdg-home-metadata-transform: translate3d(calc(-50% + 6px), 0, 0);
   --hdg-home-focus-shift-down: clamp(
     0px,
     calc(var(--hdg-home-name-shift-down) + var(--hdg-home-time-shift-down)),
@@ -165,10 +165,13 @@
   > div:last-child:not(:only-child) {
   bottom: var(--hdg-home-metadata-bottom) !important;
   height: auto !important;
+  left: 50% !important;
   max-width: min(460px, calc(100vw - 88px));
   min-height: 0 !important;
   padding-block: 0 !important;
   position: absolute !important;
+  right: auto !important;
+  text-align: center !important;
   top: var(--hdg-home-metadata-top) !important;
   transform: var(--hdg-home-metadata-transform) !important;
   z-index: 2;
@@ -200,8 +203,22 @@
   > ._1HIFNGSxh4-jOhPiDynR4C
   > div:last-child:not(:only-child)
   > div {
+  justify-content: center !important;
   margin-left: 0 !important;
+  text-align: center !important;
   width: 100% !important;
+}
+
+/* Steam anida nombre y tiempo en varias filas flex. Centrar sólo el texto no
+ * centra esas filas: cada nivel debe compartir el mismo eje de la portada. */
+#Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+  > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
+  > ._3YYQ98HSj-wh5uljwl12bW
+  > ._1HIFNGSxh4-jOhPiDynR4C
+  > div:last-child:not(:only-child)
+  div {
+  justify-content: center !important;
+  text-align: center !important;
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer

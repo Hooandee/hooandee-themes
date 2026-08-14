@@ -172,7 +172,7 @@
  * para no quedar detrás del borde izquierdo del viewport. */
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]:first-child.gpfocuswithin {
-  --hdg-home-metadata-transform: translate3d(112px, 0, 0);
+  --hdg-home-metadata-transform: translate3d(calc(-50% + 118px), 0, 0);
 }
 
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
