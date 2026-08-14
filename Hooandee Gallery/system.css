@@ -1042,6 +1042,39 @@
   -webkit-text-fill-color: currentColor !important;
 }
 
+/* El control de visibilidad comparte wrapper con el password. Steam reparte
+ * todo el ancho entre ambos sin separación, así que el gap debe vivir aquí y
+ * el input debe poder encogerse dentro del ancho disponible. */
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  .DialogInput_Wrapper:has(> input[type="password"] + button[role="button"]) {
+  align-items: center !important;
+  column-gap: 7px !important;
+  display: flex !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  .DialogInput_Wrapper:has(> input[type="password"] + button[role="button"])
+  > input[type="password"] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+
+#GamepadUI_Full_Root
+  form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
+    button[role="combobox"]
+  )
+  .DialogInput_Wrapper:has(> input[type="password"] + button[role="button"])
+  > button[role="button"] {
+  flex: 0 0 auto !important;
+}
+
 #GamepadUI_Full_Root
   form[role="dialog"]:has(> .DialogHeader + .DialogBody input[type="password"]):has(
     button[role="combobox"]
