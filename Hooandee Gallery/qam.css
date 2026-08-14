@@ -779,10 +779,10 @@ body,
 /* Los sliders viven dentro de un button SliderControlPanelGroup. No debe
  * heredar la superficie glass de los botones: la pista y el knob ya expresan
  * el control y su foco sin necesidad de una cápsula exterior. */
-#QuickAccess-Menu [role="tabpanel"]
-  .SliderControlPanelGroup:has(> [role="slider"]) {
+html:root #QuickAccess-Menu [role="tabpanel"]
+  .SliderControlPanelGroup:has([role="slider"]) {
   background: transparent !important;
-  border-color: transparent !important;
+  border: 0 !important;
   box-sizing: border-box;
   box-shadow: none !important;
   outline: none !important;
@@ -792,7 +792,7 @@ body,
 /* Los controles del catálogo de CSS Loader comparten una columna estrecha;
  * cuatro píxeles extra por lado evitan que pista y knob rocen la card. */
 #QuickAccess-Menu .CSSLoader_ThemeListContainer
-  .SliderControlPanelGroup:has(> [role="slider"]) {
+  .SliderControlPanelGroup:has([role="slider"]) {
   padding-inline: 16px !important;
 }
 
