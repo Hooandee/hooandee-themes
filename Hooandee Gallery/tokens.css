@@ -28,6 +28,8 @@
   --hdg-glass-panel: rgba(15, 22, 30, 0.66);
   --hdg-glass-panel-fallback: rgba(20, 28, 37, 0.94);
   --hdg-glass-panel-performance: rgba(15, 22, 30, 0.88);
+  --hdg-qam-clarity-veil: rgba(4, 7, 10, 0.3);
+  --hdg-qam-ingame-panel: rgba(9, 15, 22, 0.96);
   --hdg-header-performance: rgba(3, 7, 11, 0.78);
   --hdg-footer-performance: rgba(2, 5, 8, 0.78);
   --hdg-glass-surface: rgba(255, 255, 255, 0.07);

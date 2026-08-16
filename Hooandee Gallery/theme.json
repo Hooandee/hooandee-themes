@@ -176,6 +176,18 @@
         }
       }
     },
+    "Primera tarjeta": {
+      "default": "Hero horizontal",
+      "type": "slider",
+      "values": {
+        "Hero horizontal": {},
+        "Portada uniforme": {
+          "options/first-card-uniform.css": [
+            "bigpicture"
+          ]
+        }
+      }
+    },
     "Panel de cristal de Inicio": {
       "default": "Yes",
       "type": "checkbox",
@@ -262,12 +274,14 @@
         "Completo": {},
         "Solo indicadores": {
           "options/header-indicators-only.css": [
-            "bigpicture"
+            "bigpicture",
+            "QuickAccess"
           ]
         },
         "Oculto": {
           "options/header-hidden.css": [
-            "bigpicture"
+            "bigpicture",
+            "QuickAccess"
           ]
         }
       }
@@ -279,17 +293,20 @@
         "Batería y hora": {},
         "Solo batería": {
           "options/header-only-battery.css": [
-            "bigpicture"
+            "bigpicture",
+            "QuickAccess"
           ]
         },
         "Solo hora": {
           "options/header-only-time.css": [
-            "bigpicture"
+            "bigpicture",
+            "QuickAccess"
           ]
         },
         "Ninguno": {
           "options/header-no-indicators.css": [
-            "bigpicture"
+            "bigpicture",
+            "QuickAccess"
           ]
         }
       }

@@ -16,10 +16,11 @@ body,
 }
 
 #QuickAccess-Menu {
-  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.16);
-  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.16);
+  -webkit-backdrop-filter: blur(calc(var(--hdg-glass-blur) + 4px)) saturate(1.16);
+  backdrop-filter: blur(calc(var(--hdg-glass-blur) + 4px)) saturate(1.16);
   background:
     linear-gradient(145deg, var(--hdg-glass-highlight), transparent 34%),
+    linear-gradient(var(--hdg-qam-clarity-veil), var(--hdg-qam-clarity-veil)),
     var(--hdg-glass-panel) !important;
   border: 1px solid var(--hdg-glass-stroke);
   border-radius: var(--hdg-glass-radius-panel) 0 0 var(--hdg-glass-radius-panel);
@@ -28,6 +29,35 @@ body,
     -18px 0 42px var(--hdg-shadow-color),
     inset 0 1px var(--hdg-glass-highlight);
   box-sizing: border-box;
+}
+
+/* Dentro de un juego, QuickAccess vive en un CEF transparente y el blur no
+ * siempre recibe el frame del juego como backdrop. La señal `.ingame` del
+ * perfil sólo existe en ese header. Usamos entonces una base casi opaca y
+ * hacemos que el header comparta la misma superficie para evitar la costura. */
+#QuickAccess-Menu:has(#header .ingame) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 34%),
+    var(--hdg-qam-ingame-panel) !important;
+}
+
+#QuickAccess-Menu:has(#header .ingame) #header {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+#QuickAccess-Menu:has(#header .ingame) #header::after {
+  content: none !important;
+  display: none !important;
+}
+
+#QuickAccess-Menu:has(#header .ingame)
+  > :has([role="tablist"][aria-orientation="vertical"])::before {
+  content: none !important;
+  display: none !important;
 }
 
 #QuickAccess-Menu [role="tablist"] {
@@ -108,6 +138,15 @@ body,
   box-shadow: none !important;
 }
 
+/* Decky y las vistas internas de sus plugins usan dos toolbars distintas,
+ * pero ambas declaran el mismo contrato sticky inline. Se neutraliza su placa
+ * sin depender de los hashes de ninguna de las dos aplicaciones. */
+#QuickAccess-Menu #quickaccess_content_999
+  [style*="position: sticky"][style*="top: 0"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 /* Cabecera de CSS Loader integrada: una toolbar compacta, no otra tarjeta.
  * Se desplaza con los ajustes, conserva acciones táctiles de 34 px y separa
  * el primer control con una línea tenue en lugar de una franja opaca. */
@@ -117,7 +156,7 @@ body,
 
 #QuickAccess-Menu #quickaccess_content_999 > .Panel > :first-child {
   align-items: center !important;
-  background: var(--hdg-glass-panel-fallback) !important;
+  background: transparent !important;
   border: 0 !important;
   border-bottom: 1px solid var(--hdg-glass-stroke-soft) !important;
   box-sizing: border-box !important;

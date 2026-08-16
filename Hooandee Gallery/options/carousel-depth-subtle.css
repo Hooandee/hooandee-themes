@@ -1,6 +1,21 @@
 /* Profundidad contenida y perceptible. Las cards anteriores parten de una
  * inclinación y solo los hermanos posteriores cambian de lado; así no hay que
  * reevaluar una cadena de :has() por cada pulsación. */
+:root {
+  --hdg-carousel-card-height: 201px;
+  --hdg-carousel-card-width: 134px;
+  --hdg-carousel-collapsed-list-min: -296px;
+  --hdg-carousel-first-lateral-item-transform: translate3d(296px, 0, 0);
+  --hdg-carousel-first-following-item-transform: translate3d(-296px, 0, 0);
+  --hdg-carousel-first-following-item-with-spacer-transform: translate3d(-318px, 0, 0);
+  --hdg-carousel-first-metadata-transform: translate3d(calc(-50% - 138px), 0, 0);
+  --hdg-carousel-focus-transform: translate3d(0, calc(var(--hdg-home-focus-shift) - 3px), 0) scale(1.045);
+  --hdg-carousel-item-margin: 10px;
+  --hdg-carousel-metadata-transform: translate3d(calc(-50% + 6px), 0, 0);
+  --hdg-carousel-side-left-transform: perspective(1200px) rotateY(12deg) translateZ(-7px) scale(0.985);
+  --hdg-carousel-spacer-following-item-transform: translate3d(-22px, 0, 0);
+}
+
 #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]:not([data-id="GoToLibrary"])
   [role="link"] {

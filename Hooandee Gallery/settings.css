@@ -1,7 +1,6 @@
-/* Ajustes comparte documento con Inicio. Su DialogContent de página completa
- * es una raíz semántica estrecha; evita reevaluar un :has() sobre todo Main
- * cada vez que cambia el foco del carrusel. */
-@scope (#Main .DialogContent:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/"][role="tab"])) {
+/* El host de diálogo también se usa en Propiedades. La ausencia del panel
+ * exclusivo de Propiedades mantiene esta hoja aislada sin sondear Inicio. */
+@scope (#Main ._5ZP0mr4KbDTOe7j-tDi8m:not(:has(._1FyBL6obxHQ2Z2CsaV2Gbz))) {
 
 :scope
   > div {
@@ -476,13 +475,17 @@
   border-radius: 14px !important;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.05) !important;
   box-sizing: border-box;
-  margin-block: 4px !important;
+  margin-block: 8px !important;
   overflow: visible !important;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/customization"][role="tab"][aria-selected="true"])
   [role="radiogroup"]
-  > .Panel.gpfocus {
+  > .Panel:is(
+    :hover,
+    .gpfocus,
+    .gpfocuswithin:has([role="radio"].gpfocus)
+  ) {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 52%),
     var(--hdg-accent-surface-focus) !important;
@@ -931,6 +934,7 @@
   [role="tabpanel"]
   [role="tablist"]:not([aria-orientation="vertical"]) {
   box-sizing: border-box;
+  column-gap: 8px !important;
   margin-block: -20px -10px !important;
   padding-block: 20px !important;
 }
@@ -954,7 +958,7 @@
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
   [role="tabpanel"]
   [role="tablist"]:not([aria-orientation="vertical"])
-  > [role="tab"]:is([aria-selected="true"], .gpfocus) {
+  > [role="tab"]:is([aria-selected="true"], .gpfocus, :hover) {
   background:
     linear-gradient(145deg, var(--hdg-glass-highlight), transparent 54%),
     var(--hdg-accent-surface-focus) !important;
@@ -964,6 +968,15 @@
     0 5px 14px var(--hdg-accent-glow) !important;
   color: var(--hdg-text-primary) !important;
   outline-color: var(--hdg-focus-ring) !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="tabpanel"]
+  [role="tablist"]:not([aria-orientation="vertical"])
+  > [role="tab"]:is([aria-selected="true"], .gpfocus, :hover)
+  * {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
@@ -1114,6 +1127,23 @@
   padding-inline: 8px !important;
   text-overflow: ellipsis;
   white-space: nowrap !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="tabpanel"]
+  button[role="combobox"]:is(:hover, .gpfocus) {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-focus-ring) !important;
+  color: var(--hdg-accent-on-fill) !important;
+}
+
+:scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])
+  [role="tabpanel"]
+  button[role="combobox"]:is(:hover, .gpfocus)
+  * {
+  color: inherit !important;
+  fill: currentColor !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 :scope:has(> .DialogContent_InnerWidth .PageListColumn [id*="/settings/storage"][role="tab"][aria-selected="true"])

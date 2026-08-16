@@ -113,24 +113,18 @@
   }
 }
 
-#Main [role="grid"]:has(
-    [role="row"] [role="button"]:not([aria-label]) img
-  ) {
+#Main ._2QjFE3h7KkygsFmaBJmi8X {
   box-sizing: border-box;
   padding-bottom: 64px;
   scroll-padding-block: 12px 64px;
   scroll-padding-bottom: 64px;
 }
 
-#Main [role="grid"]:has(
-    [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] {
+#Main ._2QjFE3h7KkygsFmaBJmi8X [role="row"] {
   overflow: visible !important;
 }
 
-#Main [role="grid"]:has(
-    [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] [role="button"] {
+#Main ._2QjFE3h7KkygsFmaBJmi8X [role="row"] [role="button"] {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.065), transparent 48%),
     rgba(5, 10, 16, 0.34) !important;
@@ -150,12 +144,8 @@
     filter 150ms ease;
 }
 
-#Main [role="grid"]:has(
-    [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] [role="button"] > :is(img:not([src*="/play_icon"]), video, canvas),
-#Main [role="grid"]:has(
-    [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] [role="button"] :is(img:not([src*="/play_icon"]), video, canvas):not([role="presentation"]) {
+#Main ._2QjFE3h7KkygsFmaBJmi8X [role="row"] [role="button"] > :is(img:not([src*="/play_icon"]), video, canvas),
+#Main ._2QjFE3h7KkygsFmaBJmi8X [role="row"] [role="button"] :is(img:not([src*="/play_icon"]), video, canvas):not([role="presentation"]) {
   border-radius: 16px !important;
   display: block;
   height: 100% !important;
@@ -164,9 +154,7 @@
   width: 100% !important;
 }
 
-#Main [role="grid"]:has(
-    [role="row"] [role="button"]:not([aria-label]) img
-  ) [role="row"] [role="button"].gpfocus {
+#Main ._2QjFE3h7KkygsFmaBJmi8X [role="row"] [role="button"].gpfocus {
   border: 0 !important;
   box-shadow:
     inset 0 0 0 1px var(--hdg-accent-stroke),
@@ -178,9 +166,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #Main [role="grid"]:has(
-      [role="row"] [role="button"]:not([aria-label]) img
-    ) [role="row"] [role="button"] {
+  #Main ._2QjFE3h7KkygsFmaBJmi8X [role="row"] [role="button"] {
     transition: none;
   }
 
