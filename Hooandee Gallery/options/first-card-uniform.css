@@ -76,9 +76,9 @@
  * portada uniforme ocupe el ancho regular. La compensación debe permanecer
  * idéntica antes y después de transferir el foco: Steam anima su scroll antes
  * de cambiar gpfocuswithin y una segunda corrección movería todo el grupo en
- * sentido contrario. El límite responde al ancho útil del viewport: conserva
- * los 296 px completos en Deck y protege el halo en paneles más anchos. Así no
- * alteramos left, width, orden ni scroll nativos. */
+ * sentido contrario. La compensación varía suavemente con el ancho útil: no
+ * deja de actuar de golpe en 1280/1366, pero conserva la alineación ya validada
+ * en Deck. Así no alteramos left, width, orden ni scroll nativos. */
 #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid {
   container-type: inline-size !important;
@@ -87,7 +87,27 @@
 #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"]:not([data-id="GoToLibrary"]) {
-  margin-left: clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(110cqw - 1079px), 0px) !important;
+  margin-left: clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(15cqw - 352px), 0px) !important;
+}
+
+/* Entre el layout handheld y el de escritorio Steam ensancha el slot hero con
+ * mayor rapidez que las portadas. Esta rama continúa desde la compensación de
+ * 1100 px y alcanza el colapso completo al llegar a 1366, sin ningún escalón. */
+@media (min-width: 1101px) and (max-width: 1366px) and (max-height: 800px) {
+  #GamepadUI_Full_Root #Main ._2_cRkGdbegoIbiRsy_-I7
+    [role="generic"].ReactVirtualized__Grid {
+    --hdg-carousel-first-lateral-item-transform: translate3d(
+      calc(var(--hdg-carousel-first-lateral-base) + min(122px, calc(68vw - 748px))),
+      0,
+      0
+    );
+  }
+
+  #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
+    #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
+    > [role="listitem"]:not([data-id="GoToLibrary"]) {
+    margin-left: clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(-46cqw + 250px), 0px) !important;
+  }
 }
 
 #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root

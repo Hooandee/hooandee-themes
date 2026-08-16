@@ -70,5 +70,12 @@
   --hdg-glass-radius-menu: 18px;
   --hdg-glass-radius-toast: 16px;
   --hdg-control-radius: 10px;
+  --hdg-ui-gutter-inline: clamp(44px, 5.2vw, 96px);
+  --hdg-home-stage-height: clamp(350px, 52vh, 540px);
+  --hdg-home-card-height: clamp(201px, 27.9vh, 310px);
+  --hdg-home-card-width: calc(var(--hdg-home-card-height) * 2 / 3);
+  --hdg-home-hero-width: min(430px, calc(100vw - (2 * var(--hdg-ui-gutter-inline)) - 24px));
+  --hdg-dialog-safe-inline: clamp(18px, 3.75vw, 72px);
+  --hdg-dialog-safe-block: clamp(18px, 4vh, 48px);
   --hdg-glass-shadow: 0 22px 50px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.1);
 }

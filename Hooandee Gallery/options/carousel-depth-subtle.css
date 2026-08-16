@@ -2,10 +2,15 @@
  * inclinación y solo los hermanos posteriores cambian de lado; así no hay que
  * reevaluar una cadena de :has() por cada pulsación. */
 :root {
-  --hdg-carousel-card-height: 201px;
-  --hdg-carousel-card-width: 134px;
+  --hdg-carousel-card-height: var(--hdg-home-card-height);
+  --hdg-carousel-card-width: var(--hdg-home-card-width);
   --hdg-carousel-collapsed-list-min: -296px;
-  --hdg-carousel-first-lateral-item-transform: translate3d(296px, 0, 0);
+  --hdg-carousel-first-lateral-base: 296px;
+  --hdg-carousel-first-lateral-item-transform: translate3d(
+    var(--hdg-carousel-first-lateral-base),
+    0,
+    0
+  );
   --hdg-carousel-first-following-item-transform: translate3d(-296px, 0, 0);
   --hdg-carousel-first-following-item-with-spacer-transform: translate3d(-318px, 0, 0);
   --hdg-carousel-first-metadata-transform: translate3d(calc(-50% - 138px), 0, 0);

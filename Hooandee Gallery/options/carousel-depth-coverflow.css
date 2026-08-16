@@ -7,7 +7,8 @@
   --hdg-carousel-card-height: var(--hdg-coverflow-card-height);
   --hdg-carousel-card-width: var(--hdg-coverflow-card-width);
   --hdg-carousel-collapsed-list-min: -222px;
-  --hdg-carousel-first-lateral-item-transform: translate3d(220px, 0, 0);
+  --hdg-carousel-first-lateral-base: 220px;
+  --hdg-carousel-first-lateral-item-transform: translate3d(var(--hdg-carousel-first-lateral-base), 0, 0);
   --hdg-carousel-first-following-item-transform: translate3d(-276px, 0, 0);
   --hdg-carousel-first-following-item-with-spacer-transform: translate3d(-298px, 0, 0);
   --hdg-carousel-first-focus-transform: translate3d(0, var(--hdg-home-focus-shift), 0) scale(1.14);

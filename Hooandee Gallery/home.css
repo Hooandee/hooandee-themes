@@ -1128,10 +1128,13 @@
   }
 }
 
-@media (max-width: 1100px), (max-height: 700px) {
+@media (max-width: 1366px) and (max-height: 800px) {
   :root {
-    --hdg-handheld-grid-inset: clamp(52px, 7vw, 72px);
-    --hdg-handheld-stage-top: max(24px, calc((100vh - 445px) / 2));
+    --hdg-handheld-grid-inset: var(--hdg-ui-gutter-inline);
+    --hdg-handheld-stage-top: max(
+      24px,
+      calc((100vh - var(--hdg-home-stage-height) - 96px) / 2)
+    );
     --hdg-home-name-shift-down: 8px;
     --hdg-home-name-shift-up: -8px;
     --hdg-home-time-shift-down: 8px;
@@ -1155,18 +1158,17 @@
   }
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 > ._282X0J4BtrSF1IXctmOe-X::after {
-    height: 350px;
+    height: var(--hdg-home-stage-height);
     top: var(--hdg-handheld-stage-top);
   }
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ {
     contain: paint;
-    height: 350px !important;
+    height: var(--hdg-home-stage-height) !important;
     left: var(--hdg-handheld-grid-inset);
     margin-top: 0 !important;
     top: var(--hdg-handheld-stage-top);
     width: calc(100% - (2 * var(--hdg-handheld-grid-inset))) !important;
-    zoom: 1;
   }
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
@@ -1183,19 +1185,19 @@
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
     > [role="listitem"][data-id]:not(:first-child):not([data-id="GoToLibrary"])
     [role="link"] {
-    height: 201px !important;
-    min-height: 201px !important;
-    min-width: 134px !important;
-    width: 134px !important;
+    height: var(--hdg-home-card-height) !important;
+    min-height: var(--hdg-home-card-height) !important;
+    min-width: var(--hdg-home-card-width) !important;
+    width: var(--hdg-home-card-width) !important;
   }
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
     > [role="listitem"][data-id]:first-child
     [role="link"] {
-    height: 201px !important;
-    min-height: 201px !important;
-    min-width: 430px !important;
-    width: 430px !important;
+    height: var(--hdg-home-card-height) !important;
+    min-height: var(--hdg-home-card-height) !important;
+    min-width: var(--hdg-home-hero-width) !important;
+    width: var(--hdg-home-hero-width) !important;
   }
 
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid._3MdH5Czolhh5rC_nofUlcQ > [role="list"].ReactVirtualized__Grid__innerScrollContainer
