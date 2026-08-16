@@ -1616,6 +1616,7 @@
   box-shadow: none !important;
   box-sizing: border-box;
   color: var(--hdg-text-secondary) !important;
+  flex: 0 0 auto !important;
   margin: 3px 8px;
   max-width: calc(100% - 16px);
   overflow: hidden !important;
@@ -1659,6 +1660,26 @@
 #Main ._1FyBL6obxHQ2Z2CsaV2Gbz
   [role="tabpanel"][id*="/properties/"] {
   padding: 64px 24px 68px !important;
+}
+
+/* Algunos inputs de Propiedades ocupan exactamente el ancho de un wrapper que
+ * recorta overflow. El halo global exterior desaparece en ambos laterales;
+ * dentro de esta ruta el anillo se pinta hacia dentro sin cambiar geometría. */
+#GamepadUI_Full_Root#GamepadUI_Full_Root #Main [role="tabpanel"][id*="/properties/"]
+  :is(
+    input:not([type]),
+    input[type="text"],
+    input[type="search"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="number"],
+    textarea
+  ):is(:focus, :focus-visible, .gpfocus) {
+  box-shadow:
+    inset 0 0 0 2px var(--hdg-accent-stroke),
+    inset 0 1px rgba(255, 255, 255, 0.12) !important;
 }
 
 #Main ._1FyBL6obxHQ2Z2CsaV2Gbz
