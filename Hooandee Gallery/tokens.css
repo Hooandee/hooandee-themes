@@ -77,5 +77,8 @@
   --hdg-home-hero-width: min(430px, calc(100vw - (2 * var(--hdg-ui-gutter-inline)) - 24px));
   --hdg-dialog-safe-inline: clamp(18px, 3.75vw, 72px);
   --hdg-dialog-safe-block: clamp(18px, 4vh, 48px);
+  --hdg-header-safe-block: 40px;
+  --hdg-footer-safe-block: 42px;
+  --hdg-launch-actions-safe-block: clamp(72px, 15vh, 104px);
   --hdg-glass-shadow: 0 22px 50px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.1);
 }
