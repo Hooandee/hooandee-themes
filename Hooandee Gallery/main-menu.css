@@ -134,7 +134,10 @@ body,
 
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"] {
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"] {
   background: transparent !important;
   border: 1px solid transparent !important;
   border-radius: 12px !important;
@@ -180,7 +183,10 @@ body,
 
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"].gpfocus {
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 56%),
     var(--hdg-accent-surface-focus) !important;
@@ -193,10 +199,16 @@ body,
 
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"].gpfocus::before,
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus::before,
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"].gpfocus::after {
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus::after {
   content: none !important;
 }
 

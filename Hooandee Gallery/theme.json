@@ -103,6 +103,10 @@
             "QuickAccess",
             "MainMenu",
             "notificationtoasts.*"
+          ],
+          "options/light-window.css": [
+            "QuickAccess",
+            "MainMenu"
           ]
         }
       }

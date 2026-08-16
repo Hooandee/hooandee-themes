@@ -392,6 +392,13 @@
   }
 }
 
+#header,
+#GamepadUI_Full_Root .BasicUIContextMenu,
+#GamepadUI_Full_Root .ModalOverlayContent.active {
+  --hdg-system-interactive-context: active;
+}
+
+@container style(--hdg-system-interactive-context: active) {
 #GamepadUI_Full_Root ._9Ql-oVe_j8E-vsDdyVdWo,
 #GamepadUI_Full_Root ._23hjXB5XSry64xirVGpWAY,
 #GamepadUI_Full_Root
@@ -1000,93 +1007,6 @@
   }
 }
 
-/* Progreso de lanzamiento: Steam no lo monta como diálogo. Es una secuencia
- * absoluta dentro de Detalles identificable por la altura del resumen de
- * controles y su tarjeta de estado. La contenemos entre header y footer sin
- * alterar el botón Cancelar, el orden de pasos ni la navegación nativa. */
-#GamepadUI_Full_Root #Main
-  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg) {
-  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.12);
-  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.12);
-  background:
-    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 42%),
-    var(--hdg-glass-panel) !important;
-  block-size: auto !important;
-  border: 1px solid var(--hdg-glass-stroke) !important;
-  border-radius: var(--hdg-glass-radius-panel) !important;
-  bottom: calc(
-    var(--hdg-footer-safe-block)
-    + var(--hdg-launch-actions-safe-block)
-    + 8px
-  ) !important;
-  box-shadow: var(--hdg-glass-shadow) !important;
-  box-sizing: border-box;
-  gap: clamp(8px, 1.5vh, 14px);
-  left: var(--hdg-dialog-safe-inline) !important;
-  max-block-size: calc(
-    100dvh
-    - var(--hdg-header-safe-block)
-    - var(--hdg-footer-safe-block)
-    - var(--hdg-launch-actions-safe-block)
-    - 16px
-  ) !important;
-  min-block-size: 0;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  overscroll-behavior: contain;
-  padding: clamp(10px, 2vh, 18px) clamp(12px, 2.8vw, 28px) !important;
-  right: var(--hdg-dialog-safe-inline) !important;
-  top: calc(var(--hdg-header-safe-block) + 8px) !important;
-  width: auto !important;
-}
-
-#GamepadUI_Full_Root #Main
-  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
-  :is(div, span, svg) {
-  color: var(--hdg-text-primary) !important;
-}
-
-#GamepadUI_Full_Root #Main
-  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
-  > :first-child:not(:has(video)) {
-  flex: 0 1 56px;
-  max-block-size: 56px;
-  min-block-size: 36px;
-}
-
-#GamepadUI_Full_Root #Main
-  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
-  > :has(video source[src*="/movies/steamdeck_"]) {
-  background:
-    linear-gradient(var(--hdg-accent-surface-focus), var(--hdg-accent-surface-focus)),
-    var(--hdg-glass-surface) !important;
-  border: 1px solid var(--hdg-glass-stroke-soft) !important;
-  border-radius: var(--hdg-control-radius) !important;
-  box-sizing: border-box;
-  flex: 1 1 122px;
-  inline-size: min(360px, 100%) !important;
-  max-block-size: 140px;
-  min-block-size: 96px;
-  overflow: hidden !important;
-  padding: 10px 14px !important;
-}
-
-#GamepadUI_Full_Root #Main
-  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
-  > .Panel:has(svg) {
-  background:
-    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
-    var(--hdg-glass-surface) !important;
-  border: 1px solid var(--hdg-glass-stroke-soft) !important;
-  border-radius: var(--hdg-control-radius) !important;
-  box-sizing: border-box;
-  flex: 0 0 auto;
-  inline-size: min(680px, 100%) !important;
-  min-block-size: 68px;
-  overflow: hidden !important;
-  padding: 10px 14px !important;
-}
-
 /* Red: contrato contrastado con el bundle actual de GamepadUI. La conexión se
  * reconoce por su tira de SVG + estado aria-live; los detalles por header,
  * secciones y campos semánticos. No depende del idioma ni de clases hash. */
@@ -1250,6 +1170,7 @@
     padding-top: 8px !important;
   }
 }
+}
 
 /* Calibración de color. Esta vista no pertenece al DialogContent de Ajustes:
  * su artwork identifica la pantalla y permite integrar la bandeja inferior sin
@@ -1337,6 +1258,7 @@
   -webkit-text-fill-color: currentColor !important;
 }
 
+@container style(--hdg-system-interactive-context: active) {
 /* Detalles de red: el modal usa toda la altura segura entre header y footer.
  * La versión nativa reserva demasiado aire alrededor y deja IPv4 fuera del
  * primer viewport en pantallas de 800/900 px lógicos. */
@@ -1549,6 +1471,7 @@
   margin-inline: auto !important;
   min-height: 40px !important;
   min-width: min(280px, 48%) !important;
+}
 }
 
 #header {
