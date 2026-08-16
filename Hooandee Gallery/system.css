@@ -806,7 +806,7 @@
     rgba(1, 4, 8, 0.64) !important;
 }
 
-/* ALUF e instalación no exponen role=dialog, aunque sí usan GenericConfirmDialog. */
+/* ALUF no expone role=dialog, aunque sí usa GenericConfirmDialog. */
 #GamepadUI_Full_Root
   .DialogContent.GenericConfirmDialog:not(:has([role="dialog"])) {
   -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
@@ -892,6 +892,112 @@
   [role="dialog"]
   .DialogButton {
   min-height: 44px !important;
+}
+
+/* Instalación y selección de unidad. Este diálogo no usa GenericConfirmDialog:
+ * la imagen horizontal del juego, las unidades accionables y el footer forman
+ * una firma estable y localizada sólo en este flujo. */
+@scope (#GamepadUI_Full_Root [role="dialog"].DialogContent:has(.DialogBodyText img[src*="/library_header.jpg"]):has(.DialogBodyText [role="button"] svg):has(.DialogFooter .DialogButton)) {
+  :scope {
+    -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
+    backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.14);
+    background:
+      linear-gradient(145deg, var(--hdg-glass-highlight), transparent 38%),
+      var(--hdg-glass-panel) !important;
+    border: 1px solid var(--hdg-glass-stroke) !important;
+    border-radius: var(--hdg-glass-radius-panel) !important;
+    box-shadow: var(--hdg-glass-shadow) !important;
+    box-sizing: border-box;
+    color: var(--hdg-text-primary) !important;
+    inline-size: min(660px, calc(100vw - (2 * var(--hdg-dialog-safe-inline)))) !important;
+    max-block-size: calc(
+      100dvh - var(--hdg-header-safe-block) - var(--hdg-footer-safe-block) - 16px
+    ) !important;
+    overflow: hidden !important;
+    padding: clamp(18px, 3.2vh, 26px) !important;
+  }
+
+  :scope > .DialogContent_InnerWidth,
+  :scope > .DialogContent_InnerWidth > .DialogBody {
+    box-sizing: border-box;
+    min-block-size: 0;
+  }
+
+  :scope > .DialogContent_InnerWidth > .DialogHeader {
+    border-bottom: 1px solid var(--hdg-glass-stroke-soft) !important;
+    color: var(--hdg-text-primary) !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 12px !important;
+  }
+
+  :scope .DialogBodyText {
+    color: var(--hdg-text-secondary) !important;
+    min-block-size: 0;
+    overflow: hidden auto !important;
+    overscroll-behavior: contain;
+  }
+
+  :scope .DialogBodyText img[src*="/library_header.jpg"] {
+    border: 1px solid var(--hdg-glass-stroke-soft) !important;
+    border-radius: 8px !important;
+    box-sizing: border-box;
+  }
+
+  :scope .DialogBodyText [role="button"]:has(svg) {
+    background:
+      linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
+      var(--hdg-glass-surface) !important;
+    border: 1px solid var(--hdg-glass-stroke-soft) !important;
+    border-radius: var(--hdg-control-radius) !important;
+    box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+    box-sizing: border-box;
+    color: var(--hdg-text-primary) !important;
+    min-block-size: 48px;
+    padding-inline: 16px !important;
+  }
+
+  :scope .DialogBodyText [role="button"]:has(svg) * {
+    color: inherit !important;
+  }
+
+  :scope .DialogBodyText [role="button"]:has(svg):is(.gpfocus, :focus, :focus-visible) {
+    background: var(--hdg-accent-fill) !important;
+    border-color: var(--hdg-focus-ring) !important;
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, 0.2),
+      0 6px 18px var(--hdg-accent-glow) !important;
+    color: var(--hdg-accent-on-fill) !important;
+  }
+
+  :scope .DialogBodyText [role="button"]:has(svg):is([aria-disabled="true"], :disabled) {
+    background: var(--hdg-glass-surface) !important;
+    border-color: var(--hdg-glass-stroke-soft) !important;
+    box-shadow: none !important;
+    color: var(--hdg-text-secondary) !important;
+  }
+
+  /* Las unidades no elegibles dejan de tener role=button, así que se integran
+   * como hermanas visuales sin recibir foco ni semántica interactiva. */
+  :scope .DialogBodyText div:has(> [role="button"])
+    > .Panel:not([role="button"]):has(svg) {
+    background: var(--hdg-glass-surface) !important;
+    border: 1px solid var(--hdg-glass-stroke-soft) !important;
+    border-radius: var(--hdg-control-radius) !important;
+    box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+    box-sizing: border-box;
+    color: var(--hdg-text-secondary) !important;
+    min-block-size: 48px;
+    padding-inline: 16px !important;
+  }
+
+  :scope .DialogFooter {
+    flex: 0 0 auto;
+    padding-top: 14px !important;
+  }
+
+  :scope .DialogFooter .DialogButton {
+    min-block-size: 44px !important;
+  }
 }
 
 /* Progreso de lanzamiento: Steam no lo monta como diálogo. Es una secuencia
