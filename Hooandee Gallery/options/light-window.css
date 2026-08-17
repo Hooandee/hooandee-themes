@@ -210,7 +210,8 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
 }
 
 /* El carril secundario usa texto blanco cuando recibe foco. En Claro necesita
- * el relleno de acento opaco, no la tenue capa ambiental del tema oscuro. */
+ * tinta oscura y un indicador lateral: Steam compone su relleno oscuro como
+ * una placa casi blanca en esta ventana CEF. */
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
   > .Panel.Focusable
@@ -222,9 +223,17 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   > .Panel.Focusable
   > .Panel.Focusable:has([role="button"])
   [role="button"]:only-child:not(:has(> *)).gpfocus {
-  background: var(--hdg-accent-fill) !important;
-  border-color: var(--hdg-accent-stroke) !important;
-  color: var(--hdg-accent-on-fill) !important;
+  background:
+    linear-gradient(90deg, var(--hdg-accent-surface-focus), transparent 76%),
+    var(--hdg-glass-surface-strong) !important;
+  border: 2px solid var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 4px 0 var(--hdg-accent-ink),
+    inset 0 1px var(--hdg-glass-highlight),
+    0 5px 14px var(--hdg-accent-glow) !important;
+  color: var(--hdg-accent-ink) !important;
+  mix-blend-mode: normal !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 #MainNavMenuContainer
@@ -232,4 +241,20 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   [role="button"].gpfocus * {
   color: inherit !important;
   fill: currentColor !important;
+}
+
+/* En el rail colapsado los dos wrappers nativos de cada carátula heredaban
+ * opacity: .84 y la aplicaban dos veces. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  [role="menuitem"]:has(img)
+  div:has(img) {
+  opacity: 1 !important;
+}
+
+/* Steam añade después de Apagar un fade de scroll con sombra hacia arriba. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > :last-child:not(:has([role="menuitem"])) {
+  box-shadow: none !important;
 }
