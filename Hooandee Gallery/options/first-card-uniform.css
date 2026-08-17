@@ -87,7 +87,11 @@
 #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"]:not([data-id="GoToLibrary"]) {
-  margin-left: clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(15cqw - 352px), 0px) !important;
+  margin-left: calc(
+    clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(15cqw - 352px), 0px)
+    + var(--hdg-carousel-uniform-stage-offset, 0px)
+    + var(--hdg-carousel-uniform-following-offset, 0px)
+  ) !important;
 }
 
 /* Entre el layout handheld y el de escritorio Steam ensancha el slot hero con
@@ -106,13 +110,18 @@
   #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
     #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
     > [role="listitem"]:not([data-id="GoToLibrary"]) {
-    margin-left: clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(-46cqw + 250px), 0px) !important;
+    margin-left: calc(
+      clamp(var(--hdg-carousel-collapsed-list-min, -296px), calc(-46cqw + 250px), 0px)
+      + var(--hdg-carousel-uniform-stage-offset, 0px)
+      + var(--hdg-carousel-uniform-following-offset, 0px)
+    ) !important;
   }
 }
 
 #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
   #Main ._2_cRkGdbegoIbiRsy_-I7 [role="generic"].ReactVirtualized__Grid > [role="list"].ReactVirtualized__Grid__innerScrollContainer
   > [role="listitem"][data-id]:first-child:not([data-id="GoToLibrary"]) {
+  --hdg-carousel-uniform-following-offset: 0px;
   transform: var(--hdg-carousel-first-lateral-item-transform, var(--hdg-carousel-item-transform)) !important;
 }
 

@@ -17,6 +17,12 @@
   --hdg-carousel-item-margin: -3px;
   --hdg-carousel-item-transform: translate3d(-76px, 0, 0);
   --hdg-carousel-metadata-transform: translate3d(calc(-50% + 6px), 0, 0);
+  /* La pared completa se adelanta 76 px dentro de los slots nativos. Cuando
+   * la primera pieza deja de ser hero, ese adelanto ya no tiene una anchura
+   * panoramica que lo absorba: se devuelve al escenario uniforme, junto con
+   * el separador que Steam inserta cuando hay un juego activo. */
+  --hdg-carousel-uniform-stage-offset: 76px;
+  --hdg-carousel-uniform-following-offset: 52px;
   /* La portada frontal crece a 1.14. Estos valores mantienen el mismo canal
    * de 10 px alrededor del texto sin alterar la transformación de la card. */
   --hdg-home-metadata-above-gap: 18px;
