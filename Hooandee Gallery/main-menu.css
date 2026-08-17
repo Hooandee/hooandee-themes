@@ -41,6 +41,7 @@ body,
 #MainNavMenuContainer
   > [role="menu"][aria-label]:not(.gpfocuswithin) {
   border-radius: 0 !important;
+  overflow: hidden !important;
 }
 
 /* Al enfocar el juego, los tres paneles forman una única superficie continua. */
@@ -53,7 +54,38 @@ body,
   > [role="menu"][aria-label]:not(.gpfocuswithin)
   [role="menuitem"] {
   margin-inline: 0 !important;
+  overflow: hidden !important;
   width: 100% !important;
+}
+
+/* En el estado de iconos, las filas nativas todavía conservan capas más
+ * anchas que el rail. Se recortan en su propia caja para que no se acumulen
+ * separadores ni sombras al pie de la barra clara. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > div:has(> [role="menuitem"]) {
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: hidden !important;
+}
+
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > div:has(> [role="menuitem"])::before,
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > div:has(> [role="menuitem"])::after {
+  box-shadow: none !important;
+  content: none !important;
+}
+
+/* La etiqueta sigue en el árbol accesible mediante aria-label, pero no debe
+ * desbordar sobre las acciones del juego cuando Steam deja sólo el icono. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  [role="menuitem"]
+  > :last-child:not(:first-child) {
+  display: none !important;
 }
 
 #MainNavMenuContainer
@@ -134,7 +166,10 @@ body,
 
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"] {
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"] {
   background: transparent !important;
   border: 1px solid transparent !important;
   border-radius: 12px !important;
@@ -180,7 +215,10 @@ body,
 
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"].gpfocus {
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 56%),
     var(--hdg-accent-surface-focus) !important;
@@ -193,10 +231,68 @@ body,
 
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"].gpfocus::before,
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus::before,
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
-  [role="button"].gpfocus::after {
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus::after {
+  content: none !important;
+}
+
+/* CTA inferior del diagrama de mando: es el único botón de texto plano dentro
+ * de su wrapper. Los glifos poseen hijos y el carril central tiene hermanos. */
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  [role="button"]:only-child:not(:has(> *)) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
+    var(--hdg-control-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: var(--hdg-control-radius) !important;
+  box-shadow: inset 0 1px var(--hdg-glass-highlight) !important;
+  box-sizing: border-box;
+  color: var(--hdg-text-primary) !important;
+  outline: none !important;
+  transform: none !important;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  [role="button"]:only-child:not(:has(> *)).gpfocus {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 56%),
+    var(--hdg-accent-surface-focus) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 6px 18px var(--hdg-accent-glow) !important;
+  color: #fff !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  [role="button"]:only-child:not(:has(> *)).gpfocus::before,
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  [role="button"]:only-child:not(:has(> *)).gpfocus::after {
   content: none !important;
 }
 

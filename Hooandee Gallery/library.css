@@ -5,9 +5,9 @@
   --hdg-library-radius: 16px;
 }
 
-/* Una sola comprobación de ruta evita reevaluar AllGames por cada card cuando
- * el foco cambia en Inicio. Las reglas internas conservan la misma cascada. */
-@scope (#Main .Panel:has(> div > div > [role="tablist"] [role="tab"][id*="AllGames"])) {
+/* El host nativo de Biblioteca es único. Las reglas internas conservan la
+ * misma cascada sin registrar AllGames como invalidación global en Inicio. */
+@scope (#Main ._3IBLc81yyL08OJ7rfKtF00) {
 
 :scope
   [role="tabpanel"][id$="_Content"] {

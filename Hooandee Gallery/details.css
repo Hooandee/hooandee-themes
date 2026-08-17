@@ -6,9 +6,17 @@
   --hdg-details-background-blur: 14px;
 }
 
+/* La envolvente inmediata de la ficha no existe en Inicio. La señal heredada
+ * permite que Chromium descarte toda esta hoja antes de evaluar sus selectores
+ * relacionales, sin runtime ni cambios en la geometría de Steam. */
+#Main ._2RXNRKWY8jL7xwgGYUfLfU:has(> ._3VQUewWB8g6Z5qB4C7dGFr) {
+  --hdg-details-route: active;
+}
+
 /* La raíz superior también existe en Inicio. Anclamos el scope al viewport
  * interior exclusivo de la ficha para que los cambios de gpfocus del carrusel
  * no obliguen a reevaluar un :has() de ruta en cada frame. */
+@container style(--hdg-details-route: active) {
 @scope (#Main ._3VQUewWB8g6Z5qB4C7dGFr) {
 
 :scope
@@ -2342,6 +2350,99 @@
   width: 100% !important;
 }
 
+/* Progreso de lanzamiento: esta secuencia absoluta sólo existe dentro del
+ * viewport exclusivo de Detalles. Mantener el detector dentro de este scope
+ * evita que sus :has() participen en cada movimiento del carrusel de Inicio. */
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg) {
+  -webkit-backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.12);
+  backdrop-filter: blur(var(--hdg-glass-blur)) saturate(1.12);
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 42%),
+    var(--hdg-glass-panel) !important;
+  block-size: auto !important;
+  border: 1px solid var(--hdg-glass-stroke) !important;
+  border-radius: var(--hdg-glass-radius-panel) !important;
+  bottom: calc(
+    var(--hdg-footer-safe-block)
+    + var(--hdg-launch-actions-safe-block)
+    + 8px
+  ) !important;
+  box-shadow: var(--hdg-glass-shadow) !important;
+  box-sizing: border-box;
+  gap: clamp(8px, 1.5vh, 14px);
+  left: var(--hdg-dialog-safe-inline) !important;
+  max-block-size: calc(
+    100dvh
+    - var(--hdg-header-safe-block)
+    - var(--hdg-footer-safe-block)
+    - var(--hdg-launch-actions-safe-block)
+    - 16px
+  ) !important;
+  min-block-size: 0;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  padding: clamp(10px, 2vh, 18px) clamp(12px, 2.8vw, 28px) !important;
+  right: var(--hdg-dialog-safe-inline) !important;
+  top: calc(var(--hdg-header-safe-block) + 8px) !important;
+  width: auto !important;
+}
+
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  :is(div, span, svg) {
+  color: var(--hdg-text-primary) !important;
+}
+
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :first-child:not(:has(video)) {
+  flex: 0 1 56px;
+  max-block-size: 56px;
+  min-block-size: 36px;
+}
+
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :has(video source[src*="/movies/steamdeck_"]) {
+  background:
+    linear-gradient(var(--hdg-accent-surface-focus), var(--hdg-accent-surface-focus)),
+    var(--hdg-glass-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: var(--hdg-control-radius) !important;
+  box-sizing: border-box;
+  flex: 1 1 156px;
+  inline-size: min(440px, 100%) !important;
+  max-block-size: 168px;
+  min-block-size: 150px;
+  overflow: hidden !important;
+  padding: 10px 14px !important;
+}
+
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :has(video source[src*="/movies/steamdeck_"])
+  > :has(> video) {
+  margin-block-end: 8px !important;
+}
+
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > .Panel:has(svg) {
+  background:
+    linear-gradient(145deg, var(--hdg-glass-highlight), transparent 58%),
+    var(--hdg-glass-surface) !important;
+  border: 1px solid var(--hdg-glass-stroke-soft) !important;
+  border-radius: var(--hdg-control-radius) !important;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  inline-size: min(680px, 100%) !important;
+  min-block-size: 68px;
+  overflow: hidden !important;
+  padding: 10px 14px !important;
+}
+
 @supports not (backdrop-filter: blur(1px)) {
   :scope
     [role="button"]:has(> svg:first-child):not(#header *):not([role="dialog"] *) {
@@ -2360,5 +2461,6 @@
     > :first-child {
     transition: none;
   }
+}
 }
 }

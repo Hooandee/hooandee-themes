@@ -4,6 +4,31 @@
 :root {
   --hdg-coverflow-card-height: 228px;
   --hdg-coverflow-card-width: 152px;
+  --hdg-carousel-card-height: var(--hdg-coverflow-card-height);
+  --hdg-carousel-card-width: var(--hdg-coverflow-card-width);
+  --hdg-carousel-collapsed-list-min: -222px;
+  --hdg-carousel-first-lateral-base: 220px;
+  --hdg-carousel-first-lateral-item-transform: translate3d(var(--hdg-carousel-first-lateral-base), 0, 0);
+  --hdg-carousel-first-following-item-transform: translate3d(-276px, 0, 0);
+  --hdg-carousel-first-following-item-with-spacer-transform: translate3d(-298px, 0, 0);
+  --hdg-carousel-first-focus-transform: translate3d(0, var(--hdg-home-focus-shift), 0) scale(1.14);
+  --hdg-carousel-first-metadata-transform: translate3d(calc(-50% - 142px), 0, 0);
+  --hdg-carousel-focus-transform: translate3d(0, var(--hdg-home-focus-shift), 0) scale(1.14);
+  --hdg-carousel-item-margin: -3px;
+  --hdg-carousel-item-transform: translate3d(-76px, 0, 0);
+  --hdg-carousel-metadata-transform: translate3d(calc(-50% + 6px), 0, 0);
+  /* La pared completa se adelanta 76 px dentro de los slots nativos. Cuando
+   * la primera pieza deja de ser hero, ese adelanto ya no tiene una anchura
+   * panoramica que lo absorba: se devuelve al escenario uniforme, junto con
+   * el separador que Steam inserta cuando hay un juego activo. */
+  --hdg-carousel-uniform-stage-offset: 76px;
+  --hdg-carousel-uniform-following-offset: 52px;
+  /* La portada frontal crece a 1.14. Estos valores mantienen el mismo canal
+   * de 10 px alrededor del texto sin alterar la transformación de la card. */
+  --hdg-home-metadata-above-gap: 18px;
+  --hdg-home-metadata-below-reserve: 7px;
+  --hdg-carousel-side-left-transform: perspective(1400px) translate3d(24px, 0, 0) rotateY(34deg) scale(0.84);
+  --hdg-carousel-spacer-following-item-transform: translate3d(-98px, 0, 0);
 }
 
 #GamepadUI_Full_Root#GamepadUI_Full_Root#GamepadUI_Full_Root
