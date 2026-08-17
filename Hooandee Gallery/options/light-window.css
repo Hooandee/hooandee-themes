@@ -240,6 +240,30 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   fill: currentColor !important;
 }
 
+/* El mapeo del mando atraviesa muchos wrappers. La regla clara genérica de
+ * opacity: .84 se acumulaba en cada uno hasta dejar algunas etiquetas al 17%. */
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [class*="controller_"]
+  :is(div, span) {
+  opacity: 1 !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [class*="controller_"]
+  :is(div, span):not([role="button"]):not(:has(> *)) {
+  color: var(--hdg-text-secondary) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [class*="controller_"]
+  > :is(div, span):not([role="button"]):not(:has(> *)) {
+  color: var(--hdg-text-primary) !important;
+}
+
 /* En el rail colapsado los dos wrappers nativos de cada carátula heredaban
  * opacity: .84 y la aplicaban dos veces. */
 #MainNavMenuContainer
