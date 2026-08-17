@@ -209,9 +209,9 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   fill: currentColor !important;
 }
 
-/* El carril secundario usa texto blanco cuando recibe foco. En Claro necesita
- * tinta oscura y un indicador lateral: Steam compone su relleno oscuro como
- * una placa casi blanca en esta ventana CEF. */
+/* El carril secundario usa el mismo botón de acento que el resto del tema.
+ * MainMenu añade mix-blend-mode: screen al foco; se neutraliza para que el
+ * relleno y la tinta no se blanqueen sobre la superficie clara. */
 #MainNavMenuContainer
   > div:not([role="menu"]):has([role="button"])
   > .Panel.Focusable
@@ -223,15 +223,12 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   > .Panel.Focusable
   > .Panel.Focusable:has([role="button"])
   [role="button"]:only-child:not(:has(> *)).gpfocus {
-  background:
-    linear-gradient(90deg, var(--hdg-accent-surface-focus), transparent 76%),
-    var(--hdg-glass-surface-strong) !important;
-  border: 2px solid var(--hdg-accent-stroke) !important;
+  background: var(--hdg-accent-fill) !important;
+  border: 1px solid var(--hdg-accent-stroke) !important;
   box-shadow:
-    inset 4px 0 var(--hdg-accent-ink),
-    inset 0 1px var(--hdg-glass-highlight),
-    0 5px 14px var(--hdg-accent-glow) !important;
-  color: var(--hdg-accent-ink) !important;
+    inset 0 1px rgba(255, 255, 255, 0.2),
+    0 6px 18px var(--hdg-accent-glow) !important;
+  color: var(--hdg-accent-on-fill) !important;
   mix-blend-mode: normal !important;
   -webkit-text-fill-color: currentColor !important;
 }
