@@ -1893,6 +1893,33 @@ html:root #Main [role="tabpanel"][id$="GameInfo_Content"]
   -webkit-text-fill-color: currentColor;
 }
 
+/* Lanzamiento: la animación del mando usa trazos blancos y necesita una base
+ * oscura en Claro. Los metadatos viven fuera del modal, así que se tintan sólo
+ * mientras la firma semántica del lanzamiento está presente en Detalles. */
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :has(video source[src*="/movies/steamdeck_"]) {
+  background:
+    linear-gradient(145deg, rgba(72, 103, 124, 0.38), transparent 54%),
+    rgba(25, 39, 51, 0.94) !important;
+  border-color: rgba(124, 198, 239, 0.42) !important;
+}
+
+#Main ._3VQUewWB8g6Z5qB4C7dGFr
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :has(video source[src*="/movies/steamdeck_"])
+  :is(div, span) {
+  color: rgba(255, 255, 255, 0.96) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+#Main ._3VQUewWB8g6Z5qB4C7dGFr:has(video source[src*="/movies/steamdeck_"]):has(.Panel svg)
+  div:has(+ .Panel > .Panel > [role="button"][aria-label="Configure Controller"])
+  :is(div, span) {
+  color: var(--hdg-text-primary) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
 /* Los bumpers de la navegación de Detalles usan SVG blancos propios de Steam.
  * En claro se sustituyen visualmente por dos keycaps glass idénticas; el img
  * permanece en el DOM para conservar semántica, layout y navegación. */
