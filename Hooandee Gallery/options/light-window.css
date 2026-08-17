@@ -208,3 +208,28 @@ html:root #MainNavMenuContainer > [role="menu"][aria-label] {
   color: inherit !important;
   fill: currentColor !important;
 }
+
+/* El carril secundario usa texto blanco cuando recibe foco. En Claro necesita
+ * el relleno de acento opaco, no la tenue capa ambiental del tema oscuro. */
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  > .Panel.Focusable:has(> [role="button"] + [role="button"])
+  > [role="button"].gpfocus,
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  > .Panel.Focusable
+  > .Panel.Focusable:has([role="button"])
+  [role="button"]:only-child:not(:has(> *)).gpfocus {
+  background: var(--hdg-accent-fill) !important;
+  border-color: var(--hdg-accent-stroke) !important;
+  color: var(--hdg-accent-on-fill) !important;
+}
+
+#MainNavMenuContainer
+  > div:not([role="menu"]):has([role="button"])
+  [role="button"].gpfocus * {
+  color: inherit !important;
+  fill: currentColor !important;
+}

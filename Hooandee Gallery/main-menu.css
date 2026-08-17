@@ -58,6 +58,27 @@ body,
   width: 100% !important;
 }
 
+/* En el estado de iconos, las filas nativas todavía conservan capas más
+ * anchas que el rail. Se recortan en su propia caja para que no se acumulen
+ * separadores ni sombras al pie de la barra clara. */
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > div:has(> [role="menuitem"]) {
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: hidden !important;
+}
+
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > div:has(> [role="menuitem"])::before,
+#MainNavMenuContainer
+  > [role="menu"][aria-label]:not(.gpfocuswithin)
+  > div:has(> [role="menuitem"])::after {
+  box-shadow: none !important;
+  content: none !important;
+}
+
 /* La etiqueta sigue en el árbol accesible mediante aria-label, pero no debe
  * desbordar sobre las acciones del juego cuando Steam deja sólo el icono. */
 #MainNavMenuContainer

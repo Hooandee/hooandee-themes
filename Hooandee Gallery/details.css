@@ -2412,12 +2412,19 @@
   border: 1px solid var(--hdg-glass-stroke-soft) !important;
   border-radius: var(--hdg-control-radius) !important;
   box-sizing: border-box;
-  flex: 1 1 122px;
-  inline-size: min(360px, 100%) !important;
-  max-block-size: 140px;
-  min-block-size: 96px;
+  flex: 1 1 156px;
+  inline-size: min(440px, 100%) !important;
+  max-block-size: 168px;
+  min-block-size: 150px;
   overflow: hidden !important;
   padding: 10px 14px !important;
+}
+
+:scope
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :has(video source[src*="/movies/steamdeck_"])
+  > :has(> video) {
+  margin-block-end: 8px !important;
 }
 
 :scope

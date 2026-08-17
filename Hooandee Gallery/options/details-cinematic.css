@@ -2,6 +2,18 @@
  * La vista inicial convierte el hero nativo en una escena full-bleed y solapa
  * la bandeja de acciones sobre su franja inferior. Los paneles secundarios
  * permanecen en el flujo; ArrowDown desplaza el scroll nativo hasta ellos. */
+html:root:has(
+    #Main ._3VQUewWB8g6Z5qB4C7dGFr
+      :is(
+        img[src*="/library_hero_blur.jpg"],
+        img[src*="/library_hero.jpg"],
+        img[src*="/customimages/"][src*="_hero.jpg"]
+      )
+  ) {
+  --hdg-details-cinematic-artwork-route: active;
+}
+
+@container style(--hdg-details-cinematic-artwork-route: active) {
 #GamepadUI_Full_Root #Main ._3VQUewWB8g6Z5qB4C7dGFr
   div:has(> div > div > :is(img[src*="/library_hero_blur.jpg"], img[src*="/customimages/"][src*="_hero.jpg"])),
 #GamepadUI_Full_Root #Main ._3VQUewWB8g6Z5qB4C7dGFr
@@ -42,6 +54,15 @@ html:root #GamepadUI_Full_Root #Main ._3VQUewWB8g6Z5qB4C7dGFr
   :is(img[src*="/logo.png"], img[src*="/customimages/"][src*="_logo.png"]) {
   position: relative !important;
   top: -38px !important;
+}
+
+/* El lanzamiento reutiliza el logo del juego dentro de su propio encabezado.
+ * Esa copia no pertenece al hero y debe permanecer en su posición natural. */
+#GamepadUI_Full_Root #Main ._3VQUewWB8g6Z5qB4C7dGFr
+  div:has(> div > div > video source[src*="/movies/steamdeck_"]):has(> .Panel svg)
+  > :first-child:not(:has(video))
+  :is(img[src*="/logo.png"], img[src*="/customimages/"][src*="_logo.png"]) {
+  top: 0 !important;
 }
 
 html:root #GamepadUI_Full_Root #Main ._3VQUewWB8g6Z5qB4C7dGFr
@@ -153,4 +174,5 @@ html:root:has([role="tab"][aria-controls$="GameInfo_Content"])
     opacity: 1 !important;
     transition: none !important;
   }
+}
 }
